@@ -41,7 +41,7 @@ deps/wincairo/*
 
 # AI Orchestrator artifacts (large generated files)
 .ai/artifacts/
-.ai/cache/
+.ai/*
 
 # AI Orchestrator tool and roadmap are tracked
 # tools/ai-orchestrator/ - TRACKED
