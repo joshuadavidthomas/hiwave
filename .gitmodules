@@ -4,6 +4,3 @@
 [submodule "hiwave-windows"]
 	path = hiwave-windows
 	url = https://github.com/hiwavebrowser/hiwave-windows.git
-[submodule "hiwave-web"]
-	path = hiwave-web
-	url = https://github.com/hiwavebrowser/hiwave-web.git
