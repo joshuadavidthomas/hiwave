@@ -37,7 +37,7 @@ While most browsers are designed to keep you scrolling endlessly, HiWave activel
 
 ### Built Different
 
-Unlike Chrome, Firefox, or Safari, **HiWave runs on RustKit** — our own browser engine written from scratch in Rust. No Chromium, no WebKit, no Gecko. Just pure Rust with ~50,000 lines of original code handling everything from HTML parsing to GPU compositing.
+Unlike Chrome, Firefox, or Safari, **HiWave runs on RustKit** — our own browser engine written from scratch in Rust (In development...). The currenty fully working browser uses system renderers. Everything is fully built in Rust. 
 
 ---
 
@@ -49,7 +49,7 @@ This repository is the umbrella project containing all HiWave components:
 |----------|------------|--------|
 | 🪟 **Windows** | [hiwave-windows](./hiwave-windows) | Alpha — RustKit engine |
 | 🍎 **macOS** | [hiwave-macos](./hiwave-macos) | Alpha — RustKit engine |
-| 🌐 **Website** | [hiwave-web](./hiwave-web) | Landing page |
+| 🌐 **linux** | Coming soon!
 
 Each platform directory contains its own README with platform-specific build instructions.
 
@@ -140,7 +140,8 @@ Every coffee counts. Thank you! 💜
 hiwave/
 ├── hiwave-windows/     # Windows app (RustKit engine)
 ├── hiwave-macos/       # macOS app (RustKit engine)
-├── hiwave-web/         # Landing page & licensing
+├── hiwave-linux/         # Coming Soon
+├── community/          # (comming soon) ways to help decelopment
 └── README.md           # You are here
 ```
 
