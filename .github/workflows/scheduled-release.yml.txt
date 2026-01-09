@@ -1,0 +1,109 @@
+# .github/workflows/weekly-release.yml
+name: Weekly Release
+
+on:
+  schedule:
+    - cron: '0 1 * * 1'  # 1 AM UTC every Monday
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            submodule: hiwave-windows
+            artifact: hiwave.exe
+            archive: hiwave-windows.zip
+          - os: macos-latest
+            submodule: hiwave-macos
+            artifact: hiwave
+            archive: hiwave-macos.zip
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      
+      - name: Install Rust
+        uses: dtolnay/rust-action@stable
+      
+      - name: Build
+        working-directory: ${{ matrix.submodule }}
+        run: cargo build --release
+      
+      - name: Package (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          Compress-Archive -Path "${{ matrix.submodule }}/target/release/${{ matrix.artifact }}" -DestinationPath "${{ matrix.archive }}"
+      
+      - name: Package (macOS/Linux)
+        if: matrix.os != 'windows-latest'
+        run: |
+          zip -j ${{ matrix.archive }} ${{ matrix.submodule }}/target/release/${{ matrix.artifact }}
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.archive }}
+          path: ${{ matrix.archive }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      
+      - name: Check for changes since last weekly
+        id: changes
+        run: |
+          LAST_TAG=$(git tag -l 'v*' --sort=-v:refname | grep -v nightly | head -n1)
+          if [ -z "$LAST_TAG" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            CHANGES=$(git log ${LAST_TAG}..HEAD --oneline)
+            if [ -n "$CHANGES" ]; then
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+      
+      - name: Generate version
+        if: steps.changes.outputs.has_changes == 'true'
+        id: version
+        run: |
+          VERSION="v$(date +'%Y.%m.%d')"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Download all artifacts
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      
+      - name: Create source archives
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git archive --format=zip HEAD -o dist/hiwave-source.zip
+          git archive --format=tar.gz HEAD -o dist/hiwave-source.tar.gz
+      
+      - name: Create Release
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.version }}
+          name: "Weekly Build ${{ steps.version.outputs.version }}"
+          generate_release_notes: true
+          prerelease: false
+          files: |
+            dist/*

@@ -1,0 +1,109 @@
+# .github/workflows/nightly-release.yml
+name: Nightly Release
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # 3 AM UTC every day
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            submodule: hiwave-windows
+            artifact: hiwave.exe
+            archive: hiwave-windows-nightly.zip
+          - os: macos-latest
+            submodule: hiwave-macos
+            artifact: hiwave
+            archive: hiwave-macos-nightly.zip
+    
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      
+      - name: Install Rust
+        uses: dtolnay/rust-action@stable
+      
+      - name: Build
+        working-directory: ${{ matrix.submodule }}
+        run: cargo build --release
+      
+      - name: Package (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          Compress-Archive -Path "${{ matrix.submodule }}/target/release/${{ matrix.artifact }}" -DestinationPath "${{ matrix.archive }}"
+      
+      - name: Package (macOS/Linux)
+        if: matrix.os != 'windows-latest'
+        run: |
+          zip -j ${{ matrix.archive }} ${{ matrix.submodule }}/target/release/${{ matrix.artifact }}
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.archive }}
+          path: ${{ matrix.archive }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      
+      - name: Check for changes since last nightly
+        id: changes
+        run: |
+          LAST_NIGHTLY=$(git tag -l 'nightly-*' --sort=-v:refname | head -n1)
+          if [ -z "$LAST_NIGHTLY" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            CHANGES=$(git log ${LAST_NIGHTLY}..HEAD --oneline)
+            if [ -n "$CHANGES" ]; then
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+      
+      - name: Download all artifacts
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      
+      - name: Delete previous nightly release
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          gh release delete nightly --yes || true
+          git push --delete origin nightly || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Create Nightly Release
+        if: steps.changes.outputs.has_changes == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: nightly
+          name: "Nightly Build ($(date +'%Y-%m-%d'))"
+          body: |
+            ⚠️ **This is an automated nightly build. It may be unstable.**
+            
+            Built from commit: ${{ github.sha }}
+            
+            For stable releases, use the [latest weekly build](https://github.com/${{ github.repository }}/releases/latest).
+          prerelease: true
+          files: |
+            dist/*
