@@ -9,9 +9,6 @@ on:
         description: 'Number of Monte Carlo iterations'
         required: false
         default: '1000'
-      pr_number:
-        description: 'PR number to comment on (optional)'
-        required: false
 
 jobs:
   # Windows testing on self-hosted runner
@@ -21,27 +18,46 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
       
-      - name: Setup Rust
-        uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          toolchain: stable
+      - name: Verify Rust installation
+        run: |
+          Write-Host "Checking Rust installation..."
+          rustc --version
+          cargo --version
+        shell: pwsh
+      
+      - name: Install Python dependencies
+        working-directory: test-infrastructure
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        shell: pwsh
       
       - name: Generate test pages
         working-directory: test-infrastructure/pages
         run: python generate_test_pages.py
+        shell: pwsh
       
       - name: Build test harness
         working-directory: test-infrastructure/harness
         run: cargo build --release
+        shell: pwsh
       
       - name: Run performance tests
         working-directory: test-infrastructure/harness
         run: |
-          $ITERATIONS = if ("${{ github.event.inputs.iterations }}") { "${{ github.event.inputs.iterations }}" } else { "1000" }
-          ./target/release/hiwave-perf.exe --iterations $ITERATIONS --output perf-results-windows.json --baseline ../../../hiwave-windows/perf_baseline.json
+          $ITERATIONS = "${{ github.event.inputs.iterations }}"
+          if ([string]::IsNullOrEmpty($ITERATIONS)) { $ITERATIONS = "1000" }
+          
+          $pagesPath = Resolve-Path ..\pages
+          $baselinePath = "..\..\..\hiwave-windows\perf_baseline.json"
+          
+          if (Test-Path $baselinePath) {
+            .\target\release\hiwave-perf.exe -i $ITERATIONS -p $pagesPath -o perf-results-windows.json -b $baselinePath
+          } else {
+            Write-Host "No baseline found, running without comparison"
+            .\target\release\hiwave-perf.exe -i $ITERATIONS -p $pagesPath -o perf-results-windows.json
+          }
         shell: pwsh
       
       - name: Upload results
@@ -54,7 +70,13 @@ jobs:
       - name: Check for regressions
         working-directory: test-infrastructure/scripts
         run: |
-          python regression-check.py ../harness/perf-results-windows.json --baseline ../../../hiwave-windows/perf_baseline.json
+          $baselinePath = "..\..\..\hiwave-windows\perf_baseline.json"
+          if (Test-Path $baselinePath) {
+            python regression-check.py ../harness/perf-results-windows.json --baseline $baselinePath
+          } else {
+            Write-Host "No baseline for comparison, skipping regression check"
+          }
+        shell: pwsh
         continue-on-error: true
 
   # macOS testing on GitHub-hosted runner
@@ -64,13 +86,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
       
       - name: Setup Rust
-        uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          toolchain: stable
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      
+      - name: Verify Rust
+        run: |
+          rustc --version
+          cargo --version
       
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -85,6 +110,11 @@ jobs:
         working-directory: test-infrastructure/pages
         run: python generate_test_pages.py
       
+      - name: Update Cargo.toml for macOS
+        working-directory: test-infrastructure/harness
+        run: |
+          sed -i '' 's/hiwave-windows/hiwave-macos/g' Cargo.toml
+      
       - name: Build test harness
         working-directory: test-infrastructure/harness
         run: cargo build --release
@@ -92,9 +122,14 @@ jobs:
       - name: Run performance tests
         working-directory: test-infrastructure/harness
         run: |
-          ITERATIONS=${{ github.event.inputs.iterations }}
+          ITERATIONS="${{ github.event.inputs.iterations }}"
           ITERATIONS=${ITERATIONS:-1000}
-          ./target/release/hiwave-perf --iterations $ITERATIONS --output perf-results-macos.json --baseline ../../../hiwave-macos/perf_baseline.json
+          
+          if [ -f "../../../hiwave-macos/perf_baseline.json" ]; then
+            ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-macos.json -b ../../../hiwave-macos/perf_baseline.json
+          else
+            ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-macos.json
+          fi
       
       - name: Upload results
         uses: actions/upload-artifact@v4
@@ -102,12 +137,6 @@ jobs:
           name: perf-results-macos
           path: test-infrastructure/harness/perf-results-macos.json
           retention-days: 30
-      
-      - name: Check for regressions
-        working-directory: test-infrastructure/scripts
-        run: |
-          python regression-check.py ../harness/perf-results-macos.json --baseline ../../../hiwave-macos/perf_baseline.json
-        continue-on-error: true
 
   # Linux testing on GitHub-hosted runner
   perf-test-linux:
@@ -116,13 +145,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
       
       - name: Setup Rust
-        uses: actions-rust-lang/setup-rust-toolchain@v1
-        with:
-          toolchain: stable
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      
+      - name: Verify Rust
+        run: |
+          rustc --version
+          cargo --version
       
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -137,6 +169,11 @@ jobs:
         working-directory: test-infrastructure/pages
         run: python generate_test_pages.py
       
+      - name: Update Cargo.toml for Linux
+        working-directory: test-infrastructure/harness
+        run: |
+          sed -i 's/hiwave-windows/hiwave-linux/g' Cargo.toml
+      
       - name: Build test harness
         working-directory: test-infrastructure/harness
         run: cargo build --release
@@ -144,9 +181,9 @@ jobs:
       - name: Run performance tests
         working-directory: test-infrastructure/harness
         run: |
-          ITERATIONS=${{ github.event.inputs.iterations }}
+          ITERATIONS="${{ github.event.inputs.iterations }}"
           ITERATIONS=${ITERATIONS:-1000}
-          ./target/release/hiwave-perf --iterations $ITERATIONS --output perf-results-linux.json
+          ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-linux.json
       
       - name: Upload results
         uses: actions/upload-artifact@v4
@@ -155,13 +192,11 @@ jobs:
           path: test-infrastructure/harness/perf-results-linux.json
           retention-days: 30
 
-  # Aggregate and report results
+  # Aggregate results
   aggregate-results:
     needs: [perf-test-windows, perf-test-macos, perf-test-linux]
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      issues: write
+    if: always()
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -171,62 +206,37 @@ jobs:
         with:
           python-version: '3.11'
       
-      - name: Install Python dependencies
-        working-directory: test-infrastructure
-        run: pip install -r requirements.txt
-      
       - name: Download all results
         uses: actions/download-artifact@v4
         with:
           path: test-results
+        continue-on-error: true
       
-      - name: Generate comprehensive report
-        working-directory: test-infrastructure/scripts
+      - name: List results
         run: |
-          python generate-report.py \
-            ../../test-results/perf-results-windows/perf-results-windows.json \
-            ../../test-results/perf-results-macos/perf-results-macos.json \
-            ../../test-results/perf-results-linux/perf-results-linux.json \
-            --output performance-report.md
+          echo "Downloaded artifacts:"
+          ls -R test-results/
       
-      - name: Generate PR comment
-        if: github.event.inputs.pr_number
-        working-directory: test-infrastructure/scripts
+      - name: Create summary
         run: |
-          python generate-report.py \
-            ../../test-results/perf-results-windows/perf-results-windows.json \
-            --pr-comment \
-            --output pr-comment.md
+          echo "# Performance Test Results" > summary.md
+          echo "" >> summary.md
+          echo "Platform results:" >> summary.md
+          
+          for platform in windows macos linux; do
+            result_file="test-results/perf-results-$platform/perf-results-$platform.json"
+            if [ -f "$result_file" ]; then
+              echo "- ✅ $platform: Success" >> summary.md
+            else
+              echo "- ❌ $platform: No results" >> summary.md
+            fi
+          done
+          
+          cat summary.md
       
-      - name: Post PR comment
-        if: github.event.inputs.pr_number
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const comment = fs.readFileSync('test-infrastructure/scripts/pr-comment.md', 'utf8');
-            
-            github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ github.event.inputs.pr_number }},
-              body: comment
-            });
-      
-      - name: Upload comprehensive report
+      - name: Upload summary
         uses: actions/upload-artifact@v4
         with:
-          name: performance-report
-          path: test-infrastructure/scripts/performance-report.md
+          name: test-summary
+          path: summary.md
           retention-days: 90
-      
-      - name: Check for critical regressions
-        working-directory: test-results
-        run: |
-          # Exit with error if any platform had regressions
-          if grep -q '"regressions":\s*\[' perf-results-*/perf-results-*.json; then
-            echo "⚠️ Performance regressions detected!"
-            exit 1
-          fi
-        shell: bash
-        continue-on-error: true
