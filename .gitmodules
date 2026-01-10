@@ -1,9 +1,9 @@
 [submodule "hiwave-macos"]
 	path = hiwave-macos
-	url = https://github.com/hiwavebrowser/hiwave-macos.git
+	url = git@github.com:hiwavebrowser/hiwave-macos.git
 [submodule "hiwave-windows"]
 	path = hiwave-windows
-	url = https://github.com/hiwavebrowser/hiwave-windows.git
+	url = git@github.com:hiwavebrowser/hiwave-windows.git
 [submodule "hiwave-linux"]
 	path = hiwave-linux
-	url = https://github.com/hiwavebrowser/hiwave-linux.git
+	url = git@github.com:hiwavebrowser/hiwave-linux.git
