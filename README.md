@@ -33,11 +33,11 @@
 
 ## Platform Status
 
-| Platform | Build | Parity | Tier A | Performance |
-|----------|-------|--------|--------|-------------|
-| macOS | ![Build](badges/build-macos.svg) | ![Parity](badges/parity-macos.svg) | ![Tier A](badges/tier-a-macos.svg) | ![Perf](badges/perf-macos.svg) |
-| Windows | ![Build](badges/build-windows.svg) | ![Parity](badges/parity-windows.svg) | ![Tier A](badges/tier-a-windows.svg) | ![Perf](badges/perf-windows.svg) |
-| Linux | ![Build](badges/build-linux.svg) | ![Parity](badges/parity-linux.svg) | ![Tier A](badges/tier-a-linux.svg) | ![Perf](badges/perf-linux.svg) |
+| Platform | Build | Parity | Tests | Performance |
+|----------|-------|--------|-------|-------------|
+| macOS | ![Build](badges/build-macos.svg) | ![Parity](badges/parity-macos.svg) | ![Tests](badges/tests-macos.svg) | ![Perf](badges/perf-macos.svg) |
+| Windows | ![Build](badges/build-windows.svg) | ![Parity](badges/parity-windows.svg) | ![Tests](badges/tests-windows.svg) | ![Perf](badges/perf-windows.svg) |
+| Linux | ![Build](badges/build-linux.svg) | ![Parity](badges/parity-linux.svg) | ![Tests](badges/tests-linux.svg) | ![Perf](badges/perf-linux.svg) |
 
 <details>
 <summary>Parity Trend (click to expand)</summary>

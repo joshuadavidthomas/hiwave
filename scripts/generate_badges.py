@@ -226,6 +226,54 @@ def generate_all_badges(metrics: Dict[str, Any]) -> Dict[str, str]:
             value, color = "unknown", COLORS["gray"]
         badges[f"build-{platform}.svg"] = generate_badge_svg("build", value, color, label_width=45)
 
+    # Tests passing badges
+    for platform in ["macos", "windows", "linux"]:
+        data = platforms.get(platform) or {}
+        tests_passed = data.get("tests_passed")
+        tests_total = data.get("tests_total")
+
+        if tests_passed is not None and tests_total is not None:
+            value = f"{tests_passed}/{tests_total}"
+            pass_rate = tests_passed / tests_total if tests_total > 0 else 0
+            # Color based on pass rate
+            if pass_rate >= 0.8:
+                color = COLORS["green"]
+            elif pass_rate >= 0.5:
+                color = COLORS["yellow"]
+            elif pass_rate >= 0.3:
+                color = COLORS["orange"]
+            else:
+                color = COLORS["red"]
+        elif data.get("status") == "not_available":
+            value, color = "N/A", COLORS["gray"]
+        else:
+            value, color = "no data", COLORS["gray"]
+
+        badges[f"tests-{platform}.svg"] = generate_badge_svg("tests", value, color, label_width=40)
+
+    # Overall tests passing badge
+    total_passed = 0
+    total_tests = 0
+    for p in platforms.values():
+        if p and p.get("tests_passed") is not None:
+            total_passed += p.get("tests_passed", 0)
+            total_tests += p.get("tests_total", 0)
+
+    if total_tests > 0:
+        value = f"{total_passed}/{total_tests}"
+        pass_rate = total_passed / total_tests
+        if pass_rate >= 0.8:
+            color = COLORS["green"]
+        elif pass_rate >= 0.5:
+            color = COLORS["yellow"]
+        elif pass_rate >= 0.3:
+            color = COLORS["orange"]
+        else:
+            color = COLORS["red"]
+        badges["tests-overall.svg"] = generate_badge_svg("tests", value, color, label_width=40)
+    else:
+        badges["tests-overall.svg"] = generate_badge_svg("tests", "no data", COLORS["gray"], label_width=40)
+
     return badges
 
 
