@@ -49,7 +49,7 @@ This repository is the umbrella project containing all HiWave components:
 |----------|------------|--------|
 | 🪟 **Windows** | [hiwave-windows](./hiwave-windows) | Alpha — RustKit engine |
 | 🍎 **macOS** | [hiwave-macos](./hiwave-macos) | Alpha — RustKit engine |
-| 🌐 **linux** | Coming soon!
+| 🐧 **Linux** | [hiwave-linux](./hiwave-linux) | Alpha — RustKit engine |
 
 Each platform directory contains its own README with platform-specific build instructions.
 
@@ -74,6 +74,12 @@ cd hiwave-windows
 ```bash
 cd hiwave-macos
 ./scripts/run-rustkit.sh  # RustKit for content (default)
+```
+
+### Linux
+```bash
+cd hiwave-linux
+cargo run --release
 ```
 
 See each platform's README for detailed build instructions and run modes.
@@ -140,7 +146,7 @@ Every coffee counts. Thank you! 💜
 hiwave/
 ├── hiwave-windows/     # Windows app (RustKit engine)
 ├── hiwave-macos/       # macOS app (RustKit engine)
-├── hiwave-linux/         # Coming Soon
+├── hiwave-linux/       # Linux app (RustKit engine)
 ├── community/          # (comming soon) ways to help decelopment
 └── README.md           # You are here
 ```
