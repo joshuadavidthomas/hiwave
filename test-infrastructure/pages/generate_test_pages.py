@@ -112,9 +112,9 @@ def main():
     with open(manifest_path, 'w', encoding='utf-8') as f:
         json.dump(manifest, f, indent=2)
     
-    print(f"\n✅ Generated {len(test_configs)} test pages")
-    print(f"📄 Manifest written to {manifest_path}")
-    print(f"📁 Pages in {pages_dir}")
+    print(f"\n[OK] Generated {len(test_configs)} test pages")
+    print(f"[INFO] Manifest written to {manifest_path}")
+    print(f"[INFO] Pages in {pages_dir}")
 
 
 if __name__ == "__main__":
