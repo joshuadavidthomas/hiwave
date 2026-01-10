@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+  <a href="#platform-status">Status</a> •
   <a href="#what-is-hiwave">What is HiWave?</a> •
   <a href="#platforms">Platforms</a> •
   <a href="#quick-start">Quick Start</a> •
@@ -22,6 +23,42 @@
   <img src="https://img.shields.io/badge/status-alpha-blueviolet" alt="Status: Alpha" />
   <img src="https://img.shields.io/badge/license-MPL--2.0-blue" alt="License: MPL-2.0" />
 </p>
+
+<p align="center">
+  <img src="badges/parity-overall.svg" alt="Overall Parity" />
+  <img src="badges/perf-score.svg" alt="Performance" />
+</p>
+
+---
+
+## Platform Status
+
+| Platform | Build | Parity | Tier A | Performance |
+|----------|-------|--------|--------|-------------|
+| macOS | ![Build](badges/build-macos.svg) | ![Parity](badges/parity-macos.svg) | ![Tier A](badges/tier-a-macos.svg) | ![Perf](badges/perf-macos.svg) |
+| Windows | ![Build](badges/build-windows.svg) | ![Parity](badges/parity-windows.svg) | ![Tier A](badges/tier-a-windows.svg) | ![Perf](badges/perf-windows.svg) |
+| Linux | ![Build](badges/build-linux.svg) | ![Parity](badges/parity-linux.svg) | ![Tier A](badges/tier-a-linux.svg) | ![Perf](badges/perf-linux.svg) |
+
+<details>
+<summary>Parity Trend (click to expand)</summary>
+
+![Parity Trend](charts/parity-trend.svg)
+
+</details>
+
+<details>
+<summary>Performance Trend</summary>
+
+![Performance Trend](charts/perf-trend.svg)
+
+</details>
+
+<details>
+<summary>Platform Comparison</summary>
+
+![Platform Comparison](charts/platform-comparison.svg)
+
+</details>
 
 ---
 

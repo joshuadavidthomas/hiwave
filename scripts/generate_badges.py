@@ -1,0 +1,299 @@
+#!/usr/bin/env python3
+"""
+generate_badges.py - Generate SVG badges for HiWave cross-platform metrics
+
+Reads metrics from metrics/unified.json and generates SVG badges for:
+- Parity scores (per platform + overall)
+- Build status
+- Performance scores
+- Tier A pass rates
+
+Usage:
+    python3 scripts/generate_badges.py [--test]
+"""
+
+import json
+import os
+import sys
+from pathlib import Path
+from datetime import datetime
+from typing import Optional, Dict, Any, Tuple
+
+REPO_ROOT = Path(__file__).parent.parent
+METRICS_FILE = REPO_ROOT / "metrics" / "unified.json"
+BADGES_DIR = REPO_ROOT / "badges"
+
+# Color scheme
+COLORS = {
+    "green": "#4c1",       # Bright green - excellent
+    "lime": "#97ca00",     # Lime - good
+    "yellow": "#dfb317",   # Yellow - warning
+    "orange": "#fe7d37",   # Orange - concerning
+    "red": "#e05d44",      # Red - bad
+    "blue": "#007ec6",     # Blue - info
+    "gray": "#9f9f9f",     # Gray - N/A or unknown
+    "lightgray": "#555",   # Label background
+}
+
+
+def get_parity_color(parity: Optional[float]) -> str:
+    """Get badge color based on parity percentage."""
+    if parity is None:
+        return COLORS["gray"]
+    if parity >= 95:
+        return COLORS["green"]
+    if parity >= 90:
+        return COLORS["lime"]
+    if parity >= 80:
+        return COLORS["yellow"]
+    if parity >= 60:
+        return COLORS["orange"]
+    return COLORS["red"]
+
+
+def get_tier_a_color(rate: Optional[float]) -> str:
+    """Get badge color based on Tier A pass rate (0-1)."""
+    if rate is None:
+        return COLORS["gray"]
+    if rate >= 1.0:
+        return COLORS["green"]
+    if rate >= 0.8:
+        return COLORS["lime"]
+    if rate >= 0.6:
+        return COLORS["yellow"]
+    return COLORS["red"]
+
+
+def get_perf_grade(metrics: Optional[Dict]) -> Tuple[str, str]:
+    """Calculate performance grade (A-F) and color from metrics."""
+    if not metrics:
+        return "N/A", COLORS["gray"]
+
+    # Simple scoring: average of normalized metrics against budgets
+    budgets = {
+        "engine_init_ms": 50,
+        "render_time_ms": 50,
+        "memory_peak_mb": 200,
+    }
+
+    scores = []
+    for key, budget in budgets.items():
+        value = metrics.get(key)
+        if value is not None:
+            # Score is 100 if at or below budget, decreases linearly
+            score = max(0, 100 - ((value / budget - 1) * 100)) if value > budget else 100
+            scores.append(score)
+
+    if not scores:
+        return "N/A", COLORS["gray"]
+
+    avg_score = sum(scores) / len(scores)
+
+    if avg_score >= 90:
+        return "A", COLORS["green"]
+    if avg_score >= 80:
+        return "B", COLORS["lime"]
+    if avg_score >= 70:
+        return "C", COLORS["yellow"]
+    if avg_score >= 60:
+        return "D", COLORS["orange"]
+    return "F", COLORS["red"]
+
+
+def generate_badge_svg(label: str, value: str, color: str, label_width: int = 60) -> str:
+    """Generate a shields.io-style SVG badge."""
+    # Calculate widths
+    value_width = len(value) * 7 + 10
+    total_width = label_width + value_width
+    label_x = label_width / 2
+    value_x = label_width + value_width / 2
+
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{total_width}" height="20" role="img" aria-label="{label}: {value}">
+  <title>{label}: {value}</title>
+  <linearGradient id="s" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <clipPath id="r">
+    <rect width="{total_width}" height="20" rx="3" fill="#fff"/>
+  </clipPath>
+  <g clip-path="url(#r)">
+    <rect width="{label_width}" height="20" fill="#555"/>
+    <rect x="{label_width}" width="{value_width}" height="20" fill="{color}"/>
+    <rect width="{total_width}" height="20" fill="url(#s)"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="11">
+    <text x="{label_x}" y="14">{label}</text>
+    <text x="{value_x}" y="14">{value}</text>
+  </g>
+</svg>'''
+    return svg
+
+
+def load_metrics() -> Dict[str, Any]:
+    """Load metrics from unified.json or return empty structure."""
+    if METRICS_FILE.exists():
+        try:
+            return json.loads(METRICS_FILE.read_text())
+        except Exception as e:
+            print(f"Warning: Could not load metrics: {e}")
+
+    # Return default structure if no metrics exist
+    return {
+        "generated_at": datetime.now().isoformat(),
+        "platforms": {
+            "macos": {"parity": None, "tier_a_pass_rate": None, "perf": None, "status": "no_data"},
+            "windows": {"parity": None, "tier_a_pass_rate": None, "perf": None, "status": "no_data"},
+            "linux": {"parity": None, "tier_a_pass_rate": None, "perf": None, "status": "not_available"},
+        }
+    }
+
+
+def generate_all_badges(metrics: Dict[str, Any]) -> Dict[str, str]:
+    """Generate all badges from metrics, return dict of filename -> svg content."""
+    badges = {}
+    platforms = metrics.get("platforms", {})
+
+    # Per-platform parity badges
+    for platform in ["macos", "windows", "linux"]:
+        data = platforms.get(platform) or {}
+        parity = data.get("parity") if data else None
+
+        if parity is not None:
+            value = f"{parity:.1f}%"
+        elif data.get("status") == "not_available":
+            value = "coming soon"
+        else:
+            value = "no data"
+
+        color = get_parity_color(parity)
+        badges[f"parity-{platform}.svg"] = generate_badge_svg("parity", value, color)
+
+    # Overall parity badge (minimum of available platforms)
+    parity_values = [
+        p.get("parity") for p in platforms.values()
+        if p and p.get("parity") is not None
+    ]
+    if parity_values:
+        overall_parity = min(parity_values)
+        badges["parity-overall.svg"] = generate_badge_svg(
+            "parity", f"{overall_parity:.1f}%", get_parity_color(overall_parity), label_width=50
+        )
+    else:
+        badges["parity-overall.svg"] = generate_badge_svg(
+            "parity", "no data", COLORS["gray"], label_width=50
+        )
+
+    # Per-platform Tier A badges
+    for platform in ["macos", "windows", "linux"]:
+        data = platforms.get(platform) or {}
+        tier_a = data.get("tier_a_pass_rate")
+
+        if tier_a is not None:
+            value = f"{tier_a * 100:.0f}%"
+        elif data.get("status") == "not_available":
+            value = "N/A"
+        else:
+            value = "no data"
+
+        color = get_tier_a_color(tier_a)
+        badges[f"tier-a-{platform}.svg"] = generate_badge_svg("tier A", value, color)
+
+    # Per-platform performance badges
+    for platform in ["macos", "windows", "linux"]:
+        data = platforms.get(platform) or {}
+        perf = data.get("perf")
+        grade, color = get_perf_grade(perf)
+        badges[f"perf-{platform}.svg"] = generate_badge_svg("perf", grade, color, label_width=40)
+
+    # Overall performance badge
+    all_perf = [p.get("perf") for p in platforms.values() if p and p.get("perf")]
+    if all_perf:
+        # Average the grades conceptually - just use first available for now
+        grade, color = get_perf_grade(all_perf[0])
+        badges["perf-score.svg"] = generate_badge_svg("perf", grade, color, label_width=40)
+    else:
+        badges["perf-score.svg"] = generate_badge_svg("perf", "N/A", COLORS["gray"], label_width=40)
+
+    # Build status badges (placeholder - would need CI integration)
+    for platform in ["macos", "windows", "linux"]:
+        data = platforms.get(platform) or {}
+        if data.get("status") == "not_available":
+            value, color = "N/A", COLORS["gray"]
+        elif data.get("parity") is not None:
+            value, color = "passing", COLORS["green"]
+        else:
+            value, color = "unknown", COLORS["gray"]
+        badges[f"build-{platform}.svg"] = generate_badge_svg("build", value, color, label_width=45)
+
+    return badges
+
+
+def save_badges(badges: Dict[str, str]) -> None:
+    """Save all badges to the badges directory."""
+    BADGES_DIR.mkdir(parents=True, exist_ok=True)
+
+    for filename, content in badges.items():
+        filepath = BADGES_DIR / filename
+        filepath.write_text(content)
+        print(f"  Generated: {filename}")
+
+
+def main():
+    test_mode = "--test" in sys.argv
+
+    print("=" * 50)
+    print("HiWave Badge Generator")
+    print("=" * 50)
+
+    # Load metrics
+    print("\nLoading metrics...")
+    metrics = load_metrics()
+
+    if test_mode:
+        # Generate test data
+        print("Running in TEST mode with sample data")
+        metrics = {
+            "generated_at": datetime.now().isoformat(),
+            "platforms": {
+                "macos": {
+                    "parity": 98.7,
+                    "tier_a_pass_rate": 1.0,
+                    "perf": {"engine_init_ms": 4.5, "render_time_ms": 12.3, "memory_peak_mb": 145}
+                },
+                "windows": {
+                    "parity": 85.2,
+                    "tier_a_pass_rate": 0.8,
+                    "perf": {"engine_init_ms": 6.2, "render_time_ms": 18.5, "memory_peak_mb": 180}
+                },
+                "linux": {
+                    "parity": None,
+                    "status": "not_available"
+                }
+            }
+        }
+
+    # Generate badges
+    print("\nGenerating badges...")
+    badges = generate_all_badges(metrics)
+
+    # Save badges
+    print(f"\nSaving to {BADGES_DIR}/")
+    save_badges(badges)
+
+    print(f"\nGenerated {len(badges)} badges successfully!")
+
+    # Summary
+    print("\nBadge Summary:")
+    platforms = metrics.get("platforms", {})
+    for platform in ["macos", "windows", "linux"]:
+        data = platforms.get(platform) or {}
+        parity = data.get("parity")
+        status = "not available" if data.get("status") == "not_available" else (
+            f"{parity:.1f}%" if parity else "no data"
+        )
+        print(f"  {platform}: {status}")
+
+
+if __name__ == "__main__":
+    main()

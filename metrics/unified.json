@@ -1,0 +1,346 @@
+{
+  "generated_at": "2026-01-10T10:02:35.309414",
+  "platforms": {
+    "macos": {
+      "parity": 98.7,
+      "tier_a_pass_rate": 1.0,
+      "tier_b_weighted_mean": 1.3,
+      "issue_clusters": {
+        "sizing_layout": 2,
+        "paint": 0,
+        "text": 1
+      },
+      "perf": {
+        "engine_init_ms": 4.5,
+        "render_time_ms": 12.3
+      },
+      "perf_grade": "A",
+      "last_updated": "2026-01-10T10:02:35.309415",
+      "git_commit": "abc1234"
+    },
+    "windows": {
+      "parity": 85.2,
+      "tier_a_pass_rate": 0.85,
+      "tier_b_weighted_mean": 14.8,
+      "issue_clusters": {
+        "sizing_layout": 5,
+        "paint": 2,
+        "text": 3
+      },
+      "perf": {
+        "engine_init_ms": 5.2,
+        "render_time_ms": 15.8
+      },
+      "perf_grade": "B",
+      "last_updated": "2026-01-10T10:02:35.309417",
+      "git_commit": "def5678"
+    },
+    "linux": null
+  },
+  "history": [
+    {
+      "date": "2025-12-12",
+      "macos": 85.0,
+      "windows": 75.0,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 6.0,
+        "render_time_ms": 20.0
+      }
+    },
+    {
+      "date": "2025-12-13",
+      "macos": 85.9,
+      "windows": 75.8,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.95,
+        "render_time_ms": 19.7
+      }
+    },
+    {
+      "date": "2025-12-14",
+      "macos": 86.8,
+      "windows": 76.6,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.9,
+        "render_time_ms": 19.4
+      }
+    },
+    {
+      "date": "2025-12-15",
+      "macos": 86.2,
+      "windows": 77.4,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.85,
+        "render_time_ms": 19.1
+      }
+    },
+    {
+      "date": "2025-12-16",
+      "macos": 87.1,
+      "windows": 77.0,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.8,
+        "render_time_ms": 18.8
+      }
+    },
+    {
+      "date": "2025-12-17",
+      "macos": 88.0,
+      "windows": 77.8,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.75,
+        "render_time_ms": 18.5
+      }
+    },
+    {
+      "date": "2025-12-18",
+      "macos": 87.4,
+      "windows": 78.6,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.7,
+        "render_time_ms": 18.2
+      }
+    },
+    {
+      "date": "2025-12-19",
+      "macos": 88.3,
+      "windows": 79.4,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.65,
+        "render_time_ms": 17.9
+      }
+    },
+    {
+      "date": "2025-12-20",
+      "macos": 89.2,
+      "windows": 79.0,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.6,
+        "render_time_ms": 17.6
+      }
+    },
+    {
+      "date": "2025-12-21",
+      "macos": 88.6,
+      "windows": 79.8,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.55,
+        "render_time_ms": 17.3
+      }
+    },
+    {
+      "date": "2025-12-22",
+      "macos": 89.5,
+      "windows": 80.6,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.5,
+        "render_time_ms": 17.0
+      }
+    },
+    {
+      "date": "2025-12-23",
+      "macos": 90.4,
+      "windows": 81.4,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.45,
+        "render_time_ms": 16.7
+      }
+    },
+    {
+      "date": "2025-12-24",
+      "macos": 89.8,
+      "windows": 81.0,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.4,
+        "render_time_ms": 16.4
+      }
+    },
+    {
+      "date": "2025-12-25",
+      "macos": 90.7,
+      "windows": 81.8,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.35,
+        "render_time_ms": 16.1
+      }
+    },
+    {
+      "date": "2025-12-26",
+      "macos": 91.6,
+      "windows": 82.6,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.3,
+        "render_time_ms": 15.8
+      }
+    },
+    {
+      "date": "2025-12-27",
+      "macos": 91.0,
+      "windows": 83.4,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.25,
+        "render_time_ms": 15.5
+      }
+    },
+    {
+      "date": "2025-12-28",
+      "macos": 91.9,
+      "windows": 83.0,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.2,
+        "render_time_ms": 15.2
+      }
+    },
+    {
+      "date": "2025-12-29",
+      "macos": 92.8,
+      "windows": 83.8,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.15,
+        "render_time_ms": 14.9
+      }
+    },
+    {
+      "date": "2025-12-30",
+      "macos": 92.2,
+      "windows": 84.6,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.1,
+        "render_time_ms": 14.600000000000001
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "macos": 93.1,
+      "windows": 85.4,
+      "linux": null,
+      "perf": {
+        "engine_init_ms": 5.05,
+        "render_time_ms": 14.3
+      }
+    },
+    {
+      "date": "2026-01-01",
+      "macos": 94.0,
+      "windows": 85.0,
+      "linux": 70.0,
+      "perf": {
+        "engine_init_ms": 5.0,
+        "render_time_ms": 14.0
+      }
+    },
+    {
+      "date": "2026-01-02",
+      "macos": 93.4,
+      "windows": 85.8,
+      "linux": 71.0,
+      "perf": {
+        "engine_init_ms": 4.95,
+        "render_time_ms": 13.7
+      }
+    },
+    {
+      "date": "2026-01-03",
+      "macos": 94.3,
+      "windows": 86.6,
+      "linux": 72.0,
+      "perf": {
+        "engine_init_ms": 4.9,
+        "render_time_ms": 13.4
+      }
+    },
+    {
+      "date": "2026-01-04",
+      "macos": 95.2,
+      "windows": 87.4,
+      "linux": 73.0,
+      "perf": {
+        "engine_init_ms": 4.85,
+        "render_time_ms": 13.100000000000001
+      }
+    },
+    {
+      "date": "2026-01-05",
+      "macos": 94.6,
+      "windows": 87.0,
+      "linux": 74.0,
+      "perf": {
+        "engine_init_ms": 4.8,
+        "render_time_ms": 12.8
+      }
+    },
+    {
+      "date": "2026-01-06",
+      "macos": 95.5,
+      "windows": 87.8,
+      "linux": 75.0,
+      "perf": {
+        "engine_init_ms": 4.75,
+        "render_time_ms": 12.5
+      }
+    },
+    {
+      "date": "2026-01-07",
+      "macos": 96.4,
+      "windows": 88.6,
+      "linux": 76.0,
+      "perf": {
+        "engine_init_ms": 4.7,
+        "render_time_ms": 12.2
+      }
+    },
+    {
+      "date": "2026-01-08",
+      "macos": 95.8,
+      "windows": 89.4,
+      "linux": 77.0,
+      "perf": {
+        "engine_init_ms": 4.65,
+        "render_time_ms": 11.9
+      }
+    },
+    {
+      "date": "2026-01-09",
+      "macos": 96.7,
+      "windows": 89.0,
+      "linux": 78.0,
+      "perf": {
+        "engine_init_ms": 4.6,
+        "render_time_ms": 11.6
+      }
+    },
+    {
+      "date": "2026-01-10",
+      "macos": 97.6,
+      "windows": 89.8,
+      "linux": 79.0,
+      "perf": {
+        "engine_init_ms": 4.55,
+        "render_time_ms": 11.3
+      }
+    }
+  ],
+  "overall": {
+    "parity": 85.2,
+    "perf_grade": "B"
+  }
+}

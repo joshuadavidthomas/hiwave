@@ -1,0 +1,71 @@
+name: Aggregate Metrics & Generate Visualizations
+
+on:
+  schedule:
+    # Run daily at 10:00 UTC
+    - cron: '0 10 * * *'
+  workflow_dispatch:
+    # Manual trigger
+  repository_dispatch:
+    # Triggered by platform repos after parity tests
+    types: [metrics-updated]
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout umbrella repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install pygal lxml
+
+      - name: Update submodules
+        run: |
+          git submodule update --remote --merge
+
+      - name: Collect platform metrics
+        run: python3 scripts/collect_metrics.py
+
+      - name: Generate badges
+        run: python3 scripts/generate_badges.py
+
+      - name: Generate charts
+        run: python3 scripts/generate_charts.py
+
+      - name: Commit and push visualizations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add badges/ charts/ metrics/
+
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update metrics visualizations [skip ci]"
+            git push
+          fi
+
+      - name: Summary
+        run: |
+          echo "## Metrics Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Badges Generated" >> $GITHUB_STEP_SUMMARY
+          ls -1 badges/*.svg | while read f; do echo "- $(basename $f)" >> $GITHUB_STEP_SUMMARY; done
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Charts Generated" >> $GITHUB_STEP_SUMMARY
+          ls -1 charts/*.svg | while read f; do echo "- $(basename $f)" >> $GITHUB_STEP_SUMMARY; done
