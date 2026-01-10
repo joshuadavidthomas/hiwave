@@ -1,40 +1,23 @@
 {
-  "generated_at": "2026-01-10T10:02:35.309414",
+  "generated_at": "2026-01-10T16:04:40.793255",
   "platforms": {
     "macos": {
       "parity": 98.7,
       "tier_a_pass_rate": 1.0,
-      "tier_b_weighted_mean": 1.3,
+      "tier_b_weighted_mean": 1.26176926637823,
       "issue_clusters": {
-        "sizing_layout": 2,
+        "sizing_layout": 0,
         "paint": 0,
-        "text": 1
+        "text": 0,
+        "images": 0
       },
-      "perf": {
-        "engine_init_ms": 4.5,
-        "render_time_ms": 12.3
-      },
-      "perf_grade": "A",
-      "last_updated": "2026-01-10T10:02:35.309415",
-      "git_commit": "abc1234"
+      "perf": {},
+      "last_updated": "2026-01-09T10:09:37.518792",
+      "git_commit": "73a5d78",
+      "source_file": "parity-baseline/baseline_report.json",
+      "perf_grade": "?"
     },
-    "windows": {
-      "parity": 85.2,
-      "tier_a_pass_rate": 0.85,
-      "tier_b_weighted_mean": 14.8,
-      "issue_clusters": {
-        "sizing_layout": 5,
-        "paint": 2,
-        "text": 3
-      },
-      "perf": {
-        "engine_init_ms": 5.2,
-        "render_time_ms": 15.8
-      },
-      "perf_grade": "B",
-      "last_updated": "2026-01-10T10:02:35.309417",
-      "git_commit": "def5678"
-    },
+    "windows": null,
     "linux": null
   },
   "history": [
@@ -330,7 +313,7 @@
     },
     {
       "date": "2026-01-10",
-      "macos": 97.6,
+      "macos": 98.7,
       "windows": 89.8,
       "linux": 79.0,
       "perf": {
@@ -340,7 +323,7 @@
     }
   ],
   "overall": {
-    "parity": 85.2,
-    "perf_grade": "B"
+    "parity": 98.7,
+    "perf_grade": "?"
   }
 }
