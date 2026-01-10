@@ -11,9 +11,9 @@ on:
         default: '1000'
 
 jobs:
-  # Windows testing on self-hosted runner
+  # Windows testing on GitHub-hosted runner
   perf-test-windows:
-    runs-on: self-hosted
+    runs-on: windows-latest
     timeout-minutes: 60
     steps:
       - name: Checkout code with submodules
@@ -22,29 +22,32 @@ jobs:
           submodules: 'recursive'
           fetch-depth: 1
       
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      
       - name: Verify Rust installation
         run: |
-          Write-Host "Checking Rust installation..."
           rustc --version
           cargo --version
-        shell: powershell
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
       
       - name: Install Python dependencies
         working-directory: test-infrastructure
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-        shell: powershell
       
       - name: Generate test pages
         working-directory: test-infrastructure/pages
         run: python generate_test_pages.py
-        shell: powershell
       
       - name: Build test harness
         working-directory: test-infrastructure/harness
         run: cargo build --release
-        shell: powershell
       
       - name: Run performance tests
         working-directory: test-infrastructure/harness
@@ -61,7 +64,7 @@ jobs:
             Write-Host "No baseline found, running without comparison"
             .\target\release\hiwave-perf.exe -i $ITERATIONS -p $pagesPath -o perf-results-windows.json
           }
-        shell: powershell
+        shell: pwsh
       
       - name: Upload results
         uses: actions/upload-artifact@v4
@@ -79,7 +82,7 @@ jobs:
           } else {
             Write-Host "No baseline for comparison, skipping regression check"
           }
-        shell: powershell
+        shell: pwsh
         continue-on-error: true
 
   # macOS testing on GitHub-hosted runner
@@ -94,9 +97,7 @@ jobs:
           fetch-depth: 1
       
       - name: Setup Rust
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        uses: dtolnay/rust-toolchain@stable
       
       - name: Verify Rust
         run: |
@@ -185,9 +186,7 @@ jobs:
             libgtk-3-dev
       
       - name: Setup Rust
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        uses: dtolnay/rust-toolchain@stable
       
       - name: Verify Rust
         run: |
