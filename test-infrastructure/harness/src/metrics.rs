@@ -10,56 +10,6 @@ pub struct Metrics {
     pub memory_mb: f64,
 }
 
-/// Trait for collecting performance metrics
-pub trait PerformanceMetrics {
-    /// Get parse time in milliseconds
-    fn parse_time(&self) -> f64;
-    
-    /// Get layout time in milliseconds
-    fn layout_time(&self) -> f64;
-    
-    /// Get paint time in milliseconds
-    fn paint_time(&self) -> f64;
-    
-    /// Get total render time in milliseconds
-    fn total_time(&self) -> f64;
-    
-    /// Get memory usage in bytes
-    fn memory_usage(&self) -> usize;
-}
-
-impl PerformanceMetrics for Metrics {
-    fn parse_time(&self) -> f64 {
-        self.parse_time_ms
-    }
-    
-    fn layout_time(&self) -> f64 {
-        self.layout_time_ms
-    }
-    
-    fn paint_time(&self) -> f64 {
-        self.paint_time_ms
-    }
-    
-    fn total_time(&self) -> f64 {
-        self.total_time_ms
-    }
-    
-    fn memory_usage(&self) -> usize {
-        (self.memory_mb * 1_048_576.0) as usize
-    }
-}
-
-/// Aggregated metrics across multiple runs
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct AggregatedMetrics {
-    pub parse_time: MetricStats,
-    pub layout_time: MetricStats,
-    pub paint_time: MetricStats,
-    pub total_time: MetricStats,
-    pub memory: MetricStats,
-}
-
 /// Statistical summary for a single metric
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MetricStats {

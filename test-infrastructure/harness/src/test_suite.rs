@@ -7,7 +7,7 @@ use std::path::PathBuf;
 use std::time::Instant;
 use tracing::{debug, info};
 
-use crate::metrics::{Metrics, PerformanceMetrics};
+use crate::metrics::Metrics;
 use crate::renderers::{RenderEngine, RendererType};
 use crate::statistics::{BaselineComparison, Regression, Statistics};
 

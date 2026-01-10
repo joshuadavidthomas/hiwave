@@ -85,7 +85,7 @@ fn main() -> Result<()> {
 
     // Run tests
     info!("Running Monte Carlo performance tests...");
-    let results = test.run()?;
+    let mut results = test.run()?;
 
     // Compare against baseline if provided
     if let Some(baseline_path) = args.baseline {

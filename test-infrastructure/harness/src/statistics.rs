@@ -1,4 +1,4 @@
-use crate::metrics::{AggregatedMetrics, Metrics, MetricStats};
+use crate::metrics::{Metrics, MetricStats};
 use serde::{Deserialize, Serialize};
 
 /// Statistical analysis of performance metrics

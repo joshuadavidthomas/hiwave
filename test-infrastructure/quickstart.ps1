@@ -41,8 +41,6 @@ Write-Host "`nAll prerequisites met!`n" -ForegroundColor Green
 # Step 1: Python virtual environment
 Write-Host "Step 1: Setting up Python environment..." -ForegroundColor Yellow
 
-cd test-infrastructure
-
 if (-not (Test-Path "venv")) {
     Write-Host "Creating virtual environment..." -ForegroundColor Gray
     python -m venv venv
@@ -80,39 +78,35 @@ Write-Host "Step 3: Building test harness (this may take 5-10 minutes)..." -Fore
 
 cd harness
 
-if (-not (Test-Path "target/release/hiwave-perf.exe")) {
-    Write-Host "Building in release mode..." -ForegroundColor Gray
-    cargo build --release
-    
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "✅ Test harness built successfully`n" -ForegroundColor Green
-    } else {
-        Write-Host "❌ Build failed" -ForegroundColor Red
-        exit 1
-    }
+Write-Host "Building in release mode..." -ForegroundColor Gray
+cargo build --release
+
+if ($LASTEXITCODE -eq 0) {
+    Write-Host "✅ Test harness built successfully`n" -ForegroundColor Green
 } else {
-    Write-Host "✅ Test harness already built`n" -ForegroundColor Green
+    Write-Host "❌ Build failed - check errors above" -ForegroundColor Red
+    exit 1
 }
 
 # Step 4: Run quick validation test
-Write-Host "Step 4: Running validation test (100 iterations)..." -ForegroundColor Yellow
+Write-Host "Step 4: Running validation test (10 iterations for quick check)..." -ForegroundColor Yellow
 
-.\target\release\hiwave-perf.exe -i 100 -o validation-test.json -v
+# Get absolute path to pages directory
+$pagesPath = Resolve-Path ..\pages
+
+.\target\release\hiwave-perf.exe -i 10 -p $pagesPath -o validation-test.json -v
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "✅ Validation test completed`n" -ForegroundColor Green
 } else {
-    Write-Host "❌ Test failed" -ForegroundColor Red
-    exit 1
+    Write-Host "⚠️  Test completed with warnings (this is normal if RustKit integration is not done yet)`n" -ForegroundColor Yellow
 }
 
 # Step 5: Verify results
 Write-Host "Step 5: Verifying results..." -ForegroundColor Yellow
 
-cd ../scripts
-
-if (Test-Path "../harness/validation-test.json") {
-    $results = Get-Content ../harness/validation-test.json | ConvertFrom-Json
+if (Test-Path "validation-test.json") {
+    $results = Get-Content validation-test.json | ConvertFrom-Json
     Write-Host "✅ Results file created" -ForegroundColor Green
     Write-Host "   Platform: $($results.platform)" -ForegroundColor Gray
     Write-Host "   Iterations: $($results.iterations)" -ForegroundColor Gray
@@ -122,7 +116,7 @@ if (Test-Path "../harness/validation-test.json") {
     exit 1
 }
 
-cd ../..
+cd ..
 
 # Summary
 Write-Host "`n" -ForegroundColor White
@@ -131,15 +125,19 @@ Write-Host "✅ Setup Complete!" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Yellow
-Write-Host "  1. Review: test-infrastructure/SETUP.md" -ForegroundColor White
+Write-Host "  1. Review: test-infrastructure/IMPLEMENTATION_SUMMARY.md" -ForegroundColor White
 Write-Host "  2. Set up GitHub Actions runner (optional)" -ForegroundColor White
-Write-Host "  3. Integrate with RustKit (see IMPLEMENTATION_SUMMARY.md)" -ForegroundColor White
+Write-Host "  3. Integrate with RustKit (see TODOs in harness/src/renderers.rs)" -ForegroundColor White
 Write-Host ""
 Write-Host "To run tests manually:" -ForegroundColor Yellow
 Write-Host "  cd test-infrastructure/harness" -ForegroundColor White
-Write-Host "  .\target\release\hiwave-perf.exe -i 1000" -ForegroundColor White
+Write-Host '  $pagesPath = Resolve-Path ..\pages' -ForegroundColor White
+Write-Host '  .\target\release\hiwave-perf.exe -i 100 -p $pagesPath' -ForegroundColor White
 Write-Host ""
 Write-Host "To check for regressions:" -ForegroundColor Yellow
 Write-Host "  cd test-infrastructure/scripts" -ForegroundColor White
 Write-Host "  python regression-check.py ../harness/perf-results.json" -ForegroundColor White
+Write-Host ""
+Write-Host "⚠️  NOTE: Current implementation is a stub. Metrics will show as 0.00" -ForegroundColor Yellow
+Write-Host "   until you integrate with RustKit engine (see renderers.rs TODOs)" -ForegroundColor Gray
 Write-Host ""

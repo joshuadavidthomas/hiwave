@@ -15,28 +15,24 @@ serde_json = "1.0"
 anyhow = "1.0"
 thiserror = "2.0"
 
-# Async runtime
-tokio = { version = "1.42", features = ["full"] }
-reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "blocking"] }
-
 # CLI
 clap = { version = "4.5", features = ["derive"] }
 
 # Randomization for Monte Carlo
 rand = "0.8"
 
-# Statistics
-statistical = "1.0"
-
 # Logging
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
 # Time
-chrono = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
 
-# System info
-sysinfo = "0.32"
+# RustKit dependencies - referencing the actual Windows implementation
+# Adjust paths based on which platform we're building for
+rustkit-dom = { path = "../../../hiwave-windows/crates/rustkit-dom" }
+rustkit-css = { path = "../../../hiwave-windows/crates/rustkit-css" }
+rustkit-layout = { path = "../../../hiwave-windows/crates/rustkit-layout" }
 
 [dev-dependencies]
 tempfile = "3.8"
