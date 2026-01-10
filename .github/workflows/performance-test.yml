@@ -1,0 +1,300 @@
+name: Performance Regression Testing
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM UTC
+  workflow_dispatch:
+    inputs:
+      iterations:
+        description: 'Number of Monte Carlo iterations'
+        required: false
+        default: '1000'
+
+jobs:
+  # Windows testing on GitHub-hosted runner
+  perf-test-windows:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout code with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          fetch-depth: 1
+      
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      
+      - name: Verify Rust installation
+        run: |
+          rustc --version
+          cargo --version
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python dependencies
+        working-directory: test-infrastructure
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Generate test pages
+        working-directory: test-infrastructure/pages
+        run: python generate_test_pages.py
+      
+      - name: Build test harness
+        working-directory: test-infrastructure/harness
+        run: cargo build --release
+      
+      - name: Run performance tests
+        working-directory: test-infrastructure/harness
+        run: |
+          $ITERATIONS = "${{ github.event.inputs.iterations }}"
+          if ([string]::IsNullOrEmpty($ITERATIONS)) { $ITERATIONS = "1000" }
+          
+          $pagesPath = Resolve-Path ..\pages
+          $baselinePath = "..\..\hiwave-windows\perf_baseline.json"
+          
+          if (Test-Path $baselinePath) {
+            .\target\release\hiwave-perf.exe -i $ITERATIONS -p $pagesPath -o perf-results-windows.json -b $baselinePath
+          } else {
+            Write-Host "No baseline found, running without comparison"
+            .\target\release\hiwave-perf.exe -i $ITERATIONS -p $pagesPath -o perf-results-windows.json
+          }
+        shell: pwsh
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: perf-results-windows
+          path: test-infrastructure/harness/perf-results-windows.json
+          retention-days: 30
+      
+      - name: Check for regressions
+        working-directory: test-infrastructure/scripts
+        run: |
+          $baselinePath = "..\..\hiwave-windows\perf_baseline.json"
+          if (Test-Path $baselinePath) {
+            python regression-check.py ../harness/perf-results-windows.json --baseline $baselinePath
+          } else {
+            Write-Host "No baseline for comparison, skipping regression check"
+          }
+        shell: pwsh
+        continue-on-error: true
+
+  # macOS testing on GitHub-hosted runner
+  perf-test-macos:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout code with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          fetch-depth: 1
+      
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      
+      - name: Verify Rust
+        run: |
+          rustc --version
+          cargo --version
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python dependencies
+        working-directory: test-infrastructure
+        run: pip install -r requirements.txt
+      
+      - name: Generate test pages
+        working-directory: test-infrastructure/pages
+        run: python generate_test_pages.py
+      
+      - name: Update Cargo.toml for macOS
+        working-directory: test-infrastructure/harness
+        run: |
+          # Update paths to point to hiwave-macos submodule
+          sed -i '' 's|hiwave-windows|hiwave-macos|g' Cargo.toml
+      
+      - name: Verify submodule paths
+        run: |
+          echo "Checking hiwave-macos submodule..."
+          ls -la hiwave-macos/crates/ | head -20
+      
+      - name: Build test harness
+        working-directory: test-infrastructure/harness
+        run: cargo build --release
+      
+      - name: Run performance tests
+        working-directory: test-infrastructure/harness
+        run: |
+          ITERATIONS="${{ github.event.inputs.iterations }}"
+          ITERATIONS=${ITERATIONS:-1000}
+          
+          if [ -f "../../hiwave-macos/perf_baseline.json" ]; then
+            ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-macos.json -b ../../hiwave-macos/perf_baseline.json
+          else
+            ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-macos.json
+          fi
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: perf-results-macos
+          path: test-infrastructure/harness/perf-results-macos.json
+          retention-days: 30
+
+  # Linux testing on GitHub-hosted runner
+  perf-test-linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout code with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          fetch-depth: 1
+      
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libfontconfig1-dev \
+            libfreetype6-dev \
+            libexpat1-dev \
+            pkg-config \
+            libssl-dev \
+            libx11-dev \
+            libxext-dev \
+            libxrender-dev \
+            libxcb1-dev \
+            libxcb-render0-dev \
+            libxcb-shape0-dev \
+            libxcb-xfixes0-dev \
+            libglib2.0-dev \
+            libcairo2-dev \
+            libpango1.0-dev \
+            libatk1.0-dev \
+            libgdk-pixbuf2.0-dev \
+            libgtk-3-dev
+      
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      
+      - name: Verify Rust
+        run: |
+          rustc --version
+          cargo --version
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install Python dependencies
+        working-directory: test-infrastructure
+        run: pip install -r requirements.txt
+      
+      - name: Generate test pages
+        working-directory: test-infrastructure/pages
+        run: python generate_test_pages.py
+      
+      - name: Update Cargo.toml for Linux
+        working-directory: test-infrastructure/harness
+        run: |
+          # Update paths to point to hiwave-linux submodule
+          sed -i 's|hiwave-windows|hiwave-linux|g' Cargo.toml
+      
+      - name: Verify submodule paths
+        run: |
+          echo "Checking hiwave-linux submodule..."
+          ls -la hiwave-linux/crates/ | head -20
+      
+      - name: Build test harness
+        working-directory: test-infrastructure/harness
+        run: cargo build --release
+      
+      - name: Run performance tests
+        working-directory: test-infrastructure/harness
+        run: |
+          ITERATIONS="${{ github.event.inputs.iterations }}"
+          ITERATIONS=${ITERATIONS:-1000}
+          ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-linux.json
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: perf-results-linux
+          path: test-infrastructure/harness/perf-results-linux.json
+          retention-days: 30
+
+  # Aggregate results
+  aggregate-results:
+    needs: [perf-test-windows, perf-test-macos, perf-test-linux]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Download all results
+        uses: actions/download-artifact@v4
+        with:
+          path: test-results
+        continue-on-error: true
+      
+      - name: List results
+        run: |
+          echo "Downloaded artifacts:"
+          ls -R test-results/
+      
+      - name: Create summary
+        run: |
+          echo "# Performance Test Results" > summary.md
+          echo "" >> summary.md
+          echo "## Workflow Run" >> summary.md
+          echo "- Run ID: ${{ github.run_id }}" >> summary.md
+          echo "- Triggered by: ${{ github.event_name }}" >> summary.md
+          echo "- Iterations: ${{ github.event.inputs.iterations || '1000' }}" >> summary.md
+          echo "" >> summary.md
+          echo "## Platform Results" >> summary.md
+          
+          for platform in windows macos linux; do
+            result_file="test-results/perf-results-$platform/perf-results-$platform.json"
+            if [ -f "$result_file" ]; then
+              echo "- ✅ $platform: Success" >> summary.md
+              
+              # Extract some key metrics
+              if command -v jq &> /dev/null; then
+                total_time=$(jq -r '.renderers.rustkit.total_time.mean // "N/A"' "$result_file")
+                echo "  - Total time: ${total_time}ms" >> summary.md
+              fi
+            else
+              echo "- ❌ $platform: No results" >> summary.md
+            fi
+          done
+          
+          echo "" >> summary.md
+          echo "## Artifacts" >> summary.md
+          echo "Results are available as artifacts for 30 days." >> summary.md
+          
+          cat summary.md
+      
+      - name: Upload summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-summary
+          path: summary.md
+          retention-days: 90

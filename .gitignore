@@ -54,3 +54,5 @@ docs/plans/
 
 docs/unshared/*
 ai-orchestrator/*
+venv/*
+pages/*

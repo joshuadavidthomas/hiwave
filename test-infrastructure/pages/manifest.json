@@ -1,0 +1,94 @@
+{
+  "pages": [
+    {
+      "file": "test-page-simple.html",
+      "name": "Test Page: simple",
+      "complexity": {
+        "dom_depth": 5,
+        "element_count": 50,
+        "css_rules": 10
+      }
+    },
+    {
+      "file": "test-page-simple-medium.html",
+      "name": "Test Page: simple-medium",
+      "complexity": {
+        "dom_depth": 5,
+        "element_count": 100,
+        "css_rules": 25
+      }
+    },
+    {
+      "file": "test-page-medium.html",
+      "name": "Test Page: medium",
+      "complexity": {
+        "dom_depth": 10,
+        "element_count": 200,
+        "css_rules": 50
+      }
+    },
+    {
+      "file": "test-page-medium-complex.html",
+      "name": "Test Page: medium-complex",
+      "complexity": {
+        "dom_depth": 10,
+        "element_count": 500,
+        "css_rules": 100
+      }
+    },
+    {
+      "file": "test-page-complex.html",
+      "name": "Test Page: complex",
+      "complexity": {
+        "dom_depth": 15,
+        "element_count": 1000,
+        "css_rules": 200
+      }
+    },
+    {
+      "file": "test-page-very-complex.html",
+      "name": "Test Page: very-complex",
+      "complexity": {
+        "dom_depth": 20,
+        "element_count": 2000,
+        "css_rules": 500
+      }
+    },
+    {
+      "file": "test-page-extreme.html",
+      "name": "Test Page: extreme",
+      "complexity": {
+        "dom_depth": 30,
+        "element_count": 5000,
+        "css_rules": 1000
+      }
+    },
+    {
+      "file": "test-page-deep-shallow.html",
+      "name": "Test Page: deep-shallow",
+      "complexity": {
+        "dom_depth": 50,
+        "element_count": 100,
+        "css_rules": 10
+      }
+    },
+    {
+      "file": "test-page-shallow-wide.html",
+      "name": "Test Page: shallow-wide",
+      "complexity": {
+        "dom_depth": 5,
+        "element_count": 10000,
+        "css_rules": 50
+      }
+    },
+    {
+      "file": "test-page-css-heavy.html",
+      "name": "Test Page: css-heavy",
+      "complexity": {
+        "dom_depth": 10,
+        "element_count": 1000,
+        "css_rules": 2000
+      }
+    }
+  ]
+}
