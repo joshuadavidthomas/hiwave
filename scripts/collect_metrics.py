@@ -2,11 +2,13 @@
 """
 collect_metrics.py - Aggregate metrics from platform submodules
 
-Collects parity and performance metrics from each platform submodule
-and aggregates them into metrics/unified.json for badge and chart generation.
+Collects ACTUAL visual parity (pixel match %) and test metrics from each
+platform submodule and aggregates them into metrics/unified.json.
+
+Priority: parity_test_results.json (real pixel data) > baseline_report.json
 
 Usage:
-    python3 scripts/collect_metrics.py [--test]
+    python3 scripts/collect_metrics.py [--test] [--verbose]
 """
 
 import json
@@ -27,11 +29,15 @@ SUBMODULES = {
     "linux": REPO_ROOT / "hiwave-linux",
 }
 
-# Possible metric source files in each submodule
-METRIC_SOURCES = [
-    "parity-baseline/baseline_report.json",
-    "progress_report.json",
+# Metric source files in priority order (first found wins)
+PARITY_TEST_SOURCES = [
+    "parity-baseline/parity_test_results.json",
     "parity_test_results.json",
+]
+
+BASELINE_SOURCES = [
+    "parity-baseline/baseline_report.json",
+    "baseline_report.json",
 ]
 
 
@@ -63,20 +69,93 @@ def load_json_file(filepath: Path) -> Optional[Dict]:
         return None
 
 
-def extract_metrics_from_baseline(data: Dict) -> Dict[str, Any]:
-    """Extract metrics from baseline_report.json format."""
-    metrics = data.get("metrics", {})
+def find_file(submodule_path: Path, sources: List[str]) -> tuple[Optional[Dict], Optional[str]]:
+    """Find and load the first available file from sources list."""
+    for source in sources:
+        filepath = submodule_path / source
+        data = load_json_file(filepath)
+        if data:
+            return data, source
+    return None, None
 
-    # Calculate parity as inverse of diff percentage
-    tier_b_weighted_mean = metrics.get("tier_b_weighted_mean", 100)
-    parity = max(0, 100 - tier_b_weighted_mean)
 
-    # Get issue clusters
-    issue_clusters = data.get("issue_clusters", {})
+def extract_visual_parity(parity_test_data: Dict, verbose: bool = False) -> Dict[str, Any]:
+    """
+    Extract ACTUAL visual parity from parity_test_results.json.
 
-    # Get performance data (from first successful result if available)
+    Visual parity = 100% - pixel diff%
+    This is the TRUE measure of how closely RustKit matches Chrome.
+    """
+    results = parity_test_data.get("results", [])
+
+    if not results:
+        return {}
+
+    # Calculate per-test parity
+    test_results = []
+    total_parity = 0
+    builtins_parity = 0
+    builtins_count = 0
+    websuite_parity = 0
+    websuite_count = 0
+
+    for r in results:
+        pixel = r.get("pixel", {})
+        diff_pct = pixel.get("diffPercent", 100)
+        parity = 100 - diff_pct
+        threshold = r.get("threshold", 15)
+        passed = diff_pct <= threshold
+
+        test_result = {
+            "case_id": r.get("case_id"),
+            "type": r.get("type", "unknown"),
+            "parity": round(parity, 2),
+            "diff_pct": round(diff_pct, 2),
+            "threshold": threshold,
+            "passed": passed,
+        }
+        test_results.append(test_result)
+
+        total_parity += parity
+        if r.get("type") == "builtins":
+            builtins_parity += parity
+            builtins_count += 1
+        else:
+            websuite_parity += parity
+            websuite_count += 1
+
+        if verbose:
+            status = "PASS" if passed else "FAIL"
+            print(f"    {r.get('case_id'):30s} {parity:6.2f}% [{status}]")
+
+    # Calculate averages
+    avg_parity = total_parity / len(results) if results else 0
+    avg_builtins = builtins_parity / builtins_count if builtins_count else 0
+    avg_websuite = websuite_parity / websuite_count if websuite_count else 0
+
+    passed_count = parity_test_data.get("passed", sum(1 for t in test_results if t["passed"]))
+    failed_count = parity_test_data.get("failed", sum(1 for t in test_results if not t["passed"]))
+
+    return {
+        "visual_parity": round(avg_parity, 2),
+        "builtins_parity": round(avg_builtins, 2),
+        "websuite_parity": round(avg_websuite, 2),
+        "tests_passed": passed_count,
+        "tests_failed": failed_count,
+        "tests_total": len(results),
+        "pass_rate": round(passed_count / len(results) * 100, 1) if results else 0,
+        "test_results": test_results,
+    }
+
+
+def extract_baseline_metrics(baseline_data: Dict) -> Dict[str, Any]:
+    """Extract supplementary metrics from baseline_report.json."""
+    metrics = baseline_data.get("metrics", {})
+    issue_clusters = baseline_data.get("issue_clusters", {})
+
+    # Get performance data if available
     perf = {}
-    for result in data.get("builtin_results", []) + data.get("websuite_results", []):
+    for result in baseline_data.get("builtin_results", []) + baseline_data.get("websuite_results", []):
         result_perf = result.get("perf", {})
         if result_perf:
             perf = {
@@ -87,60 +166,61 @@ def extract_metrics_from_baseline(data: Dict) -> Dict[str, Any]:
             break
 
     return {
-        "parity": round(parity, 1),
         "tier_a_pass_rate": metrics.get("tier_a_pass_rate", 0),
-        "tier_b_weighted_mean": tier_b_weighted_mean,
         "issue_clusters": issue_clusters,
         "perf": perf,
     }
 
 
-def extract_metrics_from_progress(data: Dict) -> Dict[str, Any]:
-    """Extract metrics from progress_report.json format."""
-    return {
-        "parity": data.get("parity", 0),
-        "tier_a_pass_rate": data.get("tier_a_pass_rate", 0),
-        "tier_b_weighted_mean": data.get("tier_b_weighted_mean", 100),
-        "issue_clusters": data.get("issue_clusters", {}),
-        "perf": data.get("perf", {}),
-    }
-
-
-def collect_platform_metrics(platform: str, submodule_path: Path) -> Optional[Dict[str, Any]]:
+def collect_platform_metrics(platform: str, submodule_path: Path, verbose: bool = False) -> Optional[Dict[str, Any]]:
     """Collect metrics from a platform submodule."""
     if not submodule_path.exists():
         return None
 
-    # Try to find metrics from various sources
-    metrics_data = None
-    source_file = None
+    # Try to find parity test results (priority - this has REAL pixel data)
+    parity_data, parity_source = find_file(submodule_path, PARITY_TEST_SOURCES)
+    baseline_data, baseline_source = find_file(submodule_path, BASELINE_SOURCES)
 
-    for source in METRIC_SOURCES:
-        filepath = submodule_path / source
-        data = load_json_file(filepath)
-        if data:
-            metrics_data = data
-            source_file = source
-            break
-
-    if not metrics_data:
+    if not parity_data and not baseline_data:
         print(f"  No metrics found for {platform}")
         return None
 
-    print(f"  Found {source_file}")
+    metrics = {}
 
-    # Extract metrics based on file format
-    if "baseline_report" in source_file:
-        extracted = extract_metrics_from_baseline(metrics_data)
-    else:
-        extracted = extract_metrics_from_progress(metrics_data)
+    # Extract visual parity from parity_test_results (the REAL metric)
+    if parity_data:
+        print(f"  Found {parity_source} (visual parity source)")
+        visual_metrics = extract_visual_parity(parity_data, verbose)
+        metrics.update(visual_metrics)
+        # Use visual_parity as the main "parity" metric
+        metrics["parity"] = visual_metrics.get("visual_parity", 0)
+        metrics["parity_source"] = "pixel_diff"
+        metrics["last_updated"] = parity_data.get("timestamp", datetime.now().isoformat())
 
-    # Add metadata
-    extracted["last_updated"] = metrics_data.get("timestamp", datetime.now().isoformat())
-    extracted["git_commit"] = get_git_commit(submodule_path)
-    extracted["source_file"] = source_file
+    # Extract supplementary data from baseline report
+    if baseline_data:
+        if not parity_data:
+            print(f"  Found {baseline_source} (baseline only)")
+        baseline_metrics = extract_baseline_metrics(baseline_data)
 
-    return extracted
+        # Only use baseline parity if we don't have real pixel data
+        if "parity" not in metrics:
+            tier_b = baseline_metrics.get("tier_b_weighted_mean", 100)
+            metrics["parity"] = max(0, 100 - tier_b)
+            metrics["parity_source"] = "baseline_estimate"
+            metrics["last_updated"] = baseline_data.get("timestamp", datetime.now().isoformat())
+
+        # Always take issue clusters and perf from baseline if available
+        if baseline_metrics.get("issue_clusters"):
+            metrics["issue_clusters"] = baseline_metrics["issue_clusters"]
+        if baseline_metrics.get("perf"):
+            metrics["perf"] = baseline_metrics["perf"]
+        metrics["tier_a_pass_rate"] = baseline_metrics.get("tier_a_pass_rate", 0)
+
+    # Add git commit
+    metrics["git_commit"] = get_git_commit(submodule_path)
+
+    return metrics
 
 
 def calculate_perf_grade(perf: Dict) -> str:
@@ -148,7 +228,6 @@ def calculate_perf_grade(perf: Dict) -> str:
     if not perf:
         return "?"
 
-    # Scoring based on key metrics (lower is better for latency)
     score = 100
 
     engine_init = perf.get("engine_init_ms")
@@ -169,7 +248,6 @@ def calculate_perf_grade(perf: Dict) -> str:
         elif render_time > 15:
             score -= 5
 
-    # Convert score to grade
     if score >= 90:
         return "A"
     elif score >= 80:
@@ -232,21 +310,23 @@ def update_history(unified: Dict, platforms: Dict) -> None:
 
 
 def generate_test_data() -> Dict[str, Any]:
-    """Generate test data for testing the collector."""
+    """Generate realistic test data showing gradual improvement."""
     base_date = datetime.now()
     from datetime import timedelta
 
     history = []
+    # Simulate gradual improvement from ~60% to ~75% over 30 days
     for i in range(30):
         date = base_date - timedelta(days=29-i)
+        base_parity = 60 + i * 0.5  # Gradual improvement
         history.append({
             "date": date.strftime("%Y-%m-%d"),
-            "macos": 85 + i * 0.4 + (i % 3) * 0.5,
-            "windows": 75 + i * 0.5 + (i % 4) * 0.3,
-            "linux": None if i < 20 else 70 + (i - 20) * 1.0,
+            "macos": round(base_parity + (i % 3) * 0.3, 2),
+            "windows": round(base_parity - 5 + (i % 4) * 0.2, 2) if i > 10 else None,
+            "linux": None,
             "perf": {
-                "engine_init_ms": 6.0 - i * 0.05,
-                "render_time_ms": 20.0 - i * 0.3,
+                "engine_init_ms": round(8.0 - i * 0.05, 2),
+                "render_time_ms": round(25.0 - i * 0.3, 2),
             }
         })
 
@@ -254,30 +334,44 @@ def generate_test_data() -> Dict[str, Any]:
         "generated_at": datetime.now().isoformat(),
         "platforms": {
             "macos": {
-                "parity": 98.7,
-                "tier_a_pass_rate": 1.0,
-                "tier_b_weighted_mean": 1.3,
-                "issue_clusters": {"sizing_layout": 2, "paint": 0, "text": 1},
-                "perf": {"engine_init_ms": 4.5, "render_time_ms": 12.3},
-                "perf_grade": "A",
-                "last_updated": datetime.now().isoformat(),
-                "git_commit": "abc1234",
-            },
-            "windows": {
-                "parity": 85.2,
-                "tier_a_pass_rate": 0.85,
-                "tier_b_weighted_mean": 14.8,
-                "issue_clusters": {"sizing_layout": 5, "paint": 2, "text": 3},
-                "perf": {"engine_init_ms": 5.2, "render_time_ms": 15.8},
+                "parity": 73.6,
+                "parity_source": "pixel_diff",
+                "visual_parity": 73.6,
+                "builtins_parity": 85.5,
+                "websuite_parity": 65.2,
+                "tests_passed": 7,
+                "tests_failed": 16,
+                "tests_total": 23,
+                "pass_rate": 30.4,
+                "tier_a_pass_rate": 0.30,
+                "issue_clusters": {
+                    "sizing_layout": 8,
+                    "paint": 4,
+                    "text": 6,
+                    "images": 3
+                },
+                "perf": {"engine_init_ms": 5.2, "render_time_ms": 18.5},
                 "perf_grade": "B",
                 "last_updated": datetime.now().isoformat(),
-                "git_commit": "def5678",
+                "git_commit": "73a5d78",
+            },
+            "windows": {
+                "parity": 68.5,
+                "parity_source": "pixel_diff",
+                "visual_parity": 68.5,
+                "tests_passed": 5,
+                "tests_failed": 18,
+                "tests_total": 23,
+                "pass_rate": 21.7,
+                "perf_grade": "C",
+                "last_updated": datetime.now().isoformat(),
+                "git_commit": "22aff27",
             },
             "linux": None
         },
         "history": history,
         "overall": {
-            "parity": 85.2,
+            "parity": 68.5,
             "perf_grade": "B"
         }
     }
@@ -285,28 +379,30 @@ def generate_test_data() -> Dict[str, Any]:
 
 def main():
     test_mode = "--test" in sys.argv
+    verbose = "--verbose" in sys.argv or "-v" in sys.argv
 
-    print("=" * 50)
-    print("HiWave Metrics Collector")
-    print("=" * 50)
+    print("=" * 60)
+    print("HiWave Metrics Collector - Visual Parity Edition")
+    print("=" * 60)
+    print("\nMetrics reflect ACTUAL pixel-level visual parity with Chrome.")
+    print("Lower numbers are honest - we're tracking gradual improvement.\n")
 
     if test_mode:
-        print("\nRunning in TEST mode with sample data")
+        print("Running in TEST mode with sample data\n")
         unified = generate_test_data()
     else:
         # Load existing data (to preserve history)
         unified = load_existing_unified()
 
         # Collect metrics from each platform
-        print("\nCollecting platform metrics...")
+        print("Collecting platform metrics...")
         platforms = {}
 
         for platform, path in SUBMODULES.items():
             print(f"\n{platform.upper()}:")
             if path.exists():
-                metrics = collect_platform_metrics(platform, path)
+                metrics = collect_platform_metrics(platform, path, verbose)
                 if metrics:
-                    # Add performance grade
                     metrics["perf_grade"] = calculate_perf_grade(metrics.get("perf", {}))
                 platforms[platform] = metrics
             else:
@@ -317,16 +413,15 @@ def main():
         unified["generated_at"] = datetime.now().isoformat()
         unified["platforms"] = platforms
 
-        # Calculate overall metrics
+        # Calculate overall metrics (minimum parity across platforms)
         parity_values = [
             p["parity"] for p in platforms.values()
             if p and "parity" in p
         ]
         if parity_values:
             unified["overall"] = {
-                "parity": round(min(parity_values), 1),  # Overall is minimum
+                "parity": round(min(parity_values), 1),
                 "perf_grade": calculate_perf_grade(
-                    # Use best performing platform's metrics
                     max(
                         (p.get("perf", {}) for p in platforms.values() if p),
                         key=lambda x: -sum(v or 999 for v in x.values()) if x else 0,
@@ -344,25 +439,36 @@ def main():
     print(f"\nSaved to: {UNIFIED_FILE}")
 
     # Print summary
-    print("\n" + "=" * 50)
-    print("Platform Summary:")
-    print("=" * 50)
+    print("\n" + "=" * 60)
+    print("Visual Parity Summary (pixel match % vs Chrome)")
+    print("=" * 60)
 
     for platform in ["macos", "windows", "linux"]:
         data = unified.get("platforms", {}).get(platform)
         if data:
-            parity = data.get("parity", "?")
-            tier_a = data.get("tier_a_pass_rate", 0)
+            parity = data.get("parity", 0)
+            source = data.get("parity_source", "unknown")
+            passed = data.get("tests_passed", "?")
+            total = data.get("tests_total", "?")
             grade = data.get("perf_grade", "?")
-            print(f"  {platform:8s}: {parity:>5.1f}% parity | Tier A: {tier_a*100:>5.1f}% | Perf: {grade}")
+
+            print(f"\n  {platform.upper()}:")
+            print(f"    Visual Parity:  {parity:>6.2f}%  (source: {source})")
+            if data.get("builtins_parity"):
+                print(f"    - Builtins:     {data['builtins_parity']:>6.2f}%")
+            if data.get("websuite_parity"):
+                print(f"    - Websuite:     {data['websuite_parity']:>6.2f}%")
+            print(f"    Tests Passing:  {passed}/{total}")
+            print(f"    Perf Grade:     {grade}")
         else:
-            print(f"  {platform:8s}: not available")
+            print(f"\n  {platform.upper()}: not available")
 
     overall = unified.get("overall", {})
     if overall:
-        print(f"\n  Overall:  {overall.get('parity', '?')}% parity | Perf: {overall.get('perf_grade', '?')}")
+        print(f"\n  OVERALL: {overall.get('parity', '?')}% visual parity")
 
     print(f"\nHistory: {len(unified.get('history', []))} days tracked")
+    print("\n" + "=" * 60)
 
 
 if __name__ == "__main__":
