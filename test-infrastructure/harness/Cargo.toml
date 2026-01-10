@@ -28,11 +28,12 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 # Time
 chrono = { version = "0.4", features = ["serde"] }
 
-# RustKit dependencies - referencing the actual Windows implementation
-# Adjust paths based on which platform we're building for
-rustkit-dom = { path = "../../../hiwave-windows/crates/rustkit-dom" }
-rustkit-css = { path = "../../../hiwave-windows/crates/rustkit-css" }
-rustkit-layout = { path = "../../../hiwave-windows/crates/rustkit-layout" }
+# RustKit dependencies - pointing to submodule
+# Path is relative from test-infrastructure/harness/ to root-level submodules
+# ../../hiwave-windows/crates/rustkit-dom
+rustkit-dom = { path = "../../hiwave-windows/crates/rustkit-dom" }
+rustkit-css = { path = "../../hiwave-windows/crates/rustkit-css" }
+rustkit-layout = { path = "../../hiwave-windows/crates/rustkit-layout" }
 
 [dev-dependencies]
 tempfile = "3.8"

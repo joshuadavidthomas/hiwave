@@ -16,8 +16,11 @@ jobs:
     runs-on: self-hosted
     timeout-minutes: 60
     steps:
-      - name: Checkout code
+      - name: Checkout code with submodules
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          fetch-depth: 1
       
       - name: Verify Rust installation
         run: |
@@ -50,7 +53,7 @@ jobs:
           if ([string]::IsNullOrEmpty($ITERATIONS)) { $ITERATIONS = "1000" }
           
           $pagesPath = Resolve-Path ..\pages
-          $baselinePath = "..\..\..\hiwave-windows\perf_baseline.json"
+          $baselinePath = "..\..\hiwave-windows\perf_baseline.json"
           
           if (Test-Path $baselinePath) {
             .\target\release\hiwave-perf.exe -i $ITERATIONS -p $pagesPath -o perf-results-windows.json -b $baselinePath
@@ -70,7 +73,7 @@ jobs:
       - name: Check for regressions
         working-directory: test-infrastructure/scripts
         run: |
-          $baselinePath = "..\..\..\hiwave-windows\perf_baseline.json"
+          $baselinePath = "..\..\hiwave-windows\perf_baseline.json"
           if (Test-Path $baselinePath) {
             python regression-check.py ../harness/perf-results-windows.json --baseline $baselinePath
           } else {
@@ -84,8 +87,11 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 60
     steps:
-      - name: Checkout code
+      - name: Checkout code with submodules
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          fetch-depth: 1
       
       - name: Setup Rust
         run: |
@@ -113,7 +119,13 @@ jobs:
       - name: Update Cargo.toml for macOS
         working-directory: test-infrastructure/harness
         run: |
-          sed -i '' 's/hiwave-windows/hiwave-macos/g' Cargo.toml
+          # Update paths to point to hiwave-macos submodule
+          sed -i '' 's|hiwave-windows|hiwave-macos|g' Cargo.toml
+      
+      - name: Verify submodule paths
+        run: |
+          echo "Checking hiwave-macos submodule..."
+          ls -la hiwave-macos/crates/ | head -20
       
       - name: Build test harness
         working-directory: test-infrastructure/harness
@@ -125,8 +137,8 @@ jobs:
           ITERATIONS="${{ github.event.inputs.iterations }}"
           ITERATIONS=${ITERATIONS:-1000}
           
-          if [ -f "../../../hiwave-macos/perf_baseline.json" ]; then
-            ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-macos.json -b ../../../hiwave-macos/perf_baseline.json
+          if [ -f "../../hiwave-macos/perf_baseline.json" ]; then
+            ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-macos.json -b ../../hiwave-macos/perf_baseline.json
           else
             ./target/release/hiwave-perf -i $ITERATIONS -p ../pages -o perf-results-macos.json
           fi
@@ -143,8 +155,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - name: Checkout code
+      - name: Checkout code with submodules
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+          fetch-depth: 1
       
       - name: Setup Rust
         run: |
@@ -172,7 +187,13 @@ jobs:
       - name: Update Cargo.toml for Linux
         working-directory: test-infrastructure/harness
         run: |
-          sed -i 's/hiwave-windows/hiwave-linux/g' Cargo.toml
+          # Update paths to point to hiwave-linux submodule
+          sed -i 's|hiwave-windows|hiwave-linux|g' Cargo.toml
+      
+      - name: Verify submodule paths
+        run: |
+          echo "Checking hiwave-linux submodule..."
+          ls -la hiwave-linux/crates/ | head -20
       
       - name: Build test harness
         working-directory: test-infrastructure/harness
@@ -221,16 +242,31 @@ jobs:
         run: |
           echo "# Performance Test Results" > summary.md
           echo "" >> summary.md
-          echo "Platform results:" >> summary.md
+          echo "## Workflow Run" >> summary.md
+          echo "- Run ID: ${{ github.run_id }}" >> summary.md
+          echo "- Triggered by: ${{ github.event_name }}" >> summary.md
+          echo "- Iterations: ${{ github.event.inputs.iterations || '1000' }}" >> summary.md
+          echo "" >> summary.md
+          echo "## Platform Results" >> summary.md
           
           for platform in windows macos linux; do
             result_file="test-results/perf-results-$platform/perf-results-$platform.json"
             if [ -f "$result_file" ]; then
               echo "- ✅ $platform: Success" >> summary.md
+              
+              # Extract some key metrics
+              if command -v jq &> /dev/null; then
+                total_time=$(jq -r '.renderers.rustkit.total_time.mean // "N/A"' "$result_file")
+                echo "  - Total time: ${total_time}ms" >> summary.md
+              fi
             else
               echo "- ❌ $platform: No results" >> summary.md
             fi
           done
+          
+          echo "" >> summary.md
+          echo "## Artifacts" >> summary.md
+          echo "Results are available as artifacts for 30 days." >> summary.md
           
           cat summary.md
       
