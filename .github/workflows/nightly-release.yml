@@ -19,33 +19,43 @@ jobs:
             submodule: hiwave-macos
             artifact: hiwave
             archive: hiwave-macos-nightly.zip
-    
+          - os: ubuntu-latest
+            submodule: hiwave-linux
+            artifact: hiwave
+            archive: hiwave-linux-nightly.zip
+
     runs-on: ${{ matrix.os }}
-    
+
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
-      
+
+      - name: Install Linux dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libasound2-dev libgtk-3-dev libwebkit2gtk-4.1-dev libxdo-dev libssl-dev pkg-config libfontconfig1-dev libx11-dev libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
-      
+
       - name: Build
         working-directory: ${{ matrix.submodule }}
         run: cargo build --release
-      
+
       - name: Package (Windows)
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
           Compress-Archive -Path "${{ matrix.submodule }}/target/release/${{ matrix.artifact }}" -DestinationPath "${{ matrix.archive }}"
-      
+
       - name: Package (macOS/Linux)
         if: matrix.os != 'windows-latest'
         run: |
           zip -j ${{ matrix.archive }} ${{ matrix.submodule }}/target/release/${{ matrix.artifact }}
-      
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -55,13 +65,13 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
-      
+
       - name: Check for changes since last nightly
         id: changes
         run: |
@@ -76,14 +86,14 @@ jobs:
               echo "has_changes=false" >> $GITHUB_OUTPUT
             fi
           fi
-      
+
       - name: Download all artifacts
         if: steps.changes.outputs.has_changes == 'true'
         uses: actions/download-artifact@v4
         with:
           path: dist
           merge-multiple: true
-      
+
       - name: Delete previous nightly release
         if: steps.changes.outputs.has_changes == 'true'
         run: |
@@ -91,7 +101,7 @@ jobs:
           git push --delete origin nightly || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Create Nightly Release
         if: steps.changes.outputs.has_changes == 'true'
         uses: softprops/action-gh-release@v1
@@ -100,9 +110,9 @@ jobs:
           name: "Nightly Build ($(date +'%Y-%m-%d'))"
           body: |
             ⚠️ **This is an automated nightly build. It may be unstable.**
-            
+
             Built from commit: ${{ github.sha }}
-            
+
             For stable releases, use the [latest weekly build](https://github.com/${{ github.repository }}/releases/latest).
           prerelease: true
           files: |
