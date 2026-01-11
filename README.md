@@ -25,6 +25,12 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/hiwavebrowser/hiwave/actions/workflows/parity-unified.yml">
+    <img src="https://github.com/hiwavebrowser/hiwave/actions/workflows/parity-unified.yml/badge.svg" alt="Parity Tests" />
+  </a>
+</p>
+
+<p align="center">
   <img src="badges/parity-overall.svg" alt="Overall Parity" />
   <img src="badges/perf-score.svg" alt="Performance" />
 </p>
@@ -72,6 +78,44 @@ View the interactive [**Churn Report Dashboard**](churn-reports/dashboard.html) 
 *Updated weekly via GitHub Actions*
 
 </details>
+
+---
+
+## Visual Parity Testing
+
+RustKit engine is tested against Chrome 120 baselines using **triple verification**:
+
+| Verification | Description | Weight |
+|--------------|-------------|--------|
+| **Pixel Diff** | Direct pixel comparison | Primary |
+| **Layout Rects** | Element positioning accuracy | Secondary |
+| **Computed Styles** | CSS property matching | Diagnostic |
+
+### Test Cases (23 total)
+
+| Category | Count | Cases |
+|----------|-------|-------|
+| Built-ins | 5 | `new_tab`, `about`, `settings`, `chrome_rustkit`, `shelf` |
+| Websuite | 8 | `article-typography`, `card-grid`, `css-selectors`, `flex-positioning`, `form-elements`, `gradient-backgrounds`, `image-gallery`, `sticky-scroll` |
+| Micro-tests | 10 | `backgrounds`, `bg-solid`, `combinators`, `form-controls`, `gradients`, `images-intrinsic`, `pseudo-classes`, `rounded-corners`, `specificity` |
+
+### Running Parity Tests
+
+```bash
+# Run all tests with 3 iterations (macOS)
+cd hiwave-macos
+python3 scripts/parity_swarm.py --scope all --iterations 3
+
+# Run builtins only with 2 parallel jobs (Windows)
+cd hiwave-windows
+python scripts/parity_swarm.py --scope builtins --jobs 2
+
+# Run with Xvfb (Linux)
+cd hiwave-linux
+xvfb-run python3 scripts/parity_swarm.py --scope all
+```
+
+*Parity scores updated daily via [GitHub Actions](https://github.com/hiwavebrowser/hiwave/actions/workflows/parity-unified.yml)*
 
 ---
 

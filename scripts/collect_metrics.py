@@ -40,6 +40,14 @@ BASELINE_SOURCES = [
     "baseline_report.json",
 ]
 
+# Swarm results (from parity_swarm.py)
+SWARM_SOURCES = [
+    "parity-results/swarm_report.json",
+]
+
+# Unified results from CI aggregation
+UNIFIED_PARITY_FILE = METRICS_DIR / "parity_results.json"
+
 
 def get_git_commit(submodule_path: Path) -> Optional[str]:
     """Get the current git commit hash for a submodule."""
@@ -77,6 +85,89 @@ def find_file(submodule_path: Path, sources: List[str]) -> tuple[Optional[Dict],
         if data:
             return data, source
     return None, None
+
+
+def load_unified_parity_results() -> Optional[Dict[str, Any]]:
+    """Load results from unified parity workflow (CI aggregation)."""
+    if not UNIFIED_PARITY_FILE.exists():
+        return None
+    try:
+        data = json.loads(UNIFIED_PARITY_FILE.read_text())
+        return data
+    except Exception as e:
+        print(f"  Warning: Could not parse unified parity results: {e}")
+        return None
+
+
+def extract_swarm_metrics(swarm_data: Dict, verbose: bool = False) -> Dict[str, Any]:
+    """
+    Extract visual parity from swarm_report.json (from parity_swarm.py).
+
+    This is the preferred source as it has median values across iterations.
+    """
+    results = swarm_data.get("results", [])
+    summary = swarm_data.get("summary", {})
+
+    if not results:
+        return {}
+
+    # Calculate metrics from results
+    test_results = []
+    total_parity = 0
+    builtins_parity = 0
+    builtins_count = 0
+    websuite_parity = 0
+    websuite_count = 0
+
+    for r in results:
+        diff_pct = r.get("diff_pct_median", 100)
+        parity = 100 - diff_pct
+        passed = r.get("passed", False)
+        case_id = r.get("case_id", "unknown")
+
+        # Determine type from case_id
+        case_type = "websuite"
+        if case_id in ["new_tab", "about", "settings", "chrome_rustkit", "shelf"]:
+            case_type = "builtins"
+
+        test_result = {
+            "case_id": case_id,
+            "type": case_type,
+            "parity": round(parity, 2),
+            "diff_pct": round(diff_pct, 2),
+            "passed": passed,
+            "stable": r.get("stable", False),
+        }
+        test_results.append(test_result)
+
+        total_parity += parity
+        if case_type == "builtins":
+            builtins_parity += parity
+            builtins_count += 1
+        else:
+            websuite_parity += parity
+            websuite_count += 1
+
+        if verbose:
+            status = "PASS" if passed else "FAIL"
+            print(f"    {case_id:30s} {parity:6.2f}% [{status}]")
+
+    # Calculate averages
+    avg_parity = total_parity / len(results) if results else 0
+    avg_builtins = builtins_parity / builtins_count if builtins_count else 0
+    avg_websuite = websuite_parity / websuite_count if websuite_count else 0
+
+    return {
+        "visual_parity": round(avg_parity, 2),
+        "builtins_parity": round(avg_builtins, 2),
+        "websuite_parity": round(avg_websuite, 2),
+        "tests_passed": summary.get("passed", sum(1 for t in test_results if t["passed"])),
+        "tests_failed": summary.get("failed", sum(1 for t in test_results if not t["passed"])),
+        "tests_total": len(results),
+        "tests_stable": summary.get("stable", sum(1 for t in test_results if t.get("stable", False))),
+        "pass_rate": round(summary.get("pass_rate", 0), 1),
+        "test_results": test_results,
+    }
 
 
 def extract_visual_parity(parity_test_data: Dict, verbose: bool = False) -> Dict[str, Any]:
@@ -177,18 +268,30 @@ def collect_platform_metrics(platform: str, submodule_path: Path, verbose: bool 
     if not submodule_path.exists():
         return None
 
+    # Try to find swarm results first (highest priority - has median across iterations)
+    swarm_data, swarm_source = find_file(submodule_path, SWARM_SOURCES)
+
     # Try to find parity test results (priority - this has REAL pixel data)
     parity_data, parity_source = find_file(submodule_path, PARITY_TEST_SOURCES)
     baseline_data, baseline_source = find_file(submodule_path, BASELINE_SOURCES)
 
-    if not parity_data and not baseline_data:
+    if not swarm_data and not parity_data and not baseline_data:
         print(f"  No metrics found for {platform}")
         return None
 
     metrics = {}
 
-    # Extract visual parity from parity_test_results (the REAL metric)
-    if parity_data:
+    # Extract visual parity from swarm results (highest priority - has statistical measures)
+    if swarm_data:
+        print(f"  Found {swarm_source} (swarm results - preferred)")
+        visual_metrics = extract_swarm_metrics(swarm_data, verbose)
+        metrics.update(visual_metrics)
+        metrics["parity"] = visual_metrics.get("visual_parity", 0)
+        metrics["parity_source"] = "swarm_median"
+        metrics["last_updated"] = swarm_data.get("timestamp", datetime.now().isoformat())
+
+    # Fall back to parity_test_results (the REAL metric)
+    elif parity_data:
         print(f"  Found {parity_source} (visual parity source)")
         visual_metrics = extract_visual_parity(parity_data, verbose)
         metrics.update(visual_metrics)
@@ -199,7 +302,7 @@ def collect_platform_metrics(platform: str, submodule_path: Path, verbose: bool 
 
     # Extract supplementary data from baseline report
     if baseline_data:
-        if not parity_data:
+        if not swarm_data and not parity_data:
             print(f"  Found {baseline_source} (baseline only)")
         baseline_metrics = extract_baseline_metrics(baseline_data)
 

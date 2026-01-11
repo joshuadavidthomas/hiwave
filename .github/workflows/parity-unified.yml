@@ -1,0 +1,258 @@
+name: Cross-Platform Parity Tests
+
+on:
+  schedule:
+    - cron: "0 8 * * *"  # Daily at 8 AM UTC
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: 'Test scope'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - builtins
+          - websuite
+          - micro
+      iterations:
+        description: 'Iterations per test'
+        required: false
+        default: '3'
+        type: string
+  repository_dispatch:
+    types: [run-parity-tests]
+
+jobs:
+  # macOS parity (4 shards)
+  macos-parity:
+    runs-on: macos-14
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install oracle dependencies
+        working-directory: hiwave-macos/tools/parity_oracle
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: hiwave-macos/tools/parity_oracle
+        run: npx playwright install chromium
+
+      - name: Build parity-capture
+        working-directory: hiwave-macos
+        run: cargo build --release -p parity-capture
+
+      - name: Run parity shard
+        working-directory: hiwave-macos
+        run: |
+          python3 scripts/parity_swarm.py \
+            --jobs 2 \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 4 \
+            --scope ${{ github.event.inputs.scope || 'all' }} \
+            --iterations ${{ github.event.inputs.iterations || '3' }} \
+            --run-id macos-${{ github.run_number }}-shard-${{ matrix.shard }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: parity-macos-shard-${{ matrix.shard }}
+          path: hiwave-macos/parity-results/
+          retention-days: 14
+
+  # Windows parity (4 shards)
+  windows-parity:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install oracle dependencies
+        working-directory: hiwave-windows/tools/parity_oracle
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: hiwave-windows/tools/parity_oracle
+        run: npx playwright install chromium
+
+      - name: Build parity-capture
+        working-directory: hiwave-windows
+        run: cargo build --release -p parity-capture
+
+      - name: Run parity shard
+        working-directory: hiwave-windows
+        shell: pwsh
+        run: |
+          python scripts/parity_swarm.py `
+            --jobs 2 `
+            --shard-index ${{ matrix.shard }} `
+            --shard-count 4 `
+            --scope ${{ github.event.inputs.scope || 'all' }} `
+            --iterations ${{ github.event.inputs.iterations || '3' }} `
+            --run-id windows-${{ github.run_number }}-shard-${{ matrix.shard }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: parity-windows-shard-${{ matrix.shard }}
+          path: hiwave-windows/parity-results/
+          retention-days: 14
+
+  # Linux parity (4 shards)
+  linux-parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb libgtk-3-0 libnss3 libxss1 libasound2 libgbm1
+
+      - name: Install oracle dependencies
+        working-directory: hiwave-linux/tools/parity_oracle
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: hiwave-linux/tools/parity_oracle
+        run: npx playwright install chromium
+
+      - name: Build parity-capture
+        working-directory: hiwave-linux
+        run: cargo build --release -p parity-capture
+
+      - name: Run parity shard
+        working-directory: hiwave-linux
+        run: |
+          xvfb-run --auto-servernum python3 scripts/parity_swarm.py \
+            --jobs 2 \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 4 \
+            --scope ${{ github.event.inputs.scope || 'all' }} \
+            --iterations ${{ github.event.inputs.iterations || '3' }} \
+            --run-id linux-${{ github.run_number }}-shard-${{ matrix.shard }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: parity-linux-shard-${{ matrix.shard }}
+          path: hiwave-linux/parity-results/
+          retention-days: 14
+
+  # Aggregate all platforms
+  aggregate-all:
+    needs: [macos-parity, windows-parity, linux-parity]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: parity-*-shard-*
+          path: all-results/
+
+      - name: List downloaded artifacts
+        run: find all-results -type f -name "*.json" | head -20
+
+      - name: Aggregate results
+        run: |
+          python3 scripts/aggregate_parity_results.py \
+            --input-dir all-results \
+            --output metrics/parity_results.json \
+            --verbose
+
+      - name: Install badge/chart dependencies
+        run: pip install pygal lxml cairosvg
+
+      - name: Update metrics
+        run: |
+          python3 scripts/collect_metrics.py
+          python3 scripts/generate_badges.py || echo "Badge generation skipped"
+          python3 scripts/generate_charts.py || echo "Chart generation skipped"
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add metrics/ badges/ charts/
+          git diff --staged --quiet || git commit -m "Update parity metrics [skip ci]"
+          git push || echo "Push failed - may need to pull first"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: parity-unified-report
+          path: |
+            metrics/
+            badges/
+            charts/
+          retention-days: 90
+
+      - name: Summary
+        run: |
+          echo "## Parity Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ -f metrics/parity_results.json ]; then
+            echo "### Overall Results" >> $GITHUB_STEP_SUMMARY
+            python3 -c "
+          import json
+          with open('metrics/parity_results.json') as f:
+              data = json.load(f)
+          overall = data.get('overall', {})
+          print(f\"- **Visual Parity**: {overall.get('visual_parity', 'N/A')}%\")
+          print(f\"- **Pass Rate**: {overall.get('pass_rate', 'N/A')}%\")
+          print(f\"- **Total Tests**: {overall.get('total_tests', 'N/A')}\")
+          print('')
+          print('### By Platform')
+          for platform, metrics in data.get('by_platform', {}).items():
+              print(f\"- **{platform.capitalize()}**: {metrics.get('visual_parity', 'N/A')}% parity, {metrics.get('pass_rate', 'N/A')}% pass rate\")
+          " >> $GITHUB_STEP_SUMMARY
+          else
+            echo "No results file found" >> $GITHUB_STEP_SUMMARY
+          fi
