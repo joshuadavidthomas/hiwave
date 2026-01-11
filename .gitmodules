@@ -7,3 +7,6 @@
 [submodule "hiwave-linux"]
 	path = hiwave-linux
 	url = git@github.com:hiwavebrowser/hiwave-linux.git
+[submodule "churn-report"]
+	path = churn-report
+	url = git@github.com:petec4244/ChurnReport.git

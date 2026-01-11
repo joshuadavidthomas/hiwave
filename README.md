@@ -60,6 +60,19 @@
 
 </details>
 
+<details>
+<summary>Code Churn Analysis</summary>
+
+View the interactive [**Churn Report Dashboard**](churn-reports/dashboard.html) to see:
+- File modification frequency across all platforms
+- Line range hotspots indicating areas of active development
+- Cross-platform file synchronization patterns
+- Divergent development patterns
+
+*Updated weekly via GitHub Actions*
+
+</details>
+
 ---
 
 ## What is HiWave?
@@ -184,7 +197,9 @@ hiwave/
 ├── hiwave-windows/     # Windows app (RustKit engine)
 ├── hiwave-macos/       # macOS app (RustKit engine)
 ├── hiwave-linux/       # Linux app (RustKit engine)
-├── community/          # (comming soon) ways to help decelopment
+├── churn-report/       # Code churn analysis tool (submodule)
+├── churn-reports/      # Generated churn analysis reports
+├── community/          # (coming soon) ways to help development
 └── README.md           # You are here
 ```
 

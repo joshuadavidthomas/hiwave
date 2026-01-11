@@ -1,0 +1,98 @@
+name: Weekly Churn Report
+
+on:
+  schedule:
+    # Run every Sunday at 00:00 UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+    # Allow manual triggering
+    inputs:
+      since_date:
+        description: 'Start date for analysis (YYYY-MM-DD, empty for all time)'
+        required: false
+        type: string
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate Churn Report
+        working-directory: churn-report
+        run: |
+          SINCE_ARG=""
+          if [ -n "${{ inputs.since_date }}" ]; then
+            SINCE_ARG="--since ${{ inputs.since_date }}"
+          fi
+
+          python analyze.py \
+            --macos ../hiwave-macos \
+            --linux ../hiwave-linux \
+            --windows ../hiwave-windows \
+            --output ../churn-reports/ \
+            $SINCE_ARG \
+            --verbose
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and Push Reports
+        run: |
+          git add churn-reports/
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          DATE=$(date +%Y-%m-%d)
+          git commit -m "churn: Update weekly report for $DATE
+
+          Co-Authored-By: github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          git push
+
+      - name: Upload Report Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: churn-report-${{ github.run_number }}
+          path: |
+            churn-reports/dashboard.html
+            churn-reports/report.md
+            churn-reports/churn_data.json
+          retention-days: 90
+
+      - name: Create Job Summary
+        run: |
+          echo "## Churn Report Generated" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** $(date +%Y-%m-%d)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Repository Statistics" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f churn-reports/report.md ]; then
+            # Extract the Repository Statistics and Top 10 sections
+            sed -n '/^## Repository Statistics/,/^## Top 10/p' churn-reports/report.md | head -30 >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Top Churn Files" >> $GITHUB_STEP_SUMMARY
+            sed -n '/^## Top 10 Highest-Churn Files/,/^## Top 10 Highest-Churn Line/p' churn-reports/report.md | head -20 >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[View Full Dashboard](../blob/master/churn-reports/dashboard.html)" >> $GITHUB_STEP_SUMMARY
