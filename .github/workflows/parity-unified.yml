@@ -24,7 +24,8 @@ on:
     types: [run-parity-tests]
 
 jobs:
-  # macOS parity (4 shards)
+  # macOS parity (4 shards) - ONLY macOS has headless parity-capture support
+  # TODO: Enable Windows/Linux once headless rendering is ported
   macos-parity:
     runs-on: macos-14
     timeout-minutes: 30
@@ -74,115 +75,100 @@ jobs:
           path: hiwave-macos/parity-results/
           retention-days: 14
 
-  # Windows parity (4 shards)
-  windows-parity:
-    runs-on: windows-latest
-    timeout-minutes: 45
-    strategy:
-      fail-fast: false
-      matrix:
-        shard: [0, 1, 2, 3]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
+  # Windows parity (4 shards) - DISABLED: Awaiting headless parity-capture port
+  # windows-parity:
+  #   runs-on: windows-latest
+  #   timeout-minutes: 45
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       shard: [0, 1, 2, 3]
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         submodules: recursive
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '20'
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: '3.11'
+  #     - name: Install oracle dependencies
+  #       working-directory: hiwave-windows/tools/parity_oracle
+  #       run: npm ci
+  #     - name: Install Playwright Chromium
+  #       working-directory: hiwave-windows/tools/parity_oracle
+  #       run: npx playwright install chromium
+  #     - name: Build parity-capture
+  #       working-directory: hiwave-windows
+  #       run: cargo build --release -p parity-capture
+  #     - name: Run parity shard
+  #       working-directory: hiwave-windows
+  #       shell: pwsh
+  #       run: |
+  #         python scripts/parity_swarm.py `
+  #           --jobs 2 `
+  #           --shard-index ${{ matrix.shard }} `
+  #           --shard-count 4 `
+  #           --scope ${{ github.event.inputs.scope || 'all' }} `
+  #           --iterations ${{ github.event.inputs.iterations || '3' }} `
+  #           --run-id windows-${{ github.run_number }}-shard-${{ matrix.shard }}
+  #     - uses: actions/upload-artifact@v4
+  #       with:
+  #         name: parity-windows-shard-${{ matrix.shard }}
+  #         path: hiwave-windows/parity-results/
+  #         retention-days: 14
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+  # Linux parity (4 shards) - DISABLED: Awaiting headless parity-capture port
+  # linux-parity:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 45
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       shard: [0, 1, 2, 3]
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #       with:
+  #         submodules: recursive
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '20'
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: '3.11'
+  #     - name: Install system dependencies
+  #       run: |
+  #         sudo apt-get update
+  #         sudo apt-get install -y xvfb libgtk-3-0 libnss3 libxss1 libasound2 libgbm1
+  #     - name: Install oracle dependencies
+  #       working-directory: hiwave-linux/tools/parity_oracle
+  #       run: npm ci
+  #     - name: Install Playwright Chromium
+  #       working-directory: hiwave-linux/tools/parity_oracle
+  #       run: npx playwright install chromium
+  #     - name: Build parity-capture
+  #       working-directory: hiwave-linux
+  #       run: cargo build --release -p parity-capture
+  #     - name: Run parity shard
+  #       working-directory: hiwave-linux
+  #       run: |
+  #         xvfb-run --auto-servernum python3 scripts/parity_swarm.py \
+  #           --jobs 2 \
+  #           --shard-index ${{ matrix.shard }} \
+  #           --shard-count 4 \
+  #           --scope ${{ github.event.inputs.scope || 'all' }} \
+  #           --iterations ${{ github.event.inputs.iterations || '3' }} \
+  #           --run-id linux-${{ github.run_number }}-shard-${{ matrix.shard }}
+  #     - uses: actions/upload-artifact@v4
+  #       with:
+  #         name: parity-linux-shard-${{ matrix.shard }}
+  #         path: hiwave-linux/parity-results/
+  #         retention-days: 14
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install oracle dependencies
-        working-directory: hiwave-windows/tools/parity_oracle
-        run: npm ci
-
-      - name: Install Playwright Chromium
-        working-directory: hiwave-windows/tools/parity_oracle
-        run: npx playwright install chromium
-
-      - name: Build parity-capture
-        working-directory: hiwave-windows
-        run: cargo build --release -p parity-capture
-
-      - name: Run parity shard
-        working-directory: hiwave-windows
-        shell: pwsh
-        run: |
-          python scripts/parity_swarm.py `
-            --jobs 2 `
-            --shard-index ${{ matrix.shard }} `
-            --shard-count 4 `
-            --scope ${{ github.event.inputs.scope || 'all' }} `
-            --iterations ${{ github.event.inputs.iterations || '3' }} `
-            --run-id windows-${{ github.run_number }}-shard-${{ matrix.shard }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: parity-windows-shard-${{ matrix.shard }}
-          path: hiwave-windows/parity-results/
-          retention-days: 14
-
-  # Linux parity (4 shards)
-  linux-parity:
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    strategy:
-      fail-fast: false
-      matrix:
-        shard: [0, 1, 2, 3]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y xvfb libgtk-3-0 libnss3 libxss1 libasound2 libgbm1
-
-      - name: Install oracle dependencies
-        working-directory: hiwave-linux/tools/parity_oracle
-        run: npm ci
-
-      - name: Install Playwright Chromium
-        working-directory: hiwave-linux/tools/parity_oracle
-        run: npx playwright install chromium
-
-      - name: Build parity-capture
-        working-directory: hiwave-linux
-        run: cargo build --release -p parity-capture
-
-      - name: Run parity shard
-        working-directory: hiwave-linux
-        run: |
-          xvfb-run --auto-servernum python3 scripts/parity_swarm.py \
-            --jobs 2 \
-            --shard-index ${{ matrix.shard }} \
-            --shard-count 4 \
-            --scope ${{ github.event.inputs.scope || 'all' }} \
-            --iterations ${{ github.event.inputs.iterations || '3' }} \
-            --run-id linux-${{ github.run_number }}-shard-${{ matrix.shard }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: parity-linux-shard-${{ matrix.shard }}
-          path: hiwave-linux/parity-results/
-          retention-days: 14
-
-  # Aggregate all platforms
+  # Aggregate results (macOS only for now)
   aggregate-all:
-    needs: [macos-parity, windows-parity, linux-parity]
+    needs: [macos-parity]
     if: always()
     runs-on: ubuntu-latest
     steps:

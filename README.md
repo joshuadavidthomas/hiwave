@@ -91,6 +91,14 @@ RustKit engine is tested against Chrome 120 baselines using **triple verificatio
 | **Layout Rects** | Element positioning accuracy | Secondary |
 | **Computed Styles** | CSS property matching | Diagnostic |
 
+### Platform Support
+
+| Platform | Status | Notes |
+|----------|--------|-------|
+| macOS | Active | Full headless parity testing |
+| Windows | Pending | Awaiting headless rendering port |
+| Linux | Pending | Awaiting headless rendering port |
+
 ### Test Cases (23 total)
 
 | Category | Count | Cases |
@@ -102,15 +110,15 @@ RustKit engine is tested against Chrome 120 baselines using **triple verificatio
 ### Running Parity Tests
 
 ```bash
-# Run all tests with 3 iterations (macOS)
+# Run all tests with 3 iterations (macOS - fully supported)
 cd hiwave-macos
 python3 scripts/parity_swarm.py --scope all --iterations 3
 
-# Run builtins only with 2 parallel jobs (Windows)
-cd hiwave-windows
-python scripts/parity_swarm.py --scope builtins --jobs 2
+# Windows/Linux parity tests require parity-capture binary
+# which is currently only available on macOS.
+# Scripts exist but will fail until headless support is ported.
 
-# Run with Xvfb (Linux)
+# Run with Xvfb (Linux - once headless support is ported)
 cd hiwave-linux
 xvfb-run python3 scripts/parity_swarm.py --scope all
 ```
