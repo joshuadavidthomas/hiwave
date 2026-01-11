@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html data-renderer="Homepage" data-theme="light dark" lang="en-US">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   MDN Web Docs
+  </title>
+  <link as="font" crossorigin="anonymous" fetchpriority="low" href="/static/client/jetbrains-mono-latin.119994ed445212c7.woff2" rel="preload" type="font/woff2"/>
+  <link as="font" crossorigin="anonymous" fetchpriority="low" href="/static/client/inter-latin.9a3b1bc220d426ef.woff2" rel="preload" type="font/woff2"/>
+  <link href="https://developer.mozilla.org/favicon.ico" rel="icon" sizes="32x32"/>
+  <link href="https://developer.mozilla.org/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <meta content="The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps." name="description"/>
+  <meta content="https://developer.mozilla.org/en-US/" name="og:url"/>
+  <meta content="MDN Web Docs" name="og:title"/>
+  <meta content="en_US" name="og:locale"/>
+  <meta content="The MDN Web Docs site provides information about Open Web technologies including HTML, CSS, and APIs for both Web sites and progressive web apps." name="og:description"/>
+  <meta content="https://developer.mozilla.org/mdn-social-share.d893525a4fb5fb1f67a2.png" name="og:image"/>
+  <meta content="image/png" name="og:image:type"/>
+  <meta content="1080" name="og:image:height"/>
+  <meta content="1920" name="og:image:width"/>
+  <meta content="The MDN Web Docs logo, featuring a blue accent color, displayed on a solid black background." name="og:image:alt"/>
+  <meta content="MDN Web Docs" name="og:site_name"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="MozDevNet" name="twitter:creator"/>
+  <link href="https://developer.mozilla.org/en-US/" rel="canonical"/>
+  <link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+  <link href="/manifest.json" rel="manifest"/>
+  <link href="/opensearch.xml" rel="search" title="MDN Web Docs" type="application/opensearchdescription+xml"/>
+  <link href="https://developer.mozilla.org/en-US/blog/rss.xml" rel="alternate" title="MDN Blog RSS Feed" type="application/rss+xml"/>
+ </head>
+ <body class="page-layout">
+  <ul class="a11y-menu">
+   <li>
+    <a href="#">
+     Skip to main content
+    </a>
+   </li>
+   <li>
+    <a href="#">
+     Skip to search
+    </a>
+   </li>
+  </ul>
+  <div class="page-layout__banner" data-scheme="dark">
+   <mdn-placement-top>
+   </mdn-placement-top>
+  </div>
+  <header class="page-layout__header">
+   <nav class="navigation" data-open="false" data-scheme="dark">
+    <div class="navigation__logo">
+     <a class="logo" href="#">
+      <svg class="logo__image" height="24" role="img" viewbox="0 0 83 24" width="83">
+       <title>
+        MDN
+       </title>
+       <path class="logo__letter" d="M9.4 0 2.81 21.17H.12L6.69 0H9.4Zm2.38 0v21.17H9.4V0h2.4Zm9.27 0-6.56 21.17H11.8L18.36 0h2.69Zm2.39 0v21.17h-2.4V0h2.4Z">
+       </path>
+       <path class="logo__text" d="M45.55 16.83h-3.93v-1.27h.87v-3.63c0-.85-.16-1.45-.48-1.82a1.65 1.65 0 0 0-1.3-.52c-.74 0-1.3.25-1.66.78a2.98 2.98 0 0 0-.58 1.58v3.59h1.38v1.26h-3.93v-1.26h.87v-3.6c0-.88-.16-1.48-.48-1.83a1.7 1.7 0 0 0-1.29-.52 1.93 1.93 0 0 0-1.65.75 2.85 2.85 0 0 0-.58 1.6v3.62h1.59v1.27h-4.64v-1.27h1.37V9.75h-1.4V8.46h3.08v1.47c.28-.48.62-.87 1.08-1.2a3 3 0 0 1 1.68-.45c.67 0 1.22.16 1.73.48.5.32.85.8 1.03 1.47.25-.57.62-1.03 1.13-1.4.5-.37 1.1-.55 1.81-.55.8 0 1.5.25 2.05.75.55.51.85 1.3.85 2.35v4.18h1.4v1.27Zm9.77 0H52.3v-1.66c-.27.51-.66.95-1.13 1.29-.56.4-1.23.59-1.9.55-1.11 0-2-.37-2.67-1.12a4.41 4.41 0 0 1-1-3.06c0-1.15.3-2.2.93-3.15.6-.94 1.58-1.43 2.94-1.43 1.36 0 2.25.5 2.83 1.5V5.22h-2V3.93h3.63v11.63h1.38v1.27Zm-3.06-3.86v-1.02a2.28 2.28 0 0 0-.73-1.67 2.4 2.4 0 0 0-1.66-.65 2.18 2.18 0 0 0-1.88.9 3.63 3.63 0 0 0-.65 2.2c0 .95.23 1.68.7 2.19.45.5 1.03.76 1.7.76.73 0 1.33-.3 1.79-.88.48-.6.71-1.21.73-1.83Zm14.14 3.86h-4.43v-1.27h1.37v-3.63c0-.85-.16-1.45-.5-1.82a1.68 1.68 0 0 0-1.31-.52c-.71 0-1.29.23-1.7.69a2.52 2.52 0 0 0-.67 1.6v3.66h1.38v1.26H56.1v-1.26h1.38v-5.8h-1.42V8.47h3.12V9.9c.6-1.06 1.57-1.6 2.92-1.6.83 0 1.54.26 2.12.77.57.5.85 1.28.85 2.34v4.19h1.38v1.24h-.05Z">
+       </path>
+       <path class="logo__cursor" d="M67.71 21.98H83V24H67.71v-2.02Z">
+       </path>
+      </svg>
+     </a>
+    </div>
+    <div class="navigation__search" data-view="mobile">
+     <mdn-search-button>
+      <template shadowroot="open" shadowrootmode="open">
+       <style>
+        .mdn-search-button{align-items:center;background-color:var(--color-background-page);border:1px solid var(--color-border-primary);border-radius:var(--radius-full);color:var(--color-text-primary);cursor:pointer;display:flex;justify-content:space-between;margin:0;padding:.25rem .25rem .25rem .75rem;width:5rem}.mdn-search-button:hover{background-color:var(--color-background-secondary)}.mdn-search-button:before{content:"";height:18px;width:15px;--csstools-light-dark-toggle-95231fd5-0:var(--csstools-color-scheme--light) var(--color-blue-80);border-bottom:2px solid var(--csstools-light-dark-toggle-95231fd5-0,var(--color-blue-50))}@supports (color:light-dark(red,red)){.mdn-search-button:before{border-bottom:2px solid light-dark(var(--color-blue-50),var(--color-blue-80))}}
+       </style>
+       <!--lit-part PwhADO+m7/M=-->
+       <!--lit-node 0-->
+       <button class="mdn-search-button" data-glean-id="quick-search-open: menu" title="Search the site">
+        <!--lit-part ijtgkDNyZhc=-->
+        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+         <path d="m21 21-4.34-4.34">
+         </path>
+         <circle cx="11" cy="11" r="8">
+         </circle>
+        </svg>
+        <!--/lit-part-->
+       </button>
+       <!--/lit-part-->
+      </template>
+     </mdn-search-button>
+    </div>
+    <button aria-controls="navigation__popup" aria-expanded="false" aria-label="Toggle navigation" class="navigation__button" type="button">
+    </button>
+    <div class="navigation__popup" id="navigation__popup">
+     <div class="navigation__menu">
+      <nav class="menu">
+       <div class="menu__tab" data-section="html">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label">
+           HTML
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           <a data-glean-id="menu_click_menu: html -&gt; /en-US/docs/Web/HTML" href="#">
+            HTML: Markup language
+           </a>
+          </p>
+          <div class="menu__panel-content">
+           <dl>
+            <dt>
+             HTML reference
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Reference/Elements" href="#">
+                Elements
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Reference/Global_attributes" href="#">
+                Global attributes
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Reference/Attributes" href="#">
+                Attributes
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all HTML references" data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Reference" href="#" title="See all HTML references">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             HTML guides
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Guides/Responsive_images" href="#">
+                Responsive images
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Guides/Cheatsheet" href="#">
+                HTML cheatsheet
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Guides/Date_and_time_formats" href="#">
+                Date &amp; time formats
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all HTML guides" data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/HTML/Guides" href="#" title="See all HTML guides">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             Markup languages
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/SVG" href="#">
+                SVG
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/MathML" href="#">
+                MathML
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: html -&gt; /en-US/docs/Web/XML" href="#">
+                XML
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="css">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label">
+           CSS
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           <a data-glean-id="menu_click_menu: css -&gt; /en-US/docs/Web/CSS" href="#">
+            CSS: Styling language
+           </a>
+          </p>
+          <div class="menu__panel-content">
+           <dl>
+            <dt>
+             CSS reference
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Reference/Properties" href="#">
+                Properties
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Reference/Selectors" href="#">
+                Selectors
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Reference/At-rules" href="#">
+                At-rules
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Reference/Values" href="#">
+                Values
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all CSS references" data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Reference" href="#" title="See all CSS references">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             CSS guides
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Guides/Box_model/Introduction" href="#">
+                Box model
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Guides/Animations/Using" href="#">
+                Animations
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts" href="#">
+                Flexbox
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Guides/Colors/Applying_color" href="#">
+                Colors
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all CSS guides" data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/Guides" href="#" title="See all CSS guides">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             Layout cookbook
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/How_to/Layout_cookbook/Column_layouts" href="#">
+                Column layouts
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/How_to/Layout_cookbook/Center_an_element" href="#">
+                Centering an element
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/How_to/Layout_cookbook/Card" href="#">
+                Card component
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: css -&gt; /en-US/docs/Web/CSS/How_to/Layout_cookbook" href="#">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="javascript">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label" data-type="long">
+           JavaScript
+          </span>
+          <span class="menu__tab-label" data-type="short">
+           JS
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           <a data-glean-id="menu_click_menu: javascript -&gt; /en-US/docs/Web/JavaScript" href="#">
+            JavaScript: Scripting language
+           </a>
+          </p>
+          <div class="menu__panel-content">
+           <dl>
+            <dt>
+             JS reference
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Reference/Global_Objects" href="#">
+                Standard built-in objects
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Reference/Operators" href="#">
+                Expressions &amp; operators
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Reference/Statements" href="#">
+                Statements &amp; declarations
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Reference/Functions" href="#">
+                Functions
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all JavaScript references" data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Reference" href="#" title="See all JavaScript references">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             JS guides
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" href="#">
+                Control flow &amp; error handing
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" href="#">
+                Loops and iteration
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Guide/Working_with_objects" href="#">
+                Working with objects
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Guide/Using_classes" href="#">
+                Using classes
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all JavaScript guides" data-glean-id="menu_click_submenu: javascript -&gt; /en-US/docs/Web/JavaScript/Guide" href="#" title="See all JavaScript guides">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="webapis">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label">
+           Web APIs
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           <a data-glean-id="menu_click_menu: webapis -&gt; /en-US/docs/Web/API" href="#">
+            Web APIs: Programming interfaces
+           </a>
+          </p>
+          <div class="menu__panel-content">
+           <dl>
+            <dt>
+             Web API reference
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/File_System_API" href="#">
+                File system API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Fetch_API" href="#">
+                Fetch API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Geolocation_API" href="#">
+                Geolocation API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/HTML_DOM_API" href="#">
+                HTML DOM API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Push_API" href="#">
+                Push API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Service_Worker_API" href="#">
+                Service worker API
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all Web API guides" data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API" href="#" title="See all Web API guides">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             Web API guides
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API" href="#">
+                Using the Web animation API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Fetch_API/Using_Fetch" href="#">
+                Using the Fetch API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/History_API/Working_with_the_History_API" href="#">
+                Working with the History API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API" href="#">
+                Using the Web speech API
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: webapis -&gt; /en-US/docs/Web/API/Web_Workers_API/Using_web_workers" href="#">
+                Using web workers
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="all">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label">
+           All
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           <a data-glean-id="menu_click_menu: all -&gt; /en-US/docs/Web" href="#">
+            All web technology
+           </a>
+          </p>
+          <div class="menu__panel-content">
+           <dl>
+            <dt>
+             Technologies
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/Accessibility" href="#">
+                Accessibility
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/HTTP" href="#">
+                HTTP
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/URI" href="#">
+                URI
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Mozilla/Add-ons/WebExtensions" href="#">
+                Web extensions
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/WebAssembly" href="#">
+                WebAssembly
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/WebDriver" href="#">
+                WebDriver
+               </a>
+              </li>
+              <li>
+               <a aria-label="See all web technology references" data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web" href="#" title="See all web technology references">
+                See allâ¦
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             Topics
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/Media" href="#">
+                Media
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/Performance" href="#">
+                Performance
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/Privacy" href="#">
+                Privacy
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/Security" href="#">
+                Security
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: all -&gt; /en-US/docs/Web/Progressive_web_apps" href="#">
+                Progressive web apps
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="learn">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label">
+           Learn
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           <a data-glean-id="menu_click_menu: learn -&gt; /en-US/docs/Learn_web_development" href="#">
+            Learn web development
+           </a>
+          </p>
+          <div class="menu__panel-content">
+           <dl>
+            <dt>
+             Frontend developer course
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: learn -&gt; /en-US/docs/Learn_web_development/Getting_started" href="#">
+                Getting started modules
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: learn -&gt; /en-US/docs/Learn_web_development/Core" href="#">
+                Core modules
+               </a>
+              </li>
+              <li>
+               <a class="" data-glean-id="menu_click_submenu: learn -&gt; /en-US/curriculum/" href="#">
+                MDN Curriculum
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             Learn HTML
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: learn -&gt; /en-US/docs/Learn_web_development/Core/Structuring_content" href="#">
+                Structuring content with HTML module
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             Learn CSS
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: learn -&gt; /en-US/docs/Learn_web_development/Core/Styling_basics" href="#">
+                CSS styling basics module
+               </a>
+              </li>
+              <li>
+               <a data-glean-id="menu_click_submenu: learn -&gt; /en-US/docs/Learn_web_development/Core/CSS_layout" href="#">
+                CSS layout module
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+           <dl>
+            <dt>
+             Learn JavaScript
+            </dt>
+            <dd>
+             <ul>
+              <li>
+               <a data-glean-id="menu_click_submenu: learn -&gt; /en-US/docs/Learn_web_development/Core/Scripting" href="#">
+                Dynamic scripting with JavaScript module
+               </a>
+              </li>
+             </ul>
+            </dd>
+           </dl>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="tools">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label">
+           Tools
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           Discover our tools
+          </p>
+          <div class="menu__panel-content">
+           <ul>
+            <li>
+             <a class="menu__panel-icon" data-glean-id="menu_click_submenu: tools -&gt; /en-US/play" data-icon="circle-play" href="#">
+              Playground
+             </a>
+            </li>
+            <li>
+             <a class="menu__panel-icon" data-glean-id="menu_click_submenu: tools -&gt; /en-US/observatory" data-icon="shield-check" href="#">
+              HTTP Observatory
+             </a>
+            </li>
+           </ul>
+           <ul>
+            <li>
+             <a data-glean-id="menu_click_submenu: tools -&gt; /en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Border-image_generator" href="#">
+              Border-image generator
+             </a>
+            </li>
+            <li>
+             <a data-glean-id="menu_click_submenu: tools -&gt; /en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator" href="#">
+              Border-radius generator
+             </a>
+            </li>
+            <li>
+             <a data-glean-id="menu_click_submenu: tools -&gt; /en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Box-shadow_generator" href="#">
+              Box-shadow generator
+             </a>
+            </li>
+            <li>
+             <a data-glean-id="menu_click_submenu: tools -&gt; /en-US/docs/Web/CSS/CSS_colors/Color_format_converter" href="#">
+              Color format converter
+             </a>
+            </li>
+            <li>
+             <a data-glean-id="menu_click_submenu: tools -&gt; /en-US/docs/Web/CSS/CSS_colors/Color_mixer" href="#">
+              Color mixer
+             </a>
+            </li>
+            <li>
+             <a data-glean-id="menu_click_submenu: tools -&gt; /en-US/docs/Web/CSS/CSS_shapes/Shape_generator" href="#">
+              Shape generator
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="about">
+        <mdn-dropdown>
+         <template shadowroot="open" shadowrootmode="open">
+          <style>
+           :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+          </style>
+          <!--lit-part NrjKVwpqTpA=-->
+          <!--lit-node 0-->
+          <slot name="button">
+          </slot>
+          <!--lit-node 1-->
+          <slot name="dropdown">
+          </slot>
+          <!--/lit-part-->
+         </template>
+         <button class="menu__tab-button" slot="button" type="button">
+          <span class="menu__tab-label">
+           About
+          </span>
+         </button>
+         <div class="menu__panel" slot="dropdown">
+          <p class="menu__panel-title">
+           Get to know MDN better
+          </p>
+          <div class="menu__panel-content">
+           <ul>
+            <li>
+             <a class="menu__panel-icon" data-glean-id="menu_click_submenu: about -&gt; /en-US/about" data-icon="mdn-m" href="#">
+              About MDN
+             </a>
+            </li>
+            <li>
+             <a class="menu__panel-icon" data-glean-id="menu_click_submenu: about -&gt; /en-US/advertising" data-icon="chart-no-axes-combined" href="#">
+              Advertise with us
+             </a>
+            </li>
+           </ul>
+           <ul>
+            <li>
+             <a class="menu__panel-icon" data-glean-id="menu_click_submenu: about -&gt; /en-US/community" data-icon="users" href="#">
+              Community
+             </a>
+            </li>
+            <li>
+             <a class="menu__panel-icon external" data-glean-id="menu_click_submenu: about -&gt; https://github.com/mdn" data-icon="github" href="#">
+              MDN on GitHub
+             </a>
+            </li>
+           </ul>
+          </div>
+         </div>
+        </mdn-dropdown>
+       </div>
+       <div class="menu__tab" data-section="blog">
+        <a class="menu__tab-link" data-glean-id="menu_click_link: top-level -&gt; /en-US/blog/" href="#">
+         Blog
+        </a>
+       </div>
+      </nav>
+     </div>
+     <div class="navigation__search" data-view="desktop">
+      <mdn-search-button>
+       <template shadowroot="open" shadowrootmode="open">
+        <style>
+         .mdn-search-button{align-items:center;background-color:var(--color-background-page);border:1px solid var(--color-border-primary);border-radius:var(--radius-full);color:var(--color-text-primary);cursor:pointer;display:flex;justify-content:space-between;margin:0;padding:.25rem .25rem .25rem .75rem;width:5rem}.mdn-search-button:hover{background-color:var(--color-background-secondary)}.mdn-search-button:before{content:"";height:18px;width:15px;--csstools-light-dark-toggle-95231fd5-0:var(--csstools-color-scheme--light) var(--color-blue-80);border-bottom:2px solid var(--csstools-light-dark-toggle-95231fd5-0,var(--color-blue-50))}@supports (color:light-dark(red,red)){.mdn-search-button:before{border-bottom:2px solid light-dark(var(--color-blue-50),var(--color-blue-80))}}
+        </style>
+        <!--lit-part PwhADO+m7/M=-->
+        <!--lit-node 0-->
+        <button class="mdn-search-button" data-glean-id="quick-search-open: menu" title="Search the site">
+         <!--lit-part ijtgkDNyZhc=-->
+         <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="m21 21-4.34-4.34">
+          </path>
+          <circle cx="11" cy="11" r="8">
+          </circle>
+         </svg>
+         <!--/lit-part-->
+        </button>
+        <!--/lit-part-->
+       </template>
+      </mdn-search-button>
+     </div>
+     <mdn-user-menu locale="en-US">
+     </mdn-user-menu>
+    </div>
+   </nav>
+   <mdn-search-modal id="search">
+   </mdn-search-modal>
+   <div class="breadcrumbs-bar" data-scheme="dark">
+    <ol class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
+     <li property="itemListElement" typeof="ListItem">
+      <a href="#" property="item" typeof="WebPage">
+       <span property="name">
+        MDN
+       </span>
+      </a>
+      <meta content="1" property="position"/>
+     </li>
+    </ol>
+    <mdn-color-theme>
+     <template shadowroot="open" shadowrootmode="open">
+      <style>
+       .color-theme{--color-theme-light-dark:url(/static/ssr/contrast.d86e85c43de8dee8.svg);--color-theme-light:url(/static/ssr/sun.1d7c3ad7bf6fc390.svg);--color-theme-dark:url(/static/ssr/moon.74026b9da82b0694.svg);position:relative}.color-theme__button{align-items:center;background-color:initial;border:none;color:inherit;column-gap:.25rem;cursor:pointer;display:flex;font:inherit;margin:0;padding:0 .5rem}.color-theme__button:is(:hover,:focus,[aria-expanded=true]){background-color:var(--color-background-secondary)}@media (width <= 769px){.color-theme__button>span{display:none}}.color-theme__button:before{background-color:currentcolor;content:"";height:1.25rem;-webkit-mask-size:cover;mask-size:cover;width:1.25rem}.color-theme__button[data-mode="light dark"]:before{-webkit-mask-image:var(--color-theme-light-dark);mask-image:var(--color-theme-light-dark)}.color-theme__button[data-mode=light]:before{-webkit-mask-image:var(--color-theme-light);mask-image:var(--color-theme-light)}.color-theme__button[data-mode=dark]:before{-webkit-mask-image:var(--color-theme-dark);mask-image:var(--color-theme-dark)}.color-theme__dropdown{border:1px solid var(--color-border-primary);padding:.75rem;position:absolute;right:0;z-index:1}.color-theme__dropdown,.color-theme__list{background-color:var(--color-background-primary);margin:0;width:max-content}.color-theme__list{list-style:none;padding:0}.color-theme__option{align-items:center;background-color:initial;border:none;color:var(--color-text-primary);column-gap:.25rem;cursor:pointer;display:flex;font:inherit;margin:0;padding:.25rem;width:100%}.color-theme__option:hover{background-color:var(--color-background-secondary)}.color-theme__option:before{background-color:currentcolor;content:"";height:1.25rem;-webkit-mask-size:cover;mask-size:cover;width:1.25rem}.color-theme__option[data-mode="light dark"]:before{-webkit-mask-image:var(--color-theme-light-dark);mask-image:var(--color-theme-light-dark)}.color-theme__option[data-mode=light]:before{-webkit-mask-image:var(--color-theme-light);mask-image:var(--color-theme-light)}.color-theme__option[data-mode=dark]:before{-webkit-mask-image:var(--color-theme-dark);mask-image:var(--color-theme-dark)}.color-theme__option[data-current]{background:var(--color-background-secondary)}
+      </style>
+      <!--lit-part jjbrVed3TRM=-->
+      <div class="color-theme">
+       <!--lit-node 1-->
+       <mdn-dropdown defer-hydration="">
+        <template shadowroot="open" shadowrootmode="open">
+         <style>
+          :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+         </style>
+         <!--lit-part NrjKVwpqTpA=-->
+         <!--lit-node 0-->
+         <slot name="button">
+         </slot>
+         <!--lit-node 1-->
+         <slot name="dropdown">
+         </slot>
+         <!--/lit-part-->
+        </template>
+        <!--lit-node 2-->
+        <button aria-label="Switch color theme" class="color-theme__button" data-mode="light dark" part="button" slot="button" type="button">
+         <span>
+          <!--lit-part-->
+          Theme
+          <!--/lit-part-->
+         </span>
+        </button>
+        <div class="color-theme__dropdown" id="color-theme__dropdown" slot="dropdown">
+         <ul class="color-theme__list">
+          <!--lit-part-->
+          <!--lit-part oXzlp8XhpzI=-->
+          <li>
+           <!--lit-node 1-->
+           <button class="color-theme__option" data-current="" data-mode="light dark" type="button">
+            <!--lit-part-->
+            OS default
+            <!--/lit-part-->
+           </button>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part oXzlp8XhpzI=-->
+          <li>
+           <!--lit-node 1-->
+           <button class="color-theme__option" data-mode="light" type="button">
+            <!--lit-part-->
+            Light
+            <!--/lit-part-->
+           </button>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part oXzlp8XhpzI=-->
+          <li>
+           <!--lit-node 1-->
+           <button class="color-theme__option" data-mode="dark" type="button">
+            <!--lit-part-->
+            Dark
+            <!--/lit-part-->
+           </button>
+          </li>
+          <!--/lit-part-->
+          <!--/lit-part-->
+         </ul>
+        </div>
+       </mdn-dropdown>
+      </div>
+      <!--/lit-part-->
+     </template>
+    </mdn-color-theme>
+    <mdn-language-switcher locale="en-US" native="English (US)" translations='[{"locale":"en-US","title":"MDN Web Docs","native":"English (US)"},{"locale":"es","title":"MDN Web Docs","native":"EspaÃ±ol"},{"locale":"fr","title":"MDN Web Docs","native":"FranÃ§ais"},{"locale":"ja","title":"MDN Web Docs","native":"æ¥æ¬èª"},{"locale":"ko","title":"MDN Web Docs","native":"íêµ­ì´"},{"locale":"pt-BR","title":"MDN Web Docs","native":"PortuguÃªs (doÂ Brasil)"},{"locale":"ru","title":"MDN Web Docs","native":"Ð ÑÑÑÐºÐ¸Ð¹"},{"locale":"zh-CN","title":"MDN Web Docs","native":"ä¸­æ (ç®ä½)"},{"locale":"zh-TW","title":"MDN Web Docs","native":"æ­£é«ä¸­æ (ç¹é«)"},{"locale":"de","title":"MDN Web Docs","native":"Deutsch"}]' url="/en-US/">
+     <template shadowroot="open" shadowrootmode="open">
+      <style>
+       *,:after,:before{box-sizing:border-box}button,input,select,textarea{font:inherit}button{color:inherit;cursor:pointer}img{height:auto;max-width:100%}a{color:var(--color-link-normal)}[hidden]{display:none!important}.language-switcher{position:relative}.language-switcher__button{align-items:center;background-color:initial;border:none;color:inherit;column-gap:.25rem;cursor:pointer;display:flex;font:inherit;margin:0;padding:0 .5rem}.language-switcher__button:is(:hover,:focus,[aria-expanded=true]){background-color:var(--color-background-secondary)}@media screen and (width <= 480px){.language-switcher__button>span{display:none}}.language-switcher__button:before{background-color:currentcolor;content:"";height:1.25rem;-webkit-mask-image:url(/static/ssr/languages.dcba936080e5be86.svg);mask-image:url(/static/ssr/languages.dcba936080e5be86.svg);-webkit-mask-size:cover;mask-size:cover;width:1.25rem}.language-switcher__dropdown{background-color:var(--color-background-primary);border:1px solid var(--color-border-primary);margin:0;padding:.75rem;position:absolute;right:0;width:max-content;z-index:1}.language_switcher__remember{border-bottom:1px solid var(--color-border-primary);display:flex;font-size:var(--font-size-small);place-items:center;width:100%}.language_switcher__remember mdn-switch{padding:.25rem}:is(.language_switcher__remember mdn-switch):hover{background-color:var(--color-background-secondary)}.language-switcher__list{background-color:var(--color-background-primary);list-style:none;margin:0;padding:0;width:100%}.language-switcher__option{align-items:center;background-color:initial;border:none;color:var(--color-text-primary);column-gap:.25rem;display:flex;font:inherit;margin:0;padding:.25rem;-webkit-text-decoration:none;text-decoration:none;width:100%}.language-switcher__option:hover,.language-switcher__option[data-current]{background-color:var(--color-background-secondary)}
+      </style>
+      <!--lit-part chc5lPcfcrc=-->
+      <div class="language-switcher">
+       <!--lit-node 1-->
+       <mdn-dropdown defer-hydration="">
+        <template shadowroot="open" shadowrootmode="open">
+         <style>
+          :host{display:contents}:host(:not([loaded],:focus-within)) slot[name=dropdown]{display:none}
+         </style>
+         <!--lit-part NrjKVwpqTpA=-->
+         <!--lit-node 0-->
+         <slot name="button">
+         </slot>
+         <!--lit-node 1-->
+         <slot name="dropdown">
+         </slot>
+         <!--/lit-part-->
+        </template>
+        <button aria-labelledby="current-locale" class="language-switcher__button" part="button" slot="button" type="button">
+         <span id="current-locale">
+          <!--lit-part-->
+          English (US)
+          <!--/lit-part-->
+         </span>
+        </button>
+        <div class="language-switcher__dropdown" id="language-switcher__dropdown" slot="dropdown">
+         <div class="language_switcher__remember">
+          <!--lit-node 7-->
+          <mdn-switch defer-hydration="">
+           <template shadowroot="open" shadowrootmode="open">
+            <style>
+             @property --switch-position{syntax:"<percentage>";inherits:false;initial-value:0}.switch{cursor:pointer;display:flex;gap:.5em;place-items:center}.switch__input{--switch-size:1.25em;appearance:none;background-color:var(--color-text-secondary);background-image:radial-gradient(circle at calc(var(--switch-size)/2),var(--color-background-primary) calc((var(--switch-size)/2)*.8),#0000 calc((var(--switch-size)/2)*.8 + 1px));background-position:var(--switch-position) 0;background-repeat:no-repeat;background-size:var(--switch-size);border-radius:var(--radius-full);display:inline-block;height:var(--switch-size);margin:0;transition:--switch-position .2s;width:calc(var(--switch-size)*1.6)}.switch__input:checked{--switch-position:100%;background-color:var(--color-link-normal)}.switch__input:focus-visible{outline:2px solid var(--color-link-normal);outline-offset:2px}.switch__input:active:not(:disabled){filter:brightness(1.2)}.switch__input:disabled{opacity:.7}
+            </style>
+            <!--lit-part 5r9QLJvcF6A=-->
+            <label class="switch">
+             <!--lit-node 1-->
+             <input class="switch__input" type="checkbox"/>
+             <slot>
+             </slot>
+            </label>
+            <!--/lit-part-->
+           </template>
+           <!--lit-part-->
+           Remember language
+           <!--/lit-part-->
+          </mdn-switch>
+          <!--lit-node 9-->
+          <mdn-button defer-hydration="" href="https://github.com/orgs/mdn/discussions/739" icon-only="" target="_blank" title="Enable this setting to always switch to the current language when available. (Click to learn more.)" variant="plain">
+           <template shadowroot="open" shadowrootmode="open">
+            <style>
+             .button{align-items:center;background-color:initial;border:1px solid #0000;border-radius:.25rem;color:var(--color-text-primary);column-gap:.3125em;cursor:pointer;display:inline-flex;font-family:var(--font-family-text);font-size:.875em;font-weight:450;justify-content:center;line-height:var(--font-line-ui);margin:0;padding:.5em;-webkit-text-decoration:none;text-decoration:none;vertical-align:middle}.button[data-variant=primary]{--csstools-light-dark-toggle-33eaa513-0:var(--csstools-color-scheme--light) var(--color-black);color:var(--csstools-light-dark-toggle-33eaa513-0,var(--color-white));--csstools-light-dark-toggle-33eaa513-1:var(--csstools-color-scheme--light) var(--color-white);background-color:var(--csstools-light-dark-toggle-33eaa513-1,var(--color-black))}@supports (color:light-dark(red,red)){.button[data-variant=primary]{background-color:light-dark(var(--color-black),var(--color-white));color:light-dark(var(--color-white),var(--color-black))}}.button[data-variant=primary]:hover{--csstools-light-dark-toggle-33eaa513-2:var(--csstools-color-scheme--light) var(--color-gray-80);background-color:var(--csstools-light-dark-toggle-33eaa513-2,var(--color-gray-20))}@supports (color:light-dark(red,red)){.button[data-variant=primary]:hover{background-color:light-dark(var(--color-gray-20),var(--color-gray-80))}}.button[data-variant=primary][data-action=positive]{color:var(--color-white);--csstools-light-dark-toggle-33eaa513-3:var(--csstools-color-scheme--light) var(--color-green-20);background-color:var(--csstools-light-dark-toggle-33eaa513-3,var(--color-green-50))}@supports (color:light-dark(red,red)){.button[data-variant=primary][data-action=positive]{background-color:light-dark(var(--color-green-50),var(--color-green-20))}}.button[data-variant=primary][data-action=positive]:hover{--csstools-light-dark-toggle-33eaa513-4:var(--csstools-color-scheme--light) var(--color-green-50);background-color:var(--csstools-light-dark-toggle-33eaa513-4,var(--color-green-20))}@supports (color:light-dark(red,red)){.button[data-variant=primary][data-action=positive]:hover{background-color:light-dark(var(--color-green-20),var(--color-green-50))}}.button[data-variant=primary][data-action=negative]{color:var(--color-white);--csstools-light-dark-toggle-33eaa513-5:var(--csstools-color-scheme--light) var(--color-red-20);background-color:var(--csstools-light-dark-toggle-33eaa513-5,var(--color-red-50))}@supports (color:light-dark(red,red)){.button[data-variant=primary][data-action=negative]{background-color:light-dark(var(--color-red-50),var(--color-red-20))}}.button[data-variant=primary][data-action=negative]:hover{--csstools-light-dark-toggle-33eaa513-6:var(--csstools-color-scheme--light) var(--color-red-50);background-color:var(--csstools-light-dark-toggle-33eaa513-6,var(--color-red-20))}@supports (color:light-dark(red,red)){.button[data-variant=primary][data-action=negative]:hover{background-color:light-dark(var(--color-red-20),var(--color-red-50))}}.button[data-variant=secondary]{border-color:currentcolor}.button[data-variant=secondary]:hover{--csstools-light-dark-toggle-33eaa513-7:var(--csstools-color-scheme--light) var(--color-gray-20);background-color:var(--csstools-light-dark-toggle-33eaa513-7,var(--color-gray-80))}@supports (color:light-dark(red,red)){.button[data-variant=secondary]:hover{background-color:light-dark(var(--color-gray-80),var(--color-gray-20))}}.button[data-variant=secondary][data-action=positive]{--csstools-light-dark-toggle-33eaa513-8:var(--csstools-color-scheme--light) var(--color-green-80);color:var(--csstools-light-dark-toggle-33eaa513-8,var(--color-green-50))}@supports (color:light-dark(red,red)){.button[data-variant=secondary][data-action=positive]{color:light-dark(var(--color-green-50),var(--color-green-80))}}.button[data-variant=secondary][data-action=positive]:hover{--csstools-light-dark-toggle-33eaa513-9:var(--csstools-color-scheme--light) var(--color-green-10);background-color:var(--csstools-light-dark-toggle-33eaa513-9,var(--color-green-90))}@supports (color:light-dark(red,red)){.button[data-variant=secondary][data-action=positive]:hover{background-color:light-dark(var(--color-green-90),var(--color-green-10))}}.button[data-variant=secondary][data-action=negative]{--csstools-light-dark-toggle-33eaa513-10:var(--csstools-color-scheme--light) var(--color-red-80);color:var(--csstools-light-dark-toggle-33eaa513-10,var(--color-red-50))}@supports (color:light-dark(red,red)){.button[data-variant=secondary][data-action=negative]{color:light-dark(var(--color-red-50),var(--color-red-80))}}.button[data-variant=secondary][data-action=negative]:hover{--csstools-light-dark-toggle-33eaa513-11:var(--csstools-color-scheme--light) var(--color-red-10);background-color:var(--csstools-light-dark-toggle-33eaa513-11,var(--color-red-90))}@supports (color:light-dark(red,red)){.button[data-variant=secondary][data-action=negative]:hover{background-color:light-dark(var(--color-red-90),var(--color-red-10))}}.button[data-variant=plain]:hover{--csstools-light-dark-toggle-33eaa513-12:var(--csstools-color-scheme--light) var(--color-gray-20);background-color:var(--csstools-light-dark-toggle-33eaa513-12,var(--color-gray-80))}@supports (color:light-dark(red,red)){.button[data-variant=plain]:hover{background-color:light-dark(var(--color-gray-80),var(--color-gray-20))}}.button[data-variant=plain][data-action=positive]{--csstools-light-dark-toggle-33eaa513-13:var(--csstools-color-scheme--light) var(--color-green-80);color:var(--csstools-light-dark-toggle-33eaa513-13,var(--color-green-50))}@supports (color:light-dark(red,red)){.button[data-variant=plain][data-action=positive]{color:light-dark(var(--color-green-50),var(--color-green-80))}}.button[data-variant=plain][data-action=positive]:hover{--csstools-light-dark-toggle-33eaa513-14:var(--csstools-color-scheme--light) var(--color-green-10);background-color:var(--csstools-light-dark-toggle-33eaa513-14,var(--color-green-90))}@supports (color:light-dark(red,red)){.button[data-variant=plain][data-action=positive]:hover{background-color:light-dark(var(--color-green-90),var(--color-green-10))}}.button[data-variant=plain][data-action=negative]{--csstools-light-dark-toggle-33eaa513-15:var(--csstools-color-scheme--light) var(--color-red-80);color:var(--csstools-light-dark-toggle-33eaa513-15,var(--color-red-50))}@supports (color:light-dark(red,red)){.button[data-variant=plain][data-action=negative]{color:light-dark(var(--color-red-50),var(--color-red-80))}}.button[data-variant=plain][data-action=negative]:hover{--csstools-light-dark-toggle-33eaa513-16:var(--csstools-color-scheme--light) var(--color-red-10);background-color:var(--csstools-light-dark-toggle-33eaa513-16,var(--color-red-90))}@supports (color:light-dark(red,red)){.button[data-variant=plain][data-action=negative]:hover{background-color:light-dark(var(--color-red-90),var(--color-red-10))}}.button[disabled]{--csstools-light-dark-toggle-33eaa513-17:var(--csstools-color-scheme--light) var(--color-gray-60)!important;color:var(--csstools-light-dark-toggle-33eaa513-17,var(--color-gray-40))!important;cursor:default;--csstools-light-dark-toggle-33eaa513-18:var(--csstools-color-scheme--light) var(--color-gray-20)!important;background-color:var(--csstools-light-dark-toggle-33eaa513-18,var(--color-gray-80))!important;border-color:#0000}@supports (color:light-dark(red,red)){.button[disabled]{background-color:light-dark(var(--color-gray-80),var(--color-gray-20))!important;color:light-dark(var(--color-gray-40),var(--color-gray-60))!important}}.button .icon{display:flex}.button svg{height:1.25em;width:1.25em}.button .label{padding-block:.125em;padding-inline:.0625em}:host{display:inline-flex;vertical-align:middle}.button{box-sizing:border-box;height:100%;width:100%}
+            </style>
+            <!--lit-part uJUpfbi3Sk0=-->
+            <!--lit-node 0-->
+            <a aria-labelledby="label-5wpk0k3g01" class="button" data-variant="plain" href="#" part="button" target="_blank">
+             <!--lit-part-->
+             <!--lit-part bRP2a5ux/uw=-->
+             <span class="icon" part="icon">
+              <!--lit-part quQU0uIDm5U=-->
+              <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+               <circle cx="12" cy="12" r="10">
+               </circle>
+               <path d="M12 16v-4m0-4h.01">
+               </path>
+              </svg>
+              <!--/lit-part-->
+             </span>
+             <!--/lit-part-->
+             <!--lit-part rI2hX8LXYZM=-->
+             <!--lit-node 0-->
+             <span class="label" hidden="" id="label-5wpk0k3g01" part="label">
+              <!--lit-part Pz0gobCCM4E=-->
+              <slot>
+              </slot>
+              <!--/lit-part-->
+             </span>
+             <!--/lit-part-->
+             <!--/lit-part-->
+            </a>
+            <!--/lit-part-->
+           </template>
+           <!--lit-part-->
+           Learn more
+           <!--/lit-part-->
+          </mdn-button>
+         </div>
+         <ul class="language-switcher__list">
+          <!--lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            Deutsch
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" data-current="" href="#">
+            <!--lit-part-->
+            English (US)
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            EspaÃ±ol
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            FranÃ§ais
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            æ¥æ¬èª
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            íêµ­ì´
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            PortuguÃªs (doÂ Brasil)
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            Ð ÑÑÑÐºÐ¸Ð¹
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            ä¸­æ (ç®ä½)
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--lit-part FGon1f+Z4tQ=-->
+          <li>
+           <!--lit-node 1-->
+           <a class="language-switcher__option" href="#">
+            <!--lit-part-->
+            æ­£é«ä¸­æ (ç¹é«)
+            <!--/lit-part-->
+           </a>
+          </li>
+          <!--/lit-part-->
+          <!--/lit-part-->
+         </ul>
+        </div>
+       </mdn-dropdown>
+      </div>
+      <!--/lit-part-->
+     </template>
+    </mdn-language-switcher>
+   </div>
+  </header>
+  <div class="page-layout__main">
+   <div class="homepage homepage--dark" id="content">
+    <div class="homepage-header">
+     <div class="homepage-header__copy">
+      <section class="homepage-hero">
+       <h1>
+        Resources for Developers,
+        <br/>
+        by Developers
+       </h1>
+       <p>
+        Documenting
+        <a data-glean-id="homepage_hero: css" href="#">
+         CSS
+        </a>
+        ,
+        <a data-glean-id="homepage_hero: html" href="#">
+         HTML
+        </a>
+        , and
+        <a data-glean-id="homepage_hero: js" href="#">
+         JavaScript
+        </a>
+        , since 2005.
+       </p>
+      </section>
+     </div>
+     <div class="homepage-header__search">
+      <mdn-homepage-search>
+       <template shadowroot="open" shadowrootmode="open">
+        <style>
+         *,:after,:before{box-sizing:border-box}button,input,select,textarea{font:inherit}button{color:inherit;cursor:pointer}img{height:auto;max-width:100%}a{color:var(--color-link-normal)}[hidden]{display:none!important}.mdn-homepage-search{align-items:center;background-color:initial;border:2px solid var(--color-border-primary);border-radius:var(--radius-full);display:flex;font-size:var(--font-size-large);gap:.25em;margin:0 auto;padding:.8em 1em}.mdn-homepage-search:hover{background-color:var(--color-background-secondary)}.mdn-homepage-search:before{background-color:currentcolor;content:"";height:1em;-webkit-mask-image:url(/static/ssr/search.5dd31cbeea7d1af9.svg);mask-image:url(/static/ssr/search.5dd31cbeea7d1af9.svg);-webkit-mask-size:contain;mask-size:contain;width:1em}
+        </style>
+        <!--lit-part GOC0Sa3qPH4=-->
+        <!--lit-node 0-->
+        <button class="mdn-homepage-search" data-glean-id="quick-search-open: homepage" title="Search the site">
+         <!--lit-part-->
+         Search
+         <!--/lit-part-->
+        </button>
+        <!--/lit-part-->
+       </template>
+      </mdn-homepage-search>
+     </div>
+     <div class="homepage-header__mandala">
+      <div aria-hidden="true" class="mandala">
+       <svg class="mandala" fill="none" viewbox="50 50 575 575" xmlns="http://www.w3.org/2000/svg">
+        <title>
+         Mandala
+        </title>
+        <defs>
+         <path d="M337.5,337.5 m-320,0 a320,320 0 1,1 640,0 a320,320 0 1,1 -640,0" id="circle1">
+         </path>
+         <path d="M337.5,337.5 m-280,0 a280,280 0 1,1 560,0 a280,280 0 1,1 -560,0" id="circle2">
+         </path>
+         <path d="M337.5,337.5 m-240,0 a240,240 0 1,1 480,0 a240,240 0 1,1 -480,0" id="circle3">
+         </path>
+         <path d="M337.5,337.5 m-200,0 a200,200 0 1,1 400,0 a200,200 0 1,1 -400,0" id="circle4">
+         </path>
+         <path d="M337.5,337.5 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0" id="circle5">
+         </path>
+        </defs>
+        <text dy="70" textlength="2010">
+         <textpath href="#circle1" textlength="2010">
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+          /
+          <tspan>
+           /
+          </tspan>
+         </textpath>
+        </text>
+        <text dy="70" textlength="1760">
+         <textpath href="#circle2" textlength="1760">
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+          +
+          <tspan>
+           +
+          </tspan>
+         </textpath>
+        </text>
+        <text dy="70" textlength="1507">
+         <textpath href="#circle3" textlength="1507">
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           {
+          </tspan>
+          {
+          <tspan>
+           }
+          </tspan>
+          }
+          <tspan>
+           }
+          </tspan>
+          }
+         </textpath>
+        </text>
+        <text dy="70" textlength="1257">
+         <textpath href="#circle4" textlength="1257">
+          ../../    ../../
+               ../../    ../../
+               ../../    ../../
+               ../../
+         </textpath>
+        </text>
+        <text dy="70" textlength="1005">
+         <textpath href="#circle5" textlength="1005">
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+          <tspan>
+           &lt;&gt;
+          </tspan>
+          &lt;/&gt;
+         </textpath>
+        </text>
+       </svg>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="homepage">
+    <mdn-placement-hp-main>
+    </mdn-placement-hp-main>
+    <div class="homepage-body">
+     <section>
+      <h2>
+       Featured articles
+      </h2>
+      <ul class="featured-articles">
+       <li>
+        <article class="featured-articles__article">
+         <a class="featured-articles__tag" href="#">
+          Blog
+         </a>
+         <h3 class="featured-articles__title">
+          <a href="#">
+           Celebrating 20 years of MDN
+          </a>
+         </h3>
+         <p class="featured-articles__summary">
+          MDN turns 20! Let's look at how we started, how MDN became the most trusted resource for web developers, the impact it's had on the open web, and yes, there's cake, too.
+         </p>
+        </article>
+       </li>
+       <li>
+        <article class="featured-articles__article">
+         <a class="featured-articles__tag" href="#">
+          Web APIs
+         </a>
+         <h3 class="featured-articles__title">
+          <a href="#">
+           CSS Custom Highlight API
+          </a>
+         </h3>
+         <p class="featured-articles__summary">
+          The CSS Custom Highlight API provides a mechanism for styling arbitrary text ranges on a document by using JavaScript to create the ranges, and CSS to style them.
+         </p>
+        </article>
+       </li>
+       <li>
+        <article class="featured-articles__article">
+         <a class="featured-articles__tag" href="#">
+          Web APIs
+         </a>
+         <h3 class="featured-articles__title">
+          <a href="#">
+           Server timing
+          </a>
+         </h3>
+         <p class="featured-articles__summary">
+          Server-Timing is a part of the Performance API and allows servers to communicate metrics about the request-response cycle to the user agent. You can collect this information and act on server-side metrics in the same way as all the other metrics processed with the Performance API.
+         </p>
+        </article>
+       </li>
+       <li>
+        <article class="featured-articles__article">
+         <a class="featured-articles__tag" href="#">
+          JavaScript
+         </a>
+         <h3 class="featured-articles__title">
+          <a href="#">
+           JavaScript resource management
+          </a>
+         </h3>
+         <p class="featured-articles__summary">
+          This guide talks about how to do resource management in JavaScript. Resource management is not exactly the same as memory management, which is a more advanced topic and usually handled automatically by JavaScript. Resource management is about managing resources that are not automatically cleaned up by JavaScript. Sometimes, it's okay to have some unused objects in memory, because they don't interfere with application logic, but resource leaks often lead to things not working, or a lot of excess memory usage. Therefore, this is not an optional feature about optimization, but a core feature to write correct programs!
+         </p>
+        </article>
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h2>
+       Latest news
+      </h2>
+      <ul class="latest-news">
+       <li>
+        <article class="latest-news__item">
+         <a class="latest-news__source" href="#">
+          developer.mozilla.org
+         </a>
+         <h3 class="latest-news__title">
+          <a href="#">
+           Launching MDN's new front end
+          </a>
+         </h3>
+         <time class="latest-news__date" datetime="2025-08-19">
+          5 months ago
+         </time>
+         <p class="latest-news__summary">
+          MDN is getting a facelift ð. Discover what's changed, what's improved, and how navigating the site just got smoother.
+         </p>
+        </article>
+       </li>
+       <li>
+        <article class="latest-news__item">
+         <a class="latest-news__source" href="#">
+          developer.mozilla.org
+         </a>
+         <h3 class="latest-news__title">
+          <a href="#">
+           Image formats: Pixel data from encoders to decoders
+          </a>
+         </h3>
+         <time class="latest-news__date" datetime="2025-08-04">
+          5 months ago
+         </time>
+         <p class="latest-news__summary">
+          From individual pixels to fully decoded images on your screen, raw pixel data gets transformed, compressed, and efficiently delivered. Learn about the techniques and optimizations that shrink image information without any perceivable loss in quality.
+         </p>
+        </article>
+       </li>
+       <li>
+        <article class="latest-news__item">
+         <a class="latest-news__source" href="#">
+          developer.mozilla.org
+         </a>
+         <h3 class="latest-news__title">
+          <a href="#">
+           Image formats: Color models for humans and devices
+          </a>
+         </h3>
+         <time class="latest-news__date" datetime="2025-05-06">
+          8 months ago
+         </time>
+         <p class="latest-news__summary">
+          Images help bring more color and life to the web. This post describes how images are represented by humans and on different devices, with details about color spaces and vision theory.
+         </p>
+        </article>
+       </li>
+       <li>
+        <article class="latest-news__item">
+         <a class="latest-news__source" href="#">
+          developer.mozilla.org
+         </a>
+         <h3 class="latest-news__title">
+          <a href="#">
+           Default styles for h1 elements are changing
+          </a>
+         </h3>
+         <time class="latest-news__date" datetime="2025-04-11">
+          9 months ago
+         </time>
+         <p class="latest-news__summary">
+          Browsers are starting to roll out changes in default UA styles for nested section headings. This post describes the incoming changes, how to identify if it's an issue on your websites, and hints for conformant and better-structured pages.
+         </p>
+        </article>
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h2>
+       Recent contributions
+      </h2>
+      <ul class="recent-contributions">
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 1" href="#">
+          mdn/content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T13:06:36Z">
+         12 hours ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          Update warnings about event handler attributes
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 2" href="#">
+          mdn/content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T15:05:20Z">
+         10 hours ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          Fix order of arguments in SpeechRecognitionPhrase ctor
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 3" href="#">
+          mdn/content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T17:13:18Z">
+         7 hours ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          Fx147: Add relnote for iterator sequencing support
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 4" href="#">
+          mdn/content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T17:52:57Z">
+         7 hours ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          Update guidance on &lt;hr&gt; styling
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 5" href="#">
+          mdn/content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T18:05:38Z">
+         7 hours ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          Fix typo in queuingStrategy variable name
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 6" href="#">
+          mdn/translated-content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T23:49:31Z">
+         53 minutes ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          chore(fr): translation of `Web/API/HTMLProgressElement`
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 7" href="#">
+          mdn/translated-content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T23:49:48Z">
+         53 minutes ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          chore(fr): translation of `Web/API/HTMLProgressElement/labels`
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 8" href="#">
+          mdn/translated-content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T23:49:56Z">
+         52 minutes ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          chore(fr): translation of `Web/API/HTMLProgressElement/max`
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 9" href="#">
+          mdn/translated-content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T23:50:07Z">
+         52 minutes ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          chore(fr): translation of `Web/API/HTMLProgressElement/position`
+         </a>
+        </div>
+       </li>
+       <li class="recent-contributions__item">
+        <span class="recent-contributions__repo">
+         <a class="external" data-glean-id="homepage: contribution_repo 10" href="#">
+          mdn/translated-content
+         </a>
+        </span>
+        <time class="recent-contributions__date" datetime="2026-01-09T23:50:29Z">
+         52 minutes ago
+        </time>
+        <div class="recent-contributions__title">
+         <a class="external" href="#">
+          chore(fr): translation of `Web/API/HTMLProgressElement/value`
+         </a>
+        </div>
+       </li>
+      </ul>
+     </section>
+    </div>
+   </div>
+   <div class="homepage homepage--dark">
+    <div class="homepage-footer">
+     <section class="homepage-contributor-spotlight">
+      <div class="homepage-contributor-spotlight__spotlight">
+       <h2>
+        Contributor Spotlight
+       </h2>
+       <a class="homepage-contributor-spotlight__name" href="#">
+        Shrinivass Arunachalam Balasubramanian
+       </a>
+       <blockquote class="homepage-contributor-spotlight__quote">
+        MDN closely follows W3C standards which helps me keep up with important topics. It's a complete package as it caters to everything; complex APIs, new browser functionalities, and best practices. MDN serves as a truly valuable resource and continues to assist me in my everyday development.
+       </blockquote>
+       <!--lit-part uJUpfbi3Sk0=-->
+       <!--lit-node 0-->
+       <a aria-labelledby="label-3p07ze0s15g" class="button" data-variant="primary" href="#" part="button">
+        <!--lit-part-->
+        <!--lit-part rI2hX8LXYZM=-->
+        <!--lit-node 0-->
+        <span class="label" id="label-3p07ze0s15g" part="label">
+         <!--lit-part-->
+         Get involved
+         <!--/lit-part-->
+        </span>
+        <!--/lit-part-->
+        <!--lit-part bRP2a5ux/uw=-->
+        <span class="icon" part="icon">
+         <!--lit-part 0rqeqJmpJ34=-->
+         <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h14m-7-7 7 7-7 7">
+          </path>
+         </svg>
+         <!--/lit-part-->
+        </span>
+        <!--/lit-part-->
+        <!--/lit-part-->
+       </a>
+       <!--/lit-part-->
+      </div>
+      <figure class="homepage-contributor-spotlight__logo">
+       <img alt="Tiled Mozilla Logo" height="323" loading="lazy" src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" fill="%23ddd"/%3E%3C/svg%3E' width="512"/>
+      </figure>
+     </section>
+    </div>
+   </div>
+  </div>
+  <div class="page-layout__footer">
+   <mdn-placement-bottom>
+   </mdn-placement-bottom>
+   <footer class="footer">
+    <div class="footer__mdn">
+     <div class="footer__intro">
+      <a aria-label="MDN logo" class="footer__logo" href="#">
+       <!--lit-part eLWenVoT9SE=-->
+       <svg height="24" viewbox="0 0 83 24" width="83" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.4 0 2.81 21.17H.12L6.69 0zm2.38 0v21.17H9.4V0h2.4Zm9.27 0-6.56 21.17H11.8L18.36 0zm2.39 0v21.17h-2.4V0zm22.11 16.83h-3.93v-1.27h.87v-3.63c0-.85-.16-1.45-.48-1.82a1.65 1.65 0 0 0-1.3-.52c-.74 0-1.3.25-1.66.78a3 3 0 0 0-.58 1.58v3.59h1.38v1.26h-3.93v-1.26h.87v-3.6c0-.88-.16-1.48-.48-1.83a1.7 1.7 0 0 0-1.29-.52 1.93 1.93 0 0 0-1.65.75 2.85 2.85 0 0 0-.58 1.6v3.62h1.59v1.27h-4.64v-1.27h1.37V9.75h-1.4V8.46h3.08v1.47c.28-.48.62-.87 1.08-1.2a3 3 0 0 1 1.68-.45c.67 0 1.22.16 1.73.48.5.32.85.8 1.03 1.47.25-.57.62-1.03 1.13-1.4.5-.37 1.1-.55 1.81-.55.8 0 1.5.25 2.05.75.55.51.85 1.3.85 2.35v4.18h1.4zm9.77 0H52.3v-1.66c-.27.51-.66.95-1.13 1.29-.56.4-1.23.59-1.9.55-1.11 0-2-.37-2.67-1.12a4.4 4.4 0 0 1-1-3.06c0-1.15.3-2.2.93-3.15.6-.94 1.58-1.43 2.94-1.43s2.25.5 2.83 1.5V5.22h-2V3.93h3.63v11.63h1.38v1.27Zm-3.06-3.86v-1.02a2.28 2.28 0 0 0-.73-1.67 2.4 2.4 0 0 0-1.66-.65 2.18 2.18 0 0 0-1.88.9 3.63 3.63 0 0 0-.65 2.2c0 .95.23 1.68.7 2.19.45.5 1.03.76 1.7.76.73 0 1.33-.3 1.79-.88.48-.6.71-1.21.73-1.83m14.14 3.86h-4.43v-1.27h1.37v-3.63c0-.85-.16-1.45-.5-1.82a1.68 1.68 0 0 0-1.31-.52c-.71 0-1.29.23-1.7.69a2.52 2.52 0 0 0-.67 1.6v3.66h1.38v1.26H56.1v-1.26h1.38v-5.8h-1.42V8.47h3.12V9.9c.6-1.06 1.57-1.6 2.92-1.6.83 0 1.54.26 2.12.77.57.5.85 1.28.85 2.34v4.19h1.38v1.24h-.05Zm1.31 5.15H83V24H67.71z">
+        </path>
+       </svg>
+       <!--/lit-part-->
+      </a>
+      <p>
+       Your blueprint for a better internet.
+      </p>
+     </div>
+     <ul class="footer__socials">
+      <li>
+       <a aria-label="MDN on GitHub" data-icon="github" href="#" rel="noopener" target="_blank">
+       </a>
+      </li>
+      <li>
+       <a aria-label="MDN on Bluesky" data-icon="bluesky" href="#" rel="noopener" target="_blank">
+       </a>
+      </li>
+      <li>
+       <a aria-label="MDN on X" data-icon="x" href="#" rel="noopener" target="_blank">
+       </a>
+      </li>
+      <li>
+       <a aria-label="MDN on Mastodon" data-icon="mastodon" href="#" rel="noopener" target="_blank">
+       </a>
+      </li>
+      <li>
+       <a aria-label="MDN blog RSS feed" data-icon="rss" href="#" rel="noopener" target="_blank">
+       </a>
+      </li>
+     </ul>
+     <dl class="footer__links">
+      <dt>
+       MDN
+      </dt>
+      <dd>
+       <ul>
+        <li>
+         <a class="" href="#" rel="" target="">
+          About
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Blog
+         </a>
+        </li>
+        <li>
+         <a class="external" href="#" rel="noopener" target="_blank">
+          Mozilla careers
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Advertise with us
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          MDN Plus
+         </a>
+        </li>
+        <li>
+         <a class="external" href="#" rel="noopener" target="_blank">
+          Product help
+         </a>
+        </li>
+       </ul>
+      </dd>
+     </dl>
+     <dl class="footer__links">
+      <dt>
+       Contribute
+      </dt>
+      <dd>
+       <ul>
+        <li>
+         <a class="" href="#" rel="" target="">
+          MDN Community
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Community resources
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Writing guidelines
+         </a>
+        </li>
+        <li>
+         <a class="external" href="#" rel="noopener" target="_blank">
+          MDN Discord
+         </a>
+        </li>
+        <li>
+         <a class="external" href="#" rel="noopener" target="_blank">
+          MDN on GitHub
+         </a>
+        </li>
+       </ul>
+      </dd>
+     </dl>
+     <dl class="footer__links">
+      <dt>
+       Developers
+      </dt>
+      <dd>
+       <ul>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Web technologies
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Learn web development
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Guides
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Tutorials
+         </a>
+        </li>
+        <li>
+         <a class="" href="#" rel="" target="">
+          Glossary
+         </a>
+        </li>
+        <li>
+         <a class="external" href="#" rel="noopener" target="_blank">
+          Hacks blog
+         </a>
+        </li>
+       </ul>
+      </dd>
+     </dl>
+    </div>
+    <div class="footer__mozilla">
+     <a aria-label="Mozilla logo" class="footer__logo" href="#">
+      <!--lit-part /TOdX171+us=-->
+      <svg height="30" viewbox="0 0 256 60" width="128" xmlns="http://www.w3.org/2000/svg">
+       <path d="m13.32 22.1 5.1 24.3h2.1l5.1-24.3H39.3v37.34h-7.26V28.46h-2.1l-6.96 30.98h-7.02L9.02 28.46h-2.1v31H-.35V22.1h13.66Zm45.12 8.74c8.73 0 13.8 5.15 13.8 14.57S67.14 60 58.44 60c-8.73 0-13.8-5.17-13.8-14.59 0-9.43 5.07-14.57 13.8-14.57m0 23.34c4.1 0 6.16-2.1 6.16-6.73v-4.12c0-4.62-2.06-6.73-6.16-6.73s-6.15 2.1-6.15 6.73v4.12c0 4.63 2.05 6.73 6.15 6.73m17.68-.14 14.82-17.26H76.32v-5.41h23.31v5.4L84.84 54.05h15.03v5.4H76.13v-5.41Zm28.07-22.67h10.7v28.07h-7.25V36.77h-3.48v-5.4zm3.44-9.27h7.26v5.4h-7.25v-5.4Zm12.62 0h10.72v37.34h-7.24V27.5h-3.48zm16.08 0h10.7v37.34h-7.25V27.5h-3.48v-5.4zm27.8 8.74c4.24 0 7.08 2.05 7.87 5.63h2.1v-5.1h8.88v5.4h-3.47v17.28h3.47v5.4h-4.25c-3 0-4.63-1.63-4.63-4.62v-.48H172c-.78 3.58-3.63 5.63-7.88 5.63-6.68 0-11.4-5.59-11.4-14.58 0-9 4.72-14.55 11.4-14.55m2.2 23.34c4.1 0 5.93-2.1 5.93-6.73v-4.12c0-4.62-1.82-6.73-5.94-6.73-3.99 0-5.92 2.1-5.92 6.73v4.13c0 4.62 1.92 6.72 5.93 6.72m46.28 5.27h-7.26V0h7.26zm6.3-28.41h30.8v-2.1l-20.4-7.32v-5.88l20.4-7.33v-2.1h-24.27V0h30.79v12l-16.62 5.63v2.11l16.61 5.64v12H218.9zm0-24.73h6.5v6.52h-6.5z">
+       </path>
+      </svg>
+      <!--/lit-part-->
+     </a>
+     <ul>
+      <li>
+       <a class="external" href="#">
+        Website Privacy Notice
+       </a>
+      </li>
+      <li>
+       <a class="external" href="#">
+        Telemetry Settings
+       </a>
+      </li>
+      <li>
+       <a class="external" href="#">
+        Legal
+       </a>
+      </li>
+      <li>
+       <a class="external" href="#">
+        Community Participation Guidelines
+       </a>
+      </li>
+     </ul>
+     <p>
+      Visit
+      <a href="#">
+       Mozilla Corporationâs
+      </a>
+      not-for-profit parent, the
+      <a href="#">
+       Mozilla Foundation
+      </a>
+      .
+      <br/>
+      Portions of this content are Â©1998ââ¨2026â© by individual mozilla.org contributors. Content available under
+      <a href="#">
+       a Creative Commons license
+      </a>
+      .
+     </p>
+    </div>
+   </footer>
+  </div>
+ </body>
+</html>

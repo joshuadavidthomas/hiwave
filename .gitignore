@@ -1,6 +1,7 @@
 # Claude Code
 .claude/
 .claude/*
+CLAUDE_SESSION_NOTES.md
 
 # Environment
 .env
@@ -56,3 +57,6 @@ docs/unshared/*
 ai-orchestrator/*
 venv/*
 pages/*
+
+# Test infrastructure
+test-infrastructure/venv/

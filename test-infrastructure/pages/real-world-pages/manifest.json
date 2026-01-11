@@ -1,0 +1,94 @@
+{
+  "pages": [
+    {
+      "file": "example.com.html",
+      "name": "Real World: example.com",
+      "url": "https://example.com",
+      "complexity": {
+        "dom_depth": 4,
+        "element_count": 11,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "github.com.html",
+      "name": "Real World: github.com",
+      "url": "https://github.com",
+      "complexity": {
+        "dom_depth": 23,
+        "element_count": 1136,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "stackoverflow.com.html",
+      "name": "Real World: stackoverflow.com",
+      "url": "https://stackoverflow.com",
+      "complexity": {
+        "dom_depth": 15,
+        "element_count": 2881,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "wikipedia.org.html",
+      "name": "Real World: wikipedia.org",
+      "url": "https://wikipedia.org",
+      "complexity": {
+        "dom_depth": 10,
+        "element_count": 1178,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "reddit.com.html",
+      "name": "Real World: reddit.com",
+      "url": "https://reddit.com",
+      "complexity": {
+        "dom_depth": 25,
+        "element_count": 1431,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "twitter.com.html",
+      "name": "Real World: twitter.com",
+      "url": "https://twitter.com",
+      "complexity": {
+        "dom_depth": 22,
+        "element_count": 312,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "news.ycombinator.com.html",
+      "name": "Real World: news.ycombinator.com",
+      "url": "https://news.ycombinator.com",
+      "complexity": {
+        "dom_depth": 11,
+        "element_count": 801,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "docs.python.org.html",
+      "name": "Real World: docs.python.org",
+      "url": "https://docs.python.org",
+      "complexity": {
+        "dom_depth": 10,
+        "element_count": 343,
+        "css_rules": 0
+      }
+    },
+    {
+      "file": "developer.mozilla.org.html",
+      "name": "Real World: developer.mozilla.org",
+      "url": "https://developer.mozilla.org",
+      "complexity": {
+        "dom_depth": 14,
+        "element_count": 823,
+        "css_rules": 0
+      }
+    }
+  ]
+}

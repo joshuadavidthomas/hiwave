@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html data-content_root="./" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   3.14.2 Documentation
+  </title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="_static/opensearch.xml" rel="search" title="Search within Python 3.14.2 documentation" type="application/opensearchdescription+xml"/>
+  <link href="about.html" rel="author" title="About these documents"/>
+  <link href="genindex.html" rel="index" title="Index"/>
+  <link href="search.html" rel="search" title="Search"/>
+  <link href="copyright.html" rel="copyright" title="Copyright"/>
+  <link href="https://docs.python.org/3/index.html" rel="canonical"/>
+  <style>
+   @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+  </style>
+  <link href="_static/py.svg" rel="shortcut icon" type="image/png"/>
+  <meta content="1" name="readthedocs-addons-api-version"/>
+  <meta content="Python 3.14 documentation" property="og:title"/>
+  <meta content="website" property="og:type"/>
+  <meta content="https://docs.python.org/3/" property="og:url"/>
+  <meta content="Python documentation" property="og:site_name"/>
+  <meta content="The official Python documentation." property="og:description"/>
+  <meta content="https://docs.python.org/3/_static/og-image.png" property="og:image"/>
+  <meta content="The official Python documentation." name="description"/>
+  <meta content="200" property="og:image:width"/>
+  <meta content="200" property="og:image:height"/>
+  <meta content="#3776ab" name="theme-color"/>
+ </head>
+ <body>
+  <div class="mobile-nav">
+   <input aria-controls="navigation" aria-expanded="false" aria-label="Menu" aria-pressed="false" class="toggler__input" id="menuToggler" role="button" type="checkbox"/>
+   <nav class="nav-content" role="navigation">
+    <label class="toggler__label" for="menuToggler">
+     <span>
+     </span>
+    </label>
+    <span class="nav-items-wrapper">
+     <a class="nav-logo" href="#">
+      <img alt="Python logo" src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" fill="%23ddd"/%3E%3C/svg%3E'/>
+     </a>
+     <span class="version_switcher_placeholder">
+     </span>
+     <form action="search.html" class="search" method="get" role="search">
+      <svg class="search-icon" height="20" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+       <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="currentColor" fill-rule="nonzero">
+       </path>
+      </svg>
+      <input aria-label="Quick search" name="q" placeholder="Quick search" type="search"/>
+      <input type="submit" value="Go"/>
+     </form>
+    </span>
+   </nav>
+   <div class="menu-wrapper">
+    <nav aria-label="main navigation" class="menu" role="navigation">
+     <div class="language_switcher_placeholder">
+     </div>
+     <label class="theme-selector-label">
+      Theme
+      <select class="theme-selector" oninput="activateTheme(this.value)">
+       <option selected="" value="auto">
+        Auto
+       </option>
+       <option value="light">
+        Light
+       </option>
+       <option value="dark">
+        Dark
+       </option>
+      </select>
+     </label>
+     <h3>
+      Download
+     </h3>
+     <p>
+      <a href="#">
+       Download these documents
+      </a>
+     </p>
+     <h3>
+      Docs by version
+     </h3>
+     <ul>
+      <li>
+       <a href="#">
+        Python 3.15 (in development)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.14 (stable)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.13 (stable)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.12 (security-fixes)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.11 (security-fixes)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.10 (security-fixes)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.9 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.8 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.7 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.6 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.5 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.4 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.3 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.2 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.1 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.0 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 2.7 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 2.6 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        All versions
+       </a>
+      </li>
+     </ul>
+     <h3>
+      Other resources
+     </h3>
+     <ul>
+      <li>
+       <a href="#">
+        PEP Index
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Beginner's Guide
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Book List
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Audio/Visual Talks
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python Developerâs Guide
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+  </div>
+  <div aria-label="Related" class="related" role="navigation">
+   <h3>
+    Navigation
+   </h3>
+   <ul>
+    <li class="right" style="margin-right: 10px">
+     <a accesskey="I" href="#" title="General Index">
+      index
+     </a>
+    </li>
+    <li class="right">
+     <a href="#" title="Python Module Index">
+      modules
+     </a>
+     |
+    </li>
+    <li>
+     <img alt="Python logo" src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" fill="%23ddd"/%3E%3C/svg%3E' style="vertical-align: middle; margin-top: -1px"/>
+    </li>
+    <li>
+     <a href="#">
+      Python
+     </a>
+     »
+    </li>
+    <li class="switchers">
+     <div class="language_switcher_placeholder">
+     </div>
+     <div class="version_switcher_placeholder">
+     </div>
+    </li>
+    <li>
+    </li>
+    <li id="cpython-language-and-version">
+     <a href="#">
+      3.14.2 Documentation
+     </a>
+     »
+    </li>
+    <li class="nav-item nav-item-this">
+     <a href="#">
+     </a>
+    </li>
+    <li class="right">
+     <div class="inline-search" role="search">
+      <form action="search.html" class="inline-search" method="get">
+       <input aria-label="Quick search" id="search-box" name="q" placeholder="Quick search" type="search"/>
+       <input type="submit" value="Go"/>
+      </form>
+     </div>
+     |
+    </li>
+    <li class="right">
+     <label class="theme-selector-label">
+      Theme
+      <select class="theme-selector" oninput="activateTheme(this.value)">
+       <option selected="" value="auto">
+        Auto
+       </option>
+       <option value="light">
+        Light
+       </option>
+       <option value="dark">
+        Dark
+       </option>
+      </select>
+     </label>
+     |
+    </li>
+   </ul>
+  </div>
+  <div class="document">
+   <div class="documentwrapper">
+    <div class="bodywrapper">
+     <div class="body" role="main">
+      <h1>
+       Python 3.14.2 documentation
+      </h1>
+      <p>
+       Welcome! This is the official documentation for Python 3.14.2.
+      </p>
+      <p>
+       <strong>
+        Documentation sections:
+       </strong>
+      </p>
+      <table align="center" class="contentstable">
+       <tr>
+        <td width="50%">
+         <p class="biglink">
+          <a class="biglink" href="#">
+           What's new in Python 3.14?
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Or
+           <a href="#">
+            all "What's new" documents since Python 2.0
+           </a>
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Tutorial
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Start here: a tour of Python's syntax and features
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Library reference
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Standard library and builtins
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Language reference
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Syntax and language elements
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Python setup and usage
+          </a>
+          <br/>
+          <span class="linkdescr">
+           How to install, configure, and use Python
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Python HOWTOs
+          </a>
+          <br/>
+          <span class="linkdescr">
+           In-depth topic manuals
+          </span>
+         </p>
+        </td>
+        <td width="50%">
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Installing Python modules
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Third-party modules and PyPI.org
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Distributing Python modules
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Publishing modules for use by other people
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Extending and embedding
+          </a>
+          <br/>
+          <span class="linkdescr">
+           For C/C++ programmers
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Python's C API
+          </a>
+          <br/>
+          <span class="linkdescr">
+           C API reference
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           FAQs
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Frequently asked questions (with answers!)
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Deprecations
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Deprecated functionality
+          </span>
+         </p>
+        </td>
+       </tr>
+      </table>
+      <p>
+       <strong>
+        Indices, glossary, and search:
+       </strong>
+      </p>
+      <table align="center" class="contentstable">
+       <tr>
+        <td width="50%">
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Global module index
+          </a>
+          <br/>
+          <span class="linkdescr">
+           All modules and libraries
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           General index
+          </a>
+          <br/>
+          <span class="linkdescr">
+           All functions, classes, and terms
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Glossary
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Terms explained
+          </span>
+         </p>
+        </td>
+        <td width="50%">
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Search page
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Search this documentation
+          </span>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Complete table of contents
+          </a>
+          <br/>
+          <span class="linkdescr">
+           Lists all sections and subsections
+          </span>
+         </p>
+        </td>
+       </tr>
+      </table>
+      <p>
+       <strong>
+        Project information:
+       </strong>
+      </p>
+      <table align="center" class="contentstable">
+       <tr>
+        <td width="50%">
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Reporting issues
+          </a>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Contributing to docs
+          </a>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Download the documentation
+          </a>
+         </p>
+        </td>
+        <td width="50%">
+         <p class="biglink">
+          <a class="biglink" href="#">
+           History and license of Python
+          </a>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           Copyright
+          </a>
+         </p>
+         <p class="biglink">
+          <a class="biglink" href="#">
+           About the documentation
+          </a>
+         </p>
+        </td>
+       </tr>
+      </table>
+      <div class="clearer">
+      </div>
+     </div>
+    </div>
+   </div>
+   <div aria-label="Main" class="sphinxsidebar" role="navigation">
+    <div class="sphinxsidebarwrapper">
+     <h3>
+      Download
+     </h3>
+     <p>
+      <a href="#">
+       Download these documents
+      </a>
+     </p>
+     <h3>
+      Docs by version
+     </h3>
+     <ul>
+      <li>
+       <a href="#">
+        Python 3.15 (in development)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.14 (stable)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.13 (stable)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.12 (security-fixes)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.11 (security-fixes)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.10 (security-fixes)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.9 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.8 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.7 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.6 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.5 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.4 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.3 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.2 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.1 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 3.0 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 2.7 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python 2.6 (EOL)
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        All versions
+       </a>
+      </li>
+     </ul>
+     <h3>
+      Other resources
+     </h3>
+     <ul>
+      <li>
+       <a href="#">
+        PEP Index
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Beginner's Guide
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Book List
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Audio/Visual Talks
+       </a>
+      </li>
+      <li>
+       <a href="#">
+        Python Developerâs Guide
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div id="sidebarbutton" title="Collapse sidebar">
+     <span>
+      Â«
+     </span>
+    </div>
+   </div>
+   <div class="clearer">
+   </div>
+  </div>
+  <div aria-label="Related" class="related" role="navigation">
+   <h3>
+    Navigation
+   </h3>
+   <ul>
+    <li class="right" style="margin-right: 10px">
+     <a href="#" title="General Index">
+      index
+     </a>
+    </li>
+    <li class="right">
+     <a href="#" title="Python Module Index">
+      modules
+     </a>
+     |
+    </li>
+    <li>
+     <img alt="Python logo" src='data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect width="100" height="100" fill="%23ddd"/%3E%3C/svg%3E' style="vertical-align: middle; margin-top: -1px"/>
+    </li>
+    <li>
+     <a href="#">
+      Python
+     </a>
+     »
+    </li>
+    <li class="switchers">
+     <div class="language_switcher_placeholder">
+     </div>
+     <div class="version_switcher_placeholder">
+     </div>
+    </li>
+    <li>
+    </li>
+    <li id="cpython-language-and-version">
+     <a href="#">
+      3.14.2 Documentation
+     </a>
+     »
+    </li>
+    <li class="nav-item nav-item-this">
+     <a href="#">
+     </a>
+    </li>
+    <li class="right">
+     <div class="inline-search" role="search">
+      <form action="search.html" class="inline-search" method="get">
+       <input aria-label="Quick search" id="search-box" name="q" placeholder="Quick search" type="search"/>
+       <input type="submit" value="Go"/>
+      </form>
+     </div>
+     |
+    </li>
+    <li class="right">
+     <label class="theme-selector-label">
+      Theme
+      <select class="theme-selector" oninput="activateTheme(this.value)">
+       <option selected="" value="auto">
+        Auto
+       </option>
+       <option value="light">
+        Light
+       </option>
+       <option value="dark">
+        Dark
+       </option>
+      </select>
+     </label>
+     |
+    </li>
+   </ul>
+  </div>
+  <div class="footer">
+   ©
+   <a href="#">
+    Copyright
+   </a>
+   2001 Python Software Foundation.
+   <br/>
+   This page is licensed under the Python Software Foundation License Version 2.
+   <br/>
+   Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+   <br/>
+   See
+   <a href="#">
+    History and License
+   </a>
+   for more information.
+   <br/>
+   <br/>
+   The Python Software Foundation is a non-profit corporation.
+   <a href="#">
+    Please donate.
+   </a>
+   <br/>
+   <br/>
+   Last updated on Jan 10, 2026 (13:47 UTC).
+   <a href="#">
+    Found a bug
+   </a>
+   ?
+   <br/>
+   Created using
+   <a href="#">
+    Sphinx
+   </a>
+   8.2.3.
+  </div>
+ </body>
+</html>
