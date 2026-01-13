@@ -103,12 +103,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Generate version
+        if: steps.changes.outputs.has_changes == 'true'
+        id: version
+        run: |
+          VERSION="$(date +'%Y-%m-%d')"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
       - name: Create Nightly Release
         if: steps.changes.outputs.has_changes == 'true'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: nightly
-          name: "Nightly Build ($(date +'%Y-%m-%d'))"
+          name: "Nightly Build (${{ steps.version.outputs.version }})"
           body: |
             ⚠️ **This is an automated nightly build. It may be unstable.**
 
