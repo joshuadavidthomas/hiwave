@@ -164,7 +164,7 @@ Each platform offers multiple build variants with different rendering backends:
 
 #### 🍎 macOS
 - **`hiwave-macos-rustkit`** — RustKit hybrid mode (RustKit for content, WebKit for UI) ⚠️ *In Development*
-- **`hiwave-macos-webkit`** — WebKit fallback (uses system WebKit for all rendering) ✅ *Stable*
+- **`hiwave-macos-webkit`** — WebKit fallback (uses system WebKit for all rendering) 🚧 *Coming Soon*
 
 #### 🐧 Linux
 - **`hiwave-linux-webview`** — GTK WebKit2 (uses system WebKit for all rendering) ✅ *Stable*
