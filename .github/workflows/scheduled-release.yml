@@ -12,18 +12,57 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # Windows variants
           - os: windows-latest
             submodule: hiwave-windows
             artifact: hiwave.exe
-            archive: hiwave-windows.zip
+            variant: rustkit
+            build_flags: --no-default-features --features rustkit
+            archive: hiwave-windows-rustkit.zip
+          - os: windows-latest
+            submodule: hiwave-windows
+            artifact: hiwave.exe
+            variant: webview2
+            build_flags: --no-default-features --features webview-fallback
+            archive: hiwave-windows-webview2.zip
+          - os: windows-latest
+            submodule: hiwave-windows
+            artifact: hiwave.exe
+            variant: native-win32
+            build_flags: --no-default-features --features native-win32
+            archive: hiwave-windows-native-win32.zip
+          # macOS variants
           - os: macos-latest
             submodule: hiwave-macos
             artifact: hiwave
-            archive: hiwave-macos.zip
+            variant: rustkit
+            build_flags: --features rustkit
+            archive: hiwave-macos-rustkit.zip
+          - os: macos-latest
+            submodule: hiwave-macos
+            artifact: hiwave
+            variant: webkit
+            build_flags: --no-default-features --features webview-fallback
+            archive: hiwave-macos-webkit.zip
+          # Linux variants
           - os: ubuntu-latest
             submodule: hiwave-linux
             artifact: hiwave
-            archive: hiwave-linux.zip
+            variant: webview
+            build_flags: --features webview-fallback
+            archive: hiwave-linux-webview.zip
+          - os: ubuntu-latest
+            submodule: hiwave-linux
+            artifact: hiwave
+            variant: rustkit
+            build_flags: --no-default-features --features rustkit
+            archive: hiwave-linux-rustkit.zip
+          - os: ubuntu-latest
+            submodule: hiwave-linux
+            artifact: hiwave
+            variant: native-linux
+            build_flags: --no-default-features --features native-linux
+            archive: hiwave-linux-native-linux.zip
 
     runs-on: ${{ matrix.os }}
 
@@ -44,7 +83,7 @@ jobs:
 
       - name: Build
         working-directory: ${{ matrix.submodule }}
-        run: cargo build --release
+        run: cargo build --release ${{ matrix.build_flags }}
 
       - name: Package (Windows)
         if: matrix.os == 'windows-latest'

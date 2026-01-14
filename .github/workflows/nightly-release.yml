@@ -12,18 +12,57 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # Windows variants
           - os: windows-latest
             submodule: hiwave-windows
             artifact: hiwave.exe
-            archive: hiwave-windows-nightly.zip
+            variant: rustkit
+            build_flags: --no-default-features --features rustkit
+            archive: hiwave-windows-rustkit-nightly.zip
+          - os: windows-latest
+            submodule: hiwave-windows
+            artifact: hiwave.exe
+            variant: webview2
+            build_flags: --no-default-features --features webview-fallback
+            archive: hiwave-windows-webview2-nightly.zip
+          - os: windows-latest
+            submodule: hiwave-windows
+            artifact: hiwave.exe
+            variant: native-win32
+            build_flags: --no-default-features --features native-win32
+            archive: hiwave-windows-native-win32-nightly.zip
+          # macOS variants
           - os: macos-latest
             submodule: hiwave-macos
             artifact: hiwave
-            archive: hiwave-macos-nightly.zip
+            variant: rustkit
+            build_flags: --features rustkit
+            archive: hiwave-macos-rustkit-nightly.zip
+          - os: macos-latest
+            submodule: hiwave-macos
+            artifact: hiwave
+            variant: webkit
+            build_flags: --no-default-features --features webview-fallback
+            archive: hiwave-macos-webkit-nightly.zip
+          # Linux variants
           - os: ubuntu-latest
             submodule: hiwave-linux
             artifact: hiwave
-            archive: hiwave-linux-nightly.zip
+            variant: webview
+            build_flags: --features webview-fallback
+            archive: hiwave-linux-webview-nightly.zip
+          - os: ubuntu-latest
+            submodule: hiwave-linux
+            artifact: hiwave
+            variant: rustkit
+            build_flags: --no-default-features --features rustkit
+            archive: hiwave-linux-rustkit-nightly.zip
+          - os: ubuntu-latest
+            submodule: hiwave-linux
+            artifact: hiwave
+            variant: native-linux
+            build_flags: --no-default-features --features native-linux
+            archive: hiwave-linux-native-linux-nightly.zip
 
     runs-on: ${{ matrix.os }}
 
@@ -44,7 +83,7 @@ jobs:
 
       - name: Build
         working-directory: ${{ matrix.submodule }}
-        run: cargo build --release
+        run: cargo build --release ${{ matrix.build_flags }}
 
       - name: Package (Windows)
         if: matrix.os == 'windows-latest'
@@ -72,6 +111,10 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+
+      - name: Generate date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - name: Check for changes since last nightly
         id: changes
@@ -108,7 +151,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: nightly
-          name: "Nightly Build ($(date +'%Y-%m-%d'))"
+          name: "Nightly Build (${{ steps.date.outputs.date }})"
           body: |
             ⚠️ **This is an automated nightly build. It may be unstable.**
 
