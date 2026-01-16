@@ -1,28 +1,28 @@
 {
-  "generated_at": "2026-01-15T10:53:12.458375",
+  "generated_at": "2026-01-16T10:52:32.931452",
   "platforms": {
     "macos": {
-      "visual_parity": 75.18,
-      "builtins_parity": 92.27,
-      "websuite_parity": 70.44,
-      "tests_passed": 7,
-      "tests_failed": 16,
+      "visual_parity": 83.81,
+      "builtins_parity": 87.26,
+      "websuite_parity": 82.86,
+      "tests_passed": 12,
+      "tests_failed": 11,
       "tests_total": 23,
-      "pass_rate": 30.4,
+      "pass_rate": 52.2,
       "test_results": [
         {
           "case_id": "new_tab",
           "type": "builtins",
-          "parity": 98.36,
-          "diff_pct": 1.64,
+          "parity": 97.21,
+          "diff_pct": 2.79,
           "threshold": 15,
           "passed": true
         },
         {
           "case_id": "about",
           "type": "builtins",
-          "parity": 89.95,
-          "diff_pct": 10.05,
+          "parity": 89.48,
+          "diff_pct": 10.52,
           "threshold": 15,
           "passed": true
         },
@@ -37,175 +37,175 @@
         {
           "case_id": "chrome_rustkit",
           "type": "builtins",
-          "parity": 98.03,
-          "diff_pct": 1.97,
+          "parity": 98.07,
+          "diff_pct": 1.93,
           "threshold": 15,
           "passed": true
         },
         {
           "case_id": "shelf",
           "type": "builtins",
-          "parity": 96.96,
-          "diff_pct": 3.04,
+          "parity": 73.49,
+          "diff_pct": 26.51,
           "threshold": 15,
-          "passed": true
+          "passed": false
         },
         {
           "case_id": "article-typography",
           "type": "websuite",
-          "parity": 90.9,
-          "diff_pct": 9.1,
+          "parity": 89.33,
+          "diff_pct": 10.67,
           "threshold": 20,
           "passed": true
         },
         {
           "case_id": "card-grid",
           "type": "websuite",
-          "parity": 69.55,
-          "diff_pct": 30.45,
+          "parity": 64.09,
+          "diff_pct": 35.91,
           "threshold": 15,
           "passed": false
         },
         {
           "case_id": "css-selectors",
           "type": "websuite",
-          "parity": 72.9,
-          "diff_pct": 27.1,
+          "parity": 70.17,
+          "diff_pct": 29.83,
           "threshold": 15,
           "passed": false
         },
         {
           "case_id": "flex-positioning",
           "type": "websuite",
-          "parity": 70.79,
-          "diff_pct": 29.21,
+          "parity": 86.56,
+          "diff_pct": 13.44,
           "threshold": 15,
-          "passed": false
+          "passed": true
         },
         {
           "case_id": "form-elements",
           "type": "websuite",
-          "parity": 95.47,
-          "diff_pct": 4.53,
+          "parity": 94.21,
+          "diff_pct": 5.79,
           "threshold": 12,
           "passed": true
         },
         {
           "case_id": "gradient-backgrounds",
           "type": "websuite",
-          "parity": 34.61,
-          "diff_pct": 65.39,
+          "parity": 77.03,
+          "diff_pct": 22.97,
           "threshold": 15,
           "passed": false
         },
         {
           "case_id": "image-gallery",
           "type": "websuite",
-          "parity": 33.21,
-          "diff_pct": 66.79,
+          "parity": 80.73,
+          "diff_pct": 19.27,
           "threshold": 10,
           "passed": false
         },
         {
           "case_id": "sticky-scroll",
           "type": "websuite",
-          "parity": 59.32,
-          "diff_pct": 40.68,
+          "parity": 49.6,
+          "diff_pct": 50.4,
           "threshold": 25,
           "passed": false
         },
         {
           "case_id": "backgrounds",
           "type": "micro",
-          "parity": 61.31,
-          "diff_pct": 38.69,
+          "parity": 80.5,
+          "diff_pct": 19.5,
           "threshold": 15,
           "passed": false
         },
         {
           "case_id": "bg-solid",
           "type": "micro",
-          "parity": 69.73,
-          "diff_pct": 30.27,
+          "parity": 89.14,
+          "diff_pct": 10.86,
           "threshold": 15,
-          "passed": false
+          "passed": true
         },
         {
           "case_id": "bg-pure",
           "type": "micro",
-          "parity": 46.94,
-          "diff_pct": 53.06,
+          "parity": 99.92,
+          "diff_pct": 0.08,
           "threshold": 15,
-          "passed": false
+          "passed": true
         },
         {
           "case_id": "combinators",
           "type": "micro",
-          "parity": 83.86,
-          "diff_pct": 16.14,
+          "parity": 84.59,
+          "diff_pct": 15.41,
           "threshold": 15,
           "passed": false
         },
         {
           "case_id": "form-controls",
           "type": "micro",
-          "parity": 92.69,
-          "diff_pct": 7.31,
+          "parity": 92.0,
+          "diff_pct": 8.0,
           "threshold": 12,
           "passed": true
         },
         {
           "case_id": "gradients",
           "type": "micro",
-          "parity": 69.08,
-          "diff_pct": 30.92,
+          "parity": 90.43,
+          "diff_pct": 9.57,
           "threshold": 15,
-          "passed": false
+          "passed": true
         },
         {
           "case_id": "images-intrinsic",
           "type": "micro",
-          "parity": 86.65,
-          "diff_pct": 13.35,
+          "parity": 87.08,
+          "diff_pct": 12.92,
           "threshold": 10,
           "passed": false
         },
         {
           "case_id": "pseudo-classes",
           "type": "micro",
-          "parity": 77.65,
-          "diff_pct": 22.35,
+          "parity": 78.26,
+          "diff_pct": 21.74,
           "threshold": 15,
           "passed": false
         },
         {
           "case_id": "rounded-corners",
           "type": "micro",
-          "parity": 68.76,
-          "diff_pct": 31.24,
+          "parity": 90.49,
+          "diff_pct": 9.51,
           "threshold": 15,
-          "passed": false
+          "passed": true
         },
         {
           "case_id": "specificity",
           "type": "micro",
-          "parity": 84.47,
-          "diff_pct": 15.53,
+          "parity": 87.33,
+          "diff_pct": 12.67,
           "threshold": 15,
-          "passed": false
+          "passed": true
         }
       ],
-      "parity": 75.18,
+      "parity": 83.81,
       "parity_source": "pixel_diff",
-      "last_updated": "2026-01-08T22:17:35.660741",
+      "last_updated": "2026-01-15T23:15:49.253756",
       "issue_clusters": {
         "sizing_layout": 0,
         "paint": 0,
         "text": 0,
         "images": 0
       },
-      "tier_a_pass_rate": 1.0,
-      "git_commit": "e546969",
+      "tier_a_pass_rate": 0.4,
+      "git_commit": "a6b1ee5",
       "perf_grade": "?"
     },
     "windows": null,
@@ -238,10 +238,14 @@
     {
       "date": "2026-01-15",
       "macos": 75.18
+    },
+    {
+      "date": "2026-01-16",
+      "macos": 83.81
     }
   ],
   "overall": {
-    "parity": 75.2,
+    "parity": 83.8,
     "perf_grade": "?"
   }
 }
