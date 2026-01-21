@@ -1,0 +1,122 @@
+name: Parity Test Submission
+description: Submit a parity test case (use PR instead if possible)
+title: "[Parity Test] "
+labels: ["parity-test", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Prefer submitting parity tests as PRs** to `parity-tests/submissions/`.
+
+        Use this form only if you can't create a PR (e.g., no git access).
+        A maintainer will convert this into a proper test case.
+
+  - type: input
+    id: title
+    attributes:
+      label: Test Title
+      description: Short descriptive title
+      placeholder: "e.g., Flexbox justify-content space-between"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: feature
+    attributes:
+      label: CSS Feature Category
+      options:
+        - Selectors
+        - Flexbox
+        - Grid
+        - Positioning
+        - Images
+        - Typography
+        - Forms
+        - Backgrounds
+        - Borders
+        - Transforms
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What should render correctly and how does it differ?
+      placeholder: |
+        Expected: Items should be evenly spaced...
+        Actual: Items are all aligned to the left...
+    validations:
+      required: true
+
+  - type: textarea
+    id: html
+    attributes:
+      label: HTML Code
+      description: Minimal HTML to reproduce the issue
+      render: html
+      placeholder: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            /* CSS here */
+          </style>
+        </head>
+        <body>
+          <!-- HTML here -->
+        </body>
+        </html>
+    validations:
+      required: true
+
+  - type: textarea
+    id: chrome-screenshot
+    attributes:
+      label: Chrome Screenshot
+      description: Screenshot from Chrome showing correct rendering
+      placeholder: Drag and drop image here...
+    validations:
+      required: true
+
+  - type: input
+    id: viewport
+    attributes:
+      label: Viewport Size
+      description: Viewport dimensions for the test
+      placeholder: "800x600"
+    validations:
+      required: true
+
+  - type: input
+    id: chrome-version
+    attributes:
+      label: Chrome Version
+      placeholder: "e.g., 130.0.6723.91"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical (page unusable)
+        - Major (significant visual difference)
+        - Minor (noticeable but functional)
+        - Trivial (barely noticeable)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: HTML is minimal (no unnecessary elements/styles)
+          required: true
+        - label: No external dependencies (fonts, images, scripts)
+          required: true
+        - label: Issue is reproducible
+          required: true

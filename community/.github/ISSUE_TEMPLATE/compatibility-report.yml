@@ -1,0 +1,130 @@
+name: Website Compatibility Report
+description: Report a website that doesn't render correctly in HiWave
+title: "[Compat] "
+labels: ["compatibility", "rendering", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found a website that looks different in HiWave vs Chrome? Let us know!
+
+  - type: input
+    id: url
+    attributes:
+      label: Website URL
+      description: The URL of the page with rendering issues
+      placeholder: "https://example.com/page"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How broken is it?
+      description: How usable is the website in HiWave?
+      options:
+        - Completely broken (can't use the site at all)
+        - Major issues (missing content, broken layout)
+        - Minor issues (slight visual differences, still usable)
+        - Trivial (barely noticeable differences)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Issue Category
+      description: What type of rendering issue is it?
+      multiple: true
+      options:
+        - Layout (elements in wrong positions)
+        - Text (fonts, sizing, wrapping)
+        - Images (wrong size, missing, broken)
+        - Colors (wrong colors, gradients)
+        - Forms (inputs, buttons, selects)
+        - Scrolling (sticky headers, scroll behavior)
+        - Animation (transitions, transforms)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what looks wrong compared to Chrome
+      placeholder: |
+        The navigation menu is...
+        The sidebar doesn't...
+        Images are showing as...
+    validations:
+      required: true
+
+  - type: textarea
+    id: hiwave-screenshot
+    attributes:
+      label: HiWave Screenshot
+      description: Screenshot of the page in HiWave
+      placeholder: Drag and drop image here...
+    validations:
+      required: true
+
+  - type: textarea
+    id: chrome-screenshot
+    attributes:
+      label: Chrome Screenshot
+      description: Screenshot of the same page in Chrome (same viewport size)
+      placeholder: Drag and drop image here...
+    validations:
+      required: true
+
+  - type: input
+    id: viewport
+    attributes:
+      label: Viewport Size
+      description: Window size when taking screenshots
+      placeholder: "e.g., 1280x800"
+    validations:
+      required: false
+
+  - type: input
+    id: hiwave-version
+    attributes:
+      label: HiWave Version
+      placeholder: "e.g., 1.0.0-beta.5"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS 15 (Sequoia)
+        - macOS 14 (Sonoma)
+        - macOS 13 (Ventura)
+        - Windows 11
+        - Windows 10
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this site isn't already reported
+          required: true
+        - label: I have tested this in the latest version of HiWave
+          required: true
+        - label: The issue is reproducible (not a one-time glitch)
+          required: false

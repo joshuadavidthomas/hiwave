@@ -1,0 +1,174 @@
+name: Validate Parity Test
+
+on:
+  pull_request:
+    paths:
+      - 'parity-tests/submissions/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Find new test directories
+        id: find-tests
+        run: |
+          # Find all new/modified test directories
+          TESTS=$(git diff --name-only origin/main...HEAD | grep '^parity-tests/submissions/' | cut -d'/' -f3 | sort -u | tr '\n' ' ')
+          echo "tests=$TESTS" >> $GITHUB_OUTPUT
+          echo "Found tests: $TESTS"
+
+      - name: Validate structure
+        run: |
+          FAILED=0
+          for TEST in ${{ steps.find-tests.outputs.tests }}; do
+            DIR="parity-tests/submissions/$TEST"
+            echo "Validating $DIR..."
+
+            # Check required files exist
+            if [ ! -f "$DIR/index.html" ]; then
+              echo "::error::$DIR is missing index.html"
+              FAILED=1
+            fi
+
+            if [ ! -f "$DIR/expected.png" ]; then
+              echo "::error::$DIR is missing expected.png"
+              FAILED=1
+            fi
+
+            if [ ! -f "$DIR/metadata.json" ]; then
+              echo "::error::$DIR is missing metadata.json"
+              FAILED=1
+            fi
+          done
+
+          if [ $FAILED -eq 1 ]; then
+            exit 1
+          fi
+          echo "All required files present"
+
+      - name: Validate metadata JSON
+        run: |
+          npm install ajv ajv-formats
+          node << 'EOF'
+          const Ajv = require('ajv');
+          const addFormats = require('ajv-formats');
+          const fs = require('fs');
+          const path = require('path');
+
+          const ajv = new Ajv({ allErrors: true });
+          addFormats(ajv);
+
+          const schema = JSON.parse(fs.readFileSync('parity-tests/metadata.schema.json', 'utf8'));
+          const validate = ajv.compile(schema);
+
+          const tests = '${{ steps.find-tests.outputs.tests }}'.trim().split(' ').filter(Boolean);
+          let failed = false;
+
+          for (const test of tests) {
+            const metadataPath = path.join('parity-tests/submissions', test, 'metadata.json');
+            try {
+              const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+              const valid = validate(metadata);
+              if (!valid) {
+                console.error(`::error::${metadataPath} validation failed:`);
+                validate.errors.forEach(err => {
+                  console.error(`  - ${err.instancePath} ${err.message}`);
+                });
+                failed = true;
+              } else {
+                console.log(`${metadataPath} is valid`);
+              }
+            } catch (e) {
+              console.error(`::error::Failed to parse ${metadataPath}: ${e.message}`);
+              failed = true;
+            }
+          }
+
+          if (failed) process.exit(1);
+          EOF
+
+      - name: Validate HTML
+        run: |
+          npm install html-validate
+          for TEST in ${{ steps.find-tests.outputs.tests }}; do
+            HTML="parity-tests/submissions/$TEST/index.html"
+            echo "Validating $HTML..."
+            npx html-validate "$HTML" || echo "::warning::HTML validation issues in $HTML"
+          done
+
+      - name: Check for external resources
+        run: |
+          FAILED=0
+          for TEST in ${{ steps.find-tests.outputs.tests }}; do
+            HTML="parity-tests/submissions/$TEST/index.html"
+            echo "Checking $HTML for external resources..."
+
+            # Check for external URLs (http:// or https://)
+            if grep -qE '(src|href)=["'"'"'"]https?://' "$HTML"; then
+              echo "::error::$HTML contains external resources. Tests should be self-contained."
+              grep -nE '(src|href)=["'"'"'"]https?://' "$HTML"
+              FAILED=1
+            fi
+
+            # Check for external fonts
+            if grep -qE '@import|@font-face.*url\(' "$HTML"; then
+              echo "::warning::$HTML may contain external fonts"
+            fi
+          done
+
+          if [ $FAILED -eq 1 ]; then
+            exit 1
+          fi
+          echo "No external resources found"
+
+      - name: Validate image dimensions
+        run: |
+          npm install image-size
+          node << 'EOF'
+          const sizeOf = require('image-size');
+          const fs = require('fs');
+          const path = require('path');
+
+          const tests = '${{ steps.find-tests.outputs.tests }}'.trim().split(' ').filter(Boolean);
+          let failed = false;
+
+          for (const test of tests) {
+            const imgPath = path.join('parity-tests/submissions', test, 'expected.png');
+            const metaPath = path.join('parity-tests/submissions', test, 'metadata.json');
+
+            try {
+              const dimensions = sizeOf(imgPath);
+              const metadata = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+              const viewport = metadata.viewport;
+
+              console.log(`${test}: Image ${dimensions.width}x${dimensions.height}, Viewport ${viewport.width}x${viewport.height}`);
+
+              // Allow some tolerance for browser chrome, scrollbars, etc.
+              const tolerance = 50;
+              if (Math.abs(dimensions.width - viewport.width) > tolerance ||
+                  Math.abs(dimensions.height - viewport.height) > tolerance) {
+                console.error(`::warning::${test}: Image dimensions don't match viewport (tolerance: ${tolerance}px)`);
+              }
+            } catch (e) {
+              console.error(`::error::Failed to validate ${test}: ${e.message}`);
+              failed = true;
+            }
+          }
+
+          if (failed) process.exit(1);
+          EOF
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Parity Test Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Tests validated: ${{ steps.find-tests.outputs.tests }}" >> $GITHUB_STEP_SUMMARY

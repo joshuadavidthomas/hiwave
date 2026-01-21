@@ -1,0 +1,19 @@
+{
+  "$schema": "../metadata.schema.json",
+  "title": "REPLACE: Short descriptive title",
+  "description": "REPLACE: Describe what should render correctly and how it currently differs from Chrome",
+  "css_features": [
+    "REPLACE: feature-tag-1",
+    "REPLACE: feature-tag-2"
+  ],
+  "author": "REPLACE: your-github-username",
+  "viewport": {
+    "width": 800,
+    "height": 600
+  },
+  "chrome_version": "REPLACE: e.g., 130.0.6723.91",
+  "date_created": "REPLACE: YYYY-MM-DD",
+  "severity": "REPLACE: critical|major|minor|trivial",
+  "related_issues": [],
+  "notes": "OPTIONAL: Any additional context or observations"
+}

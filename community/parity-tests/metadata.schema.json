@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Parity Test Metadata",
+  "description": "Metadata for a HiWave parity test submission",
+  "type": "object",
+  "required": [
+    "title",
+    "description",
+    "css_features",
+    "author",
+    "viewport",
+    "chrome_version",
+    "date_created",
+    "severity"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Short descriptive title of the test",
+      "minLength": 5,
+      "maxLength": 100
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of expected vs actual rendering",
+      "minLength": 20,
+      "maxLength": 500
+    },
+    "css_features": {
+      "type": "array",
+      "description": "CSS features being tested",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$"
+      },
+      "minItems": 1,
+      "maxItems": 10
+    },
+    "author": {
+      "type": "string",
+      "description": "GitHub username of the contributor",
+      "pattern": "^[a-zA-Z0-9-]+$"
+    },
+    "viewport": {
+      "type": "object",
+      "description": "Viewport dimensions for the test",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 320,
+          "maximum": 1920
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 240,
+          "maximum": 1080
+        }
+      }
+    },
+    "chrome_version": {
+      "type": "string",
+      "description": "Chrome version used to capture baseline",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "date_created": {
+      "type": "string",
+      "description": "Date the test was created",
+      "format": "date"
+    },
+    "severity": {
+      "type": "string",
+      "description": "Severity of the rendering difference",
+      "enum": ["critical", "major", "minor", "trivial"]
+    },
+    "related_issues": {
+      "type": "array",
+      "description": "Related GitHub issue numbers",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional additional notes",
+      "maxLength": 500
+    }
+  }
+}

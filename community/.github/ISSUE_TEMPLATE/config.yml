@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discord Community
+    url: https://discord.gg/hiwave
+    about: Chat with the community and get help in real-time
+  - name: Discussions
+    url: https://github.com/hiwavebrowser/community/discussions
+    about: Ask questions, share ideas, and discuss HiWave
+  - name: Documentation
+    url: https://docs.hiwave.browser
+    about: Read the documentation before opening an issue

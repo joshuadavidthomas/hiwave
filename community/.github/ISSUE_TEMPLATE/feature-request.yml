@@ -1,0 +1,95 @@
+name: Feature Request
+description: Suggest a new feature or improvement
+title: "[Feature] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to make HiWave better? We'd love to hear it!
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What area does this feature relate to?
+      options:
+        - User Interface
+        - Performance
+        - Privacy/Security
+        - Tab Management
+        - Bookmarks
+        - History
+        - Downloads
+        - Extensions
+        - Developer Tools
+        - Accessibility
+        - Sync
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem would this feature solve?
+      placeholder: |
+        I often find myself...
+        It's frustrating when...
+        Currently there's no way to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this to work?
+      placeholder: |
+        It would be great if...
+        I imagine this working like...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions or workarounds?
+      placeholder: |
+        I've tried using...
+        Another approach might be...
+    validations:
+      required: false
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: Mockups / Examples
+      description: Any sketches, mockups, or examples from other apps?
+      placeholder: Drag and drop images or describe examples...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How important is this to you?
+      options:
+        - Critical (blocking my ability to use HiWave)
+        - High (would significantly improve my experience)
+        - Medium (nice to have)
+        - Low (minor improvement)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this isn't a duplicate
+          required: true
+        - label: I would be willing to help test this feature
+          required: false
