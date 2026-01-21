@@ -164,7 +164,7 @@ Each platform offers multiple build variants with different rendering backends:
 
 #### 🍎 macOS
 - **`hiwave-macos-rustkit`** — RustKit hybrid mode (RustKit for content, WebKit for UI) ⚠️ *In Development*
-- **`hiwave-macos-webkit`** — WebKit fallback (uses system WebKit for all rendering) 🚧 *Coming Soon*
+- **`hiwave-macos-webkit`** — WebKit fallback (uses system WebKit for all rendering) ✅ *Stable*
 
 #### 🐧 Linux
 - **`hiwave-linux-webview`** — GTK WebKit2 (uses system WebKit for all rendering) ✅ *Stable*
@@ -384,7 +384,7 @@ hiwave/
 ├── hiwave-linux/       # Linux app (RustKit engine)
 ├── churn-report/       # Code churn analysis tool (submodule)
 ├── churn-reports/      # Generated churn analysis reports
-├── community/          # (coming soon) ways to help development
+├── community/          # Ways to help and collaborate
 └── README.md           # You are here
 ```
 
