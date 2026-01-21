@@ -191,8 +191,16 @@ def extract_visual_parity(parity_test_data: Dict, verbose: bool = False) -> Dict
     websuite_count = 0
 
     for r in results:
-        pixel = r.get("pixel", {})
-        diff_pct = pixel.get("diffPercent", 100)
+        pixel = r.get("pixel")
+        if pixel is None:
+            print(f"  Warning: Missing pixel data for {r.get('case_id', 'unknown')} - using fallback diff")
+            pixel = {}
+        diff_pct = pixel.get("diffPercent")
+        if diff_pct is None:
+            diff_pct = r.get("diff_pct")
+        if diff_pct is None:
+            print(f"  Warning: Missing diff percent for {r.get('case_id', 'unknown')} - defaulting to 100")
+            diff_pct = 100
         parity = 100 - diff_pct
         threshold = r.get("threshold", 15)
         passed = diff_pct <= threshold

@@ -38,13 +38,12 @@ jobs:
             variant: rustkit
             build_flags: --features rustkit
             archive: hiwave-macos-rustkit-nightly.zip
-          # TODO: Re-enable webkit variant once code properly supports webview-fallback feature
-          # - os: macos-latest
-          #   submodule: hiwave-macos
-          #   artifact: hiwave
-          #   variant: webkit
-          #   build_flags: --no-default-features --features webview-fallback
-          #   archive: hiwave-macos-webkit-nightly.zip
+          - os: macos-latest
+            submodule: hiwave-macos
+            artifact: hiwave
+            variant: webkit
+            build_flags: --no-default-features --features webview-fallback
+            archive: hiwave-macos-webkit-nightly.zip
           # Linux variants
           - os: ubuntu-latest
             submodule: hiwave-linux
