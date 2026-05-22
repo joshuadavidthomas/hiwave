@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-21T09:13:42.993823",
+  "timestamp": "2026-05-22T09:04:05.959342",
   "input_dir": "all-results",
   "platforms_found": [
     "macos"
@@ -62,9 +62,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/image-gallery/1280x800/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/image-gallery/1280x800/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/image-gallery/1280x800/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/image-gallery/1280x800/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/image-gallery/1280x800/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/image-gallery/1280x800/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 82.83124999999998,
           "gradient_interpolation": 5.177539062499999
@@ -315,9 +315,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/gradient-backgrounds/800x600/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/gradient-backgrounds/800x600/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/gradient-backgrounds/800x600/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/gradient-backgrounds/800x600/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/gradient-backgrounds/800x600/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/gradient-backgrounds/800x600/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 52.64583333333333,
           "gradient_interpolation": 46.77083333333333
@@ -568,9 +568,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/bg-pure/800x600/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/bg-pure/800x600/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/bg-pure/800x600/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/bg-pure/800x600/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/bg-pure/800x600/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/bg-pure/800x600/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 83.43749999999996
         },
@@ -820,9 +820,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/sticky-scroll/1280x800/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/sticky-scroll/1280x800/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/sticky-scroll/1280x800/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/sticky-scroll/1280x800/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/sticky-scroll/1280x800/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/sticky-scroll/1280x800/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 38.015625,
           "text_metrics": 45.460546875
@@ -1073,9 +1073,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/shelf/1280x120/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/shelf/1280x120/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/shelf/1280x120/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/shelf/1280x120/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/shelf/1280x120/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/shelf/1280x120/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 67.58072916666667,
           "form_control": 32.35286458333333,
@@ -1252,9 +1252,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/css-selectors/800x1200/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/css-selectors/800x1200/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/css-selectors/800x1200/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/css-selectors/800x1200/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/css-selectors/800x1200/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/css-selectors/800x1200/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 58.30729166666666
         },
@@ -1504,9 +1504,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/backgrounds/900x1000/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/backgrounds/900x1000/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/backgrounds/900x1000/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/backgrounds/900x1000/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/backgrounds/900x1000/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/backgrounds/900x1000/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 70.30666666666667,
           "gradient_interpolation": 16.52888888888889
@@ -1757,9 +1757,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/combinators/800x800/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/combinators/800x800/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/combinators/800x800/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/combinators/800x800/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/combinators/800x800/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/combinators/800x800/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 93.4375
         },
@@ -2009,9 +2009,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/images-intrinsic/800x1400/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/images-intrinsic/800x1400/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/images-intrinsic/800x1400/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/images-intrinsic/800x1400/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/images-intrinsic/800x1400/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/images-intrinsic/800x1400/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 84.83946428571429,
           "replaced_content": 5.271785714285714
@@ -2262,9 +2262,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/about/800x600/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/about/800x600/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/about/800x600/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/about/800x600/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/about/800x600/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/about/800x600/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 50.25833333333333,
           "text_metrics": 49.74166666666667
@@ -2485,9 +2485,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/bg-solid/800x600/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/bg-solid/800x600/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/bg-solid/800x600/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/bg-solid/800x600/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/bg-solid/800x600/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/bg-solid/800x600/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 100
         },
@@ -2662,9 +2662,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/rounded-corners/900x1000/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/rounded-corners/900x1000/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/rounded-corners/900x1000/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/rounded-corners/900x1000/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/rounded-corners/900x1000/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/rounded-corners/900x1000/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 68.55888888888889
         },
@@ -2914,9 +2914,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/form-controls/800x1200/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/form-controls/800x1200/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/form-controls/800x1200/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/form-controls/800x1200/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/form-controls/800x1200/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/form-controls/800x1200/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 73.85093750000001,
           "form_control": 2.711041666666667
@@ -3167,9 +3167,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/form-elements/800x600/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/form-elements/800x600/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/form-elements/800x600/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/form-elements/800x600/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/form-elements/800x600/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/form-elements/800x600/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 74.46249999999998,
           "form_control": 19.8
@@ -3420,9 +3420,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/chrome_rustkit/1280x100/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/chrome_rustkit/1280x100/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/chrome_rustkit/1280x100/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/chrome_rustkit/1280x100/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/chrome_rustkit/1280x100/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/chrome_rustkit/1280x100/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 94.65234374999999,
           "clip_radius": 3.8125
@@ -3673,9 +3673,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/new_tab/1280x800/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/new_tab/1280x800/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-2/new_tab/1280x800/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/new_tab/1280x800/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/new_tab/1280x800/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-2/new_tab/1280x800/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 79.63251953124998,
           "gradient_interpolation": 9.74609375
@@ -3950,9 +3950,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/image-gallery/1280x800/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/image-gallery/1280x800/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/image-gallery/1280x800/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/image-gallery/1280x800/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/image-gallery/1280x800/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/image-gallery/1280x800/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 82.83124999999998,
           "gradient_interpolation": 5.177539062499999
@@ -4203,9 +4203,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/bg-pure/800x600/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/bg-pure/800x600/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/bg-pure/800x600/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/bg-pure/800x600/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/bg-pure/800x600/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/bg-pure/800x600/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 83.43749999999996
         },
@@ -4455,9 +4455,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/sticky-scroll/1280x800/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/sticky-scroll/1280x800/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/sticky-scroll/1280x800/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/sticky-scroll/1280x800/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/sticky-scroll/1280x800/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/sticky-scroll/1280x800/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 38.015625,
           "text_metrics": 45.460546875
@@ -4708,9 +4708,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/flex-positioning/800x1000/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/flex-positioning/800x1000/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/flex-positioning/800x1000/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/flex-positioning/800x1000/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/flex-positioning/800x1000/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/flex-positioning/800x1000/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 72.15024999999999
         },
@@ -4960,9 +4960,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/card-grid/1280x800/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/card-grid/1280x800/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/card-grid/1280x800/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/card-grid/1280x800/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/card-grid/1280x800/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/card-grid/1280x800/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 26.03828125,
           "text_metrics": 59.178515624999996
@@ -5213,9 +5213,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/gradients/900x1000/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/gradients/900x1000/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/gradients/900x1000/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/gradients/900x1000/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/gradients/900x1000/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/gradients/900x1000/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 65.30666666666666,
           "gradient_interpolation": 22.222222222222218
@@ -5466,9 +5466,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/pseudo-classes/800x800/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/pseudo-classes/800x800/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/pseudo-classes/800x800/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/pseudo-classes/800x800/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/pseudo-classes/800x800/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/pseudo-classes/800x800/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 85.62499999999999
         },
@@ -5718,9 +5718,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/backgrounds/900x1000/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/backgrounds/900x1000/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/backgrounds/900x1000/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/backgrounds/900x1000/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/backgrounds/900x1000/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/backgrounds/900x1000/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 70.30666666666667,
           "gradient_interpolation": 16.52888888888889
@@ -5971,9 +5971,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/combinators/800x800/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/combinators/800x800/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/combinators/800x800/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/combinators/800x800/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/combinators/800x800/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/combinators/800x800/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 93.4375
         },
@@ -6223,9 +6223,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/images-intrinsic/800x1400/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/images-intrinsic/800x1400/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/images-intrinsic/800x1400/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/images-intrinsic/800x1400/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/images-intrinsic/800x1400/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/images-intrinsic/800x1400/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 84.83946428571429,
           "replaced_content": 5.271785714285714
@@ -6476,9 +6476,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/specificity/800x600/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/specificity/800x600/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/specificity/800x600/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/specificity/800x600/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/specificity/800x600/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/specificity/800x600/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 99.99999999999996
         },
@@ -6683,9 +6683,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/article-typography/1280x800/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/article-typography/1280x800/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/article-typography/1280x800/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/article-typography/1280x800/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/article-typography/1280x800/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/article-typography/1280x800/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 99.18593750000001,
           "gradient_interpolation": 0.515625
@@ -6936,9 +6936,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/rounded-corners/900x1000/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/rounded-corners/900x1000/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/rounded-corners/900x1000/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/rounded-corners/900x1000/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/rounded-corners/900x1000/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/rounded-corners/900x1000/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 68.55888888888889
         },
@@ -7188,9 +7188,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/form-controls/800x1200/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/form-controls/800x1200/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/form-controls/800x1200/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/form-controls/800x1200/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/form-controls/800x1200/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/form-controls/800x1200/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 73.85093750000001,
           "form_control": 2.711041666666667
@@ -7441,9 +7441,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/form-elements/800x600/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/form-elements/800x600/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/form-elements/800x600/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/form-elements/800x600/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/form-elements/800x600/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/form-elements/800x600/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 74.46249999999998,
           "form_control": 19.8
@@ -7694,9 +7694,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/chrome_rustkit/1280x100/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/chrome_rustkit/1280x100/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-3/chrome_rustkit/1280x100/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/chrome_rustkit/1280x100/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/chrome_rustkit/1280x100/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-3/chrome_rustkit/1280x100/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 94.65234374999999,
           "clip_radius": 3.8125
@@ -7947,9 +7947,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/image-gallery/1280x800/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/image-gallery/1280x800/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/image-gallery/1280x800/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/image-gallery/1280x800/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/image-gallery/1280x800/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/image-gallery/1280x800/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 82.83124999999998,
           "gradient_interpolation": 5.177539062499999
@@ -8200,9 +8200,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/gradient-backgrounds/800x600/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/gradient-backgrounds/800x600/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/gradient-backgrounds/800x600/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/gradient-backgrounds/800x600/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/gradient-backgrounds/800x600/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/gradient-backgrounds/800x600/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 52.64583333333333,
           "gradient_interpolation": 46.77083333333333
@@ -8453,9 +8453,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/sticky-scroll/1280x800/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/sticky-scroll/1280x800/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/sticky-scroll/1280x800/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/sticky-scroll/1280x800/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/sticky-scroll/1280x800/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/sticky-scroll/1280x800/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 38.015625,
           "text_metrics": 45.460546875
@@ -8706,9 +8706,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/shelf/1280x120/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/shelf/1280x120/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/shelf/1280x120/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/shelf/1280x120/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/shelf/1280x120/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/shelf/1280x120/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 67.58072916666667,
           "form_control": 32.35286458333333,
@@ -8885,9 +8885,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/flex-positioning/800x1000/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/flex-positioning/800x1000/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/flex-positioning/800x1000/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/flex-positioning/800x1000/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/flex-positioning/800x1000/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/flex-positioning/800x1000/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 72.15024999999999
         },
@@ -9137,9 +9137,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/css-selectors/800x1200/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/css-selectors/800x1200/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/css-selectors/800x1200/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/css-selectors/800x1200/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/css-selectors/800x1200/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/css-selectors/800x1200/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 58.30729166666666
         },
@@ -9389,9 +9389,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/card-grid/1280x800/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/card-grid/1280x800/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/card-grid/1280x800/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/card-grid/1280x800/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/card-grid/1280x800/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/card-grid/1280x800/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 26.03828125,
           "text_metrics": 59.178515624999996
@@ -9642,9 +9642,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/gradients/900x1000/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/gradients/900x1000/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/gradients/900x1000/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/gradients/900x1000/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/gradients/900x1000/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/gradients/900x1000/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 65.30666666666666,
           "gradient_interpolation": 22.222222222222218
@@ -9895,9 +9895,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/pseudo-classes/800x800/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/pseudo-classes/800x800/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/pseudo-classes/800x800/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/pseudo-classes/800x800/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/pseudo-classes/800x800/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/pseudo-classes/800x800/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 85.62499999999999
         },
@@ -10147,9 +10147,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/backgrounds/900x1000/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/backgrounds/900x1000/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/backgrounds/900x1000/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/backgrounds/900x1000/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/backgrounds/900x1000/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/backgrounds/900x1000/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 70.30666666666667,
           "gradient_interpolation": 16.52888888888889
@@ -10400,9 +10400,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/specificity/800x600/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/specificity/800x600/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/specificity/800x600/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/specificity/800x600/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/specificity/800x600/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/specificity/800x600/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 99.99999999999996
         },
@@ -10607,9 +10607,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/about/800x600/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/about/800x600/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/about/800x600/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/about/800x600/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/about/800x600/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/about/800x600/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 50.25833333333333,
           "text_metrics": 49.74166666666667
@@ -10830,9 +10830,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/bg-solid/800x600/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/bg-solid/800x600/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/bg-solid/800x600/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/bg-solid/800x600/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/bg-solid/800x600/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/bg-solid/800x600/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 100
         },
@@ -11007,9 +11007,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/article-typography/1280x800/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/article-typography/1280x800/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/article-typography/1280x800/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/article-typography/1280x800/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/article-typography/1280x800/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/article-typography/1280x800/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 99.18593750000001,
           "gradient_interpolation": 0.515625
@@ -11260,9 +11260,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/rounded-corners/900x1000/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/rounded-corners/900x1000/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/rounded-corners/900x1000/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/rounded-corners/900x1000/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/rounded-corners/900x1000/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/rounded-corners/900x1000/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 68.55888888888889
         },
@@ -11512,9 +11512,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/form-controls/800x1200/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/form-controls/800x1200/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/form-controls/800x1200/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/form-controls/800x1200/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/form-controls/800x1200/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/form-controls/800x1200/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 73.85093750000001,
           "form_control": 2.711041666666667
@@ -11765,9 +11765,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/chrome_rustkit/1280x100/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/chrome_rustkit/1280x100/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/chrome_rustkit/1280x100/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/chrome_rustkit/1280x100/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/chrome_rustkit/1280x100/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/chrome_rustkit/1280x100/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 94.65234374999999,
           "clip_radius": 3.8125
@@ -12018,9 +12018,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/new_tab/1280x800/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/new_tab/1280x800/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-0/new_tab/1280x800/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/new_tab/1280x800/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/new_tab/1280x800/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-0/new_tab/1280x800/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 79.63251953124998,
           "gradient_interpolation": 9.74609375
@@ -12295,9 +12295,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/gradient-backgrounds/800x600/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/gradient-backgrounds/800x600/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/gradient-backgrounds/800x600/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/gradient-backgrounds/800x600/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/gradient-backgrounds/800x600/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/gradient-backgrounds/800x600/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 52.64583333333333,
           "gradient_interpolation": 46.77083333333333
@@ -12548,9 +12548,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/bg-pure/800x600/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/bg-pure/800x600/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/bg-pure/800x600/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/bg-pure/800x600/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/bg-pure/800x600/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/bg-pure/800x600/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 83.43749999999996
         },
@@ -12800,9 +12800,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/shelf/1280x120/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/shelf/1280x120/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/shelf/1280x120/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/shelf/1280x120/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/shelf/1280x120/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/shelf/1280x120/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 67.58072916666667,
           "form_control": 32.35286458333333,
@@ -12979,9 +12979,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/flex-positioning/800x1000/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/flex-positioning/800x1000/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/flex-positioning/800x1000/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/flex-positioning/800x1000/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/flex-positioning/800x1000/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/flex-positioning/800x1000/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 72.15024999999999
         },
@@ -13231,9 +13231,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/css-selectors/800x1200/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/css-selectors/800x1200/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/css-selectors/800x1200/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/css-selectors/800x1200/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/css-selectors/800x1200/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/css-selectors/800x1200/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 58.30729166666666
         },
@@ -13483,9 +13483,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/card-grid/1280x800/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/card-grid/1280x800/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/card-grid/1280x800/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/card-grid/1280x800/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/card-grid/1280x800/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/card-grid/1280x800/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 26.03828125,
           "text_metrics": 59.178515624999996
@@ -13736,9 +13736,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/gradients/900x1000/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/gradients/900x1000/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/gradients/900x1000/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/gradients/900x1000/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/gradients/900x1000/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/gradients/900x1000/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 65.30666666666666,
           "gradient_interpolation": 22.222222222222218
@@ -13989,9 +13989,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/pseudo-classes/800x800/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/pseudo-classes/800x800/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/pseudo-classes/800x800/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/pseudo-classes/800x800/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/pseudo-classes/800x800/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/pseudo-classes/800x800/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 85.62499999999999
         },
@@ -14241,9 +14241,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/combinators/800x800/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/combinators/800x800/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/combinators/800x800/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/combinators/800x800/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/combinators/800x800/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/combinators/800x800/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 93.4375
         },
@@ -14493,9 +14493,9 @@
         "iterations": 1,
         "stable": false,
         "passed": false,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/images-intrinsic/800x1400/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/images-intrinsic/800x1400/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/images-intrinsic/800x1400/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/images-intrinsic/800x1400/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/images-intrinsic/800x1400/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/images-intrinsic/800x1400/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 84.83946428571429,
           "replaced_content": 5.271785714285714
@@ -14746,9 +14746,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/specificity/800x600/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/specificity/800x600/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/specificity/800x600/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/specificity/800x600/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/specificity/800x600/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/specificity/800x600/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 99.99999999999996
         },
@@ -14953,9 +14953,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/about/800x600/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/about/800x600/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/about/800x600/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/about/800x600/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/about/800x600/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/about/800x600/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "gradient_interpolation": 50.25833333333333,
           "text_metrics": 49.74166666666667
@@ -15176,9 +15176,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/bg-solid/800x600/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/bg-solid/800x600/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/bg-solid/800x600/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/bg-solid/800x600/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/bg-solid/800x600/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/bg-solid/800x600/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 100
         },
@@ -15353,9 +15353,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/article-typography/1280x800/iter-3/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/article-typography/1280x800/iter-3/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/article-typography/1280x800/iter-3/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/article-typography/1280x800/iter-3/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/article-typography/1280x800/iter-3/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/article-typography/1280x800/iter-3/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 99.18593750000001,
           "gradient_interpolation": 0.515625
@@ -15606,9 +15606,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/form-elements/800x600/iter-1/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/form-elements/800x600/iter-1/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/form-elements/800x600/iter-1/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/form-elements/800x600/iter-1/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/form-elements/800x600/iter-1/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/form-elements/800x600/iter-1/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 74.46249999999998,
           "form_control": 19.8
@@ -15859,9 +15859,9 @@
         "iterations": 1,
         "stable": false,
         "passed": true,
-        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/new_tab/1280x800/iter-2/diff",
-        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/new_tab/1280x800/iter-2/diff/attribution.json",
-        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-128-shard-1/new_tab/1280x800/iter-2/diff/overlay.png",
+        "best_diff_dir": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/new_tab/1280x800/iter-2/diff",
+        "best_attribution_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/new_tab/1280x800/iter-2/diff/attribution.json",
+        "best_overlay_path": "/Users/runner/work/hiwave/hiwave/hiwave-macos/parity-results/macos-129-shard-1/new_tab/1280x800/iter-2/diff/overlay.png",
         "best_taxonomy": {
           "text_metrics": 79.63251953124998,
           "gradient_interpolation": 9.74609375
