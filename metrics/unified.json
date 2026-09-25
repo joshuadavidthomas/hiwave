@@ -1,14 +1,11 @@
 {
-  "generated_at": "2026-09-24T13:02:19.326411",
+  "generated_at": "2026-09-25T13:08:37.745771",
   "platforms": {
     "macos": null,
     "windows": null,
     "linux": null
   },
   "history": [
-    {
-      "date": "2026-06-27"
-    },
     {
       "date": "2026-06-28"
     },
@@ -275,6 +272,9 @@
     },
     {
       "date": "2026-09-24"
+    },
+    {
+      "date": "2026-09-25"
     }
   ],
   "overall": {
