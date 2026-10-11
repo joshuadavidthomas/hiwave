@@ -1,6 +1,6 @@
 # Code Churn Analysis Report
 
-**Generated:** 2026-10-04 03:17:29
+**Generated:** 2026-10-11 02:45:09
 
 ## Overview
 
@@ -194,7 +194,7 @@ Based on the churn analysis, consider reviewing the following areas:
 
 2. **Line Range Hotspots**
    - Specific line ranges in these files are being modified repeatedly. This may indicate ongoing bug fixes or feature adjustments in localized areas.
-   - Files: `parity-baseline/captures/sticky-scroll.ppm`, `parity-baseline/captures/form-elements.ppm`, `parity-baseline/baseline_report.json`, `parity-baseline/captures/css-selectors.ppm`
+   - Files: `parity-baseline/captures/form-elements.ppm`, `parity-baseline/captures/css-selectors.ppm`, `parity-baseline/baseline_report.json`, `parity-baseline/captures/sticky-scroll.ppm`
 
 3. **Cross-Platform Synchronization**
    - These files are modified across all repositories. Consider creating a shared module or ensuring changes are consistently applied.
