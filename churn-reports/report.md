@@ -1,6 +1,6 @@
 # Code Churn Analysis Report
 
-**Generated:** 2026-10-11 02:45:09
+**Generated:** 2026-10-18 01:59:38
 
 ## Overview
 
@@ -92,8 +92,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 43 | 148 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 10 | 134 |
+| hiwave-linux | 1 | 1 |
 
 ### `baselines/chrome-120/builtins/settings/layout-rects.json`
 
@@ -102,8 +102,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 1 | 1 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 2 | 91 |
+| hiwave-linux | 1 | 1 |
 
 ### `crates/rustkit-engine/src/lib.rs`
 
@@ -112,8 +112,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 19 | 26 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 31 | 70 |
+| hiwave-linux | 1 | 1 |
 
 ### `crates/hiwave-app/src/main.rs`
 
@@ -122,8 +122,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 14 | 44 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 11 | 34 |
+| hiwave-linux | 1 | 1 |
 
 ### `crates/rustkit-layout/src/lib.rs`
 
@@ -132,8 +132,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 11 | 18 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 20 | 37 |
+| hiwave-linux | 1 | 1 |
 
 ### `websuite/captures/article-typography.ppm`
 
@@ -151,8 +151,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 32 | 3 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 4 | 2 |
+| hiwave-linux | 1 | 1 |
 
 ### `crates/rustkit-canvas/src/lib.rs`
 
@@ -161,8 +161,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 2 | 29 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 1 | 1 |
+| hiwave-linux | 1 | 1 |
 
 ### `crates/rustkit-css/src/lib.rs`
 
@@ -171,8 +171,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 7 | 13 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 14 | 24 |
+| hiwave-linux | 1 | 1 |
 
 ### `crates/rustkit-renderer/src/lib.rs`
 
@@ -181,8 +181,8 @@ Files with significantly different modification patterns across repos:
 | Repository | Modifications | Active Line Ranges |
 |------------|---------------|-------------------|
 | hiwave-windows | 2 | 6 |
-| hiwave-linux | 1 | 1 |
 | hiwave-macos | 12 | 24 |
+| hiwave-linux | 1 | 1 |
 
 ## Recommendations
 
@@ -194,7 +194,7 @@ Based on the churn analysis, consider reviewing the following areas:
 
 2. **Line Range Hotspots**
    - Specific line ranges in these files are being modified repeatedly. This may indicate ongoing bug fixes or feature adjustments in localized areas.
-   - Files: `parity-baseline/captures/form-elements.ppm`, `parity-baseline/captures/css-selectors.ppm`, `parity-baseline/baseline_report.json`, `parity-baseline/captures/sticky-scroll.ppm`
+   - Files: `parity-baseline/captures/css-selectors.ppm`, `parity-baseline/captures/sticky-scroll.ppm`, `parity-baseline/captures/form-elements.ppm`, `parity-baseline/baseline_report.json`
 
 3. **Cross-Platform Synchronization**
    - These files are modified across all repositories. Consider creating a shared module or ensuring changes are consistently applied.
